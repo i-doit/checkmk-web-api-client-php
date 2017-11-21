@@ -110,7 +110,7 @@ class Host extends Request {
     }
 
     /**
-     * Delete host
+     * Delete a host by its hostname
      *
      * @param string $hostname Hostname
      *
@@ -129,7 +129,7 @@ class Host extends Request {
     }
 
     /**
-     * Discover services of host
+     * Discover services of a host
      *
      * @param string $hostname Hostname
      * @param string $mode Modes: "new", "remove", "fixall", "refresh"; defaults to "new"

@@ -153,6 +153,20 @@ Optional proxy settings:
 | `setProxyPassword()`  | string    | no        | Specified password for authentication         |
 
 
+##  Manipulate Hosts
+
+Class `Host` with public methods:
+
+| Method                | Description                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| `get()`               | Read information about a host by its hostname                             |
+| `getAll()`            | Read information about all hosts                                          |
+| `add()`               | Create new host with some attributes and tags                             |
+| `edit()`              | Edit host, adds new attributes, changes attributes, or unsets attributes  |
+| `delete()`            | Delete a host by its hostname                                             |
+| `discoverServices()`  | Discover services of a host                                               |
+
+
 ##  Contribute
 
 Please, report any issues to [our issue tracker](https://github.com/bheisig/check_mk-web-api/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.
