@@ -72,16 +72,23 @@ class Host extends Request {
      * @param bool $createFolders Create folder structure if needed; defaults to false
      *
      * @return self Returns itself
+     *
+     * @throw \Exception on error
      */
     public function add($hostname, $folder = '', array $attributes = [], $createFolders = false) {
+        $parameters = [
+            'hostname' => $hostname,
+            'folder' => $folder,
+            'create_folders' => $createFolders ? '1' : '0'
+        ];
+
+        if (count($attributes) > 0) {
+            $parameters['attributes'] = $attributes;
+        }
+
         $this->api->request(
             'add_host',
-            [
-                'hostname' => $hostname,
-                'folder' => $folder,
-                'attributes' => $attributes,
-                'create_folders' => $createFolders ? '1' : '0'
-            ]
+            $parameters
         );
 
         return $this;
@@ -92,9 +99,11 @@ class Host extends Request {
      *
      * @param string $hostname Hostname
      * @param array $attributes Optional attributes to create/update
-     * @param array $unsetAttributes Optional attributes to unset (reset to default)
+     * @param array $unsetAttributes Optional attributes to unset (reset to default); works only with other attributes to create/update
      *
      * @return self Returns itself
+     *
+     * @throw \Exception on error
      */
     public function edit($hostname, array $attributes = [], array $unsetAttributes = []) {
         $this->api->request(
@@ -115,11 +124,12 @@ class Host extends Request {
      * @param string $hostname Hostname
      *
      * @return self Returns itself
+     *
+     * @throw \Exception on error
      */
     public function delete($hostname) {
         $this->api->request(
             'delete_host',
-            [],
             [
                 'hostname' => $hostname
             ]
@@ -134,12 +144,13 @@ class Host extends Request {
      * @param string $hostname Hostname
      * @param string $mode Modes: "new", "remove", "fixall", "refresh"; defaults to "new"
      *
-     * @return string
+     * @return string Result message
+     *
+     * @throw \Exception on error
      */
     public function discoverServices($hostname, $mode = 'new') {
         return $this->api->request(
-            'delete_host',
-            [],
+            'discover_services',
             [
                 'hostname' => $hostname,
                 'mode' => $mode
