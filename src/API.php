@@ -297,12 +297,30 @@ class API {
 
         $responseLines = explode(PHP_EOL, $responseString);
 
+        // Remove last line without content:
+        if (strlen(end($responseLines)) < 2) {
+            $responseLines = array_slice(
+                $responseLines,
+                0,
+                (count($responseLines) - 1)
+            );
+        }
+
         $this->lastResponseHeaders = implode(PHP_EOL, array_slice($responseLines, 0, -1));
 
         $this->lastResponse = json_decode(end($responseLines), true);
 
         if (!is_array($this->lastResponse)) {
-            throw new \Exception('Check_MK responded with an invalid JSON string.');
+            $message = end($responseLines);
+
+            if (is_string($message) && strlen($message) > 0) {
+                throw new \Exception(sprintf(
+                    'Check_MK responded with an error message: %s',
+                    $message
+                ));
+            } else {
+                throw new \Exception('Check_MK responded with an invalid JSON string.');
+            }
         }
 
         return $this->lastResponse;
