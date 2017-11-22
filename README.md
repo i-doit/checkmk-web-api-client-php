@@ -157,23 +157,36 @@ Optional proxy settings:
 
 Class `Host` with public methods:
 
-| Method                | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| `get()`               | Read information about a host by its hostname                             |
-| `getAll()`            | Read information about all hosts                                          |
-| `add()`               | Create new host with some attributes and tags                             |
-| `edit()`              | Edit host, adds new attributes, changes attributes, or unsets attributes  |
-| `delete()`            | Delete a host by its hostname                                             |
-| `discoverServices()`  | Discover services of a host                                               |
+| API Call              | Class Method          | Description                                                               |
+| --------------------- | --------------------- | ------------------------------------------------------------------------- |
+| `get_host`            | `get()`               | Read information about a host by its hostname                             |
+| `get_all_hosts`       | `getAll()`            | Read information about all hosts                                          |
+| `add_host`            | `add()`               | Create new host with some attributes and tags                             |
+| `edit_host`           | `edit()`              | Edit host, adds new attributes, changes attributes, or unsets attributes  |
+| `delete_host`         | `delete()`            | Delete a host by its hostname                                             |
+| `discover_services`   | `discoverServices()`  | Discover services of a host                                               |
 
 
 ##  Activate Changes
 
 Class `Change` with public methods:
 
-| Method                | Description                                                               |
-| --------------------- | ------------------------------------------------------------------------- |
-| `activate()`          | Activate changes for specific sites                                       |
+| API Call              | Class Method          | Description                                                               |
+| --------------------- | --------------------- | ------------------------------------------------------------------------- |
+| `activate_changes`    | `activate()`          | Activate changes for specific sites                                       |
+
+
+##  Groups
+
+Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
+
+| API Call              | Class Method          | Description                                                               |
+| --------------------- | --------------------- | ------------------------------------------------------------------------- |
+| `get_all_*groups`     | `getAll()`            | Read information about all groups                                         |
+| –                     | `get()`               | Read information about a group by its name                                |
+| `add_*group`          | `add()`               | Create new group with name and alias                                      |
+| `edit_*group`         | `edit()`              | Change the alias of a group                                               |
+| `delete_*group`       | `delete()`            | Delete contact group by its name                                          |
 
 
 ##  Contribute
