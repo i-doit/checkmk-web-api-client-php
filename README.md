@@ -167,6 +167,15 @@ Class `Host` with public methods:
 | `discoverServices()`  | Discover services of a host                                               |
 
 
+##  Activate Changes
+
+Class `Change` with public methods:
+
+| Method                | Description                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| `activate()`          | Activate changes for specific sites                                       |
+
+
 ##  Contribute
 
 Please, report any issues to [our issue tracker](https://github.com/bheisig/check_mk-web-api/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.

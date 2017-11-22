@@ -31,15 +31,43 @@ if (is_readable($localConfigFile)) {
     require_once $localConfigFile;
 }
 
-$settings = ['url', 'username', 'secret'];
+$settings = [
+    'url' => 'string',
+    'username' => 'string',
+    'secret' => 'string',
+    'sites' => 'array'
+];
 
-foreach ($settings as $setting) {
-    if (!array_key_exists($setting, $GLOBALS) ||
-        !is_string($GLOBALS[$setting]) ||
-        strlen($GLOBALS[$setting]) === 0) {
+foreach ($settings as $setting => $dataType) {
+    if (!array_key_exists($setting, $GLOBALS)) {
         throw new \Exception(sprintf(
             'Unable to perform unit tests because of configuration setting "%s" is missing',
             $setting
+        ));
+    }
+
+    $valid = true;
+
+    switch ($dataType) {
+        case 'string':
+            if (!is_string($GLOBALS[$setting]) ||
+                strlen($GLOBALS[$setting]) === 0) {
+                $valid = false;
+            }
+            break;
+        case 'array':
+            if (!is_array($GLOBALS[$setting]) ||
+                count($GLOBALS[$setting]) === 0) {
+                $valid = false;
+            }
+            break;
+    }
+
+    if ($valid === false) {
+        throw new \Exception(sprintf(
+            'Unable to perform unit tests because of configuration setting "%s" [%s] is invalid',
+            $setting,
+            $dataType
         ));
     }
 }
