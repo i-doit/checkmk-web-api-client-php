@@ -17,7 +17,7 @@ This client communicates with Check_MK over its Web API. It provides a simple, b
 
 Meet these simple requirements before using the client:
 
-*   One or more Check_MK sites
+*   One or more Check_MK sites, version 1.4 or higher (most calls only work with 1.5)
 *   PHP, version 5.6 or higher (7.1 is recommended)
 *   PHP modules `curl` and `json`
 
@@ -153,7 +153,7 @@ Optional proxy settings:
 | `setProxyPassword()`  | string    | no        | Specified password for authentication         |
 
 
-##  Manipulate Hosts
+##  Hosts
 
 Class `Host` with public methods:
 
@@ -167,13 +167,14 @@ Class `Host` with public methods:
 | `discover_services`   | `discoverServices()`  | Discover services of a host                                               |
 
 
-##  Activate Changes
+##  Sites
 
-Class `Change` with public methods:
+Class `Site` with public methods:
 
 | API Call              | Class Method          | Description                                                               |
 | --------------------- | --------------------- | ------------------------------------------------------------------------- |
-| `activate_changes`    | `activate()`          | Activate changes for specific sites                                       |
+| `get_site`            | `get()`               | Read information about a site by its identifier                           |
+| –                     | `getAll()`            | Read information about all sites                                          |
 
 
 ##  Groups
@@ -187,6 +188,15 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 | `add_*group`          | `add()`               | Create new group with name and alias                                      |
 | `edit_*group`         | `edit()`              | Change the alias of a group                                               |
 | `delete_*group`       | `delete()`            | Delete contact group by its name                                          |
+
+
+##  Activate Changes
+
+Class `Change` with public methods:
+
+| API Call              | Class Method          | Description                                                               |
+| --------------------- | --------------------- | ------------------------------------------------------------------------- |
+| `activate_changes`    | `activate()`          | Activate changes for specific sites                                       |
 
 
 ##  Contribute
