@@ -96,6 +96,8 @@ class API {
      * Constructor
      *
      * @param \bheisig\checkmkwebapi\Config $config Configuration settings
+     *
+     * @throws \Exception on configuration errors
      */
     public function __construct(Config $config) {
         $this->config = $config;
@@ -225,7 +227,10 @@ class API {
         $params['_secret'] = $this->config->getSecret();
 // @todo GET parameter "request_format=json" resulted in an error:
 //        $params['request_format'] = 'json';
-        $params['output_format'] = 'json';
+
+        if (!array_key_exists('output_format', $params)) {
+            $params['output_format'] = 'json';
+        }
 
         $this->options[CURLOPT_URL] = sprintf(
             '%s?%s',
@@ -309,6 +314,20 @@ class API {
         $this->lastResponseHeaders = implode(PHP_EOL, array_slice($responseLines, 0, -1));
 
         $this->lastResponse = json_decode(end($responseLines), true);
+
+        // Try to parse this creepy "python output format"…
+        if (!is_array($this->lastResponse)) {
+            $python = str_replace(
+                ['\'', ': True', ': False', ': None', '": u"'],
+                ['"', ': true', ': false', ': null', '": "'],
+                end($responseLines)
+            );
+
+            $this->lastResponse = json_decode(
+                $python,
+                true
+            );
+        }
 
         if (!is_array($this->lastResponse)) {
             $message = end($responseLines);
