@@ -36,7 +36,7 @@ class Host extends Request {
      *
      * @return array
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function get($hostname) {
         return $this->api->request(
@@ -55,7 +55,7 @@ class Host extends Request {
      *
      * @return array
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -73,7 +73,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function add($hostname, $folder = '', array $attributes = [], $createFolders = false) {
         $parameters = [
@@ -103,7 +103,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function edit($hostname, array $attributes = [], array $unsetAttributes = []) {
         $this->api->request(
@@ -125,7 +125,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function delete($hostname) {
         $this->api->request(
@@ -146,7 +146,7 @@ class Host extends Request {
      *
      * @return string Result message
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function discoverServices($hostname, $mode = 'new') {
         return $this->api->request(

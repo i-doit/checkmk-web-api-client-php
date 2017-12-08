@@ -31,12 +31,18 @@ class HostTest extends BaseTest {
      */
     protected $instance;
 
+    /**
+     * @throws \Exception on error
+     */
     public function setUp () {
         parent::setUp();
 
         $this->instance = new Host($this->api);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testGetExistingHost() {
         $hostname = $this->addHost();
 
@@ -60,11 +66,15 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testGetNonExistingHost() {
         $this->instance->get('This is not the host you are looking for');
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testGetAll() {
         // We need at minimum one host:
         $this->addHost();
@@ -90,6 +100,9 @@ class HostTest extends BaseTest {
         }
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testAdd() {
         $hostname = $this->generateRandomString();
 
@@ -102,6 +115,9 @@ class HostTest extends BaseTest {
         $this->assertEquals($hostname, $host['hostname']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testAddWithAttributes() {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
@@ -133,6 +149,7 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testAddWithNonExistingFolder() {
         $this->instance->add(
@@ -144,6 +161,9 @@ class HostTest extends BaseTest {
         );
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testAddAutoCreateFolder() {
         $hostname = $this->generateRandomString();
         $folder = $this->generateRandomString();
@@ -163,6 +183,9 @@ class HostTest extends BaseTest {
         $this->assertEquals($folder, $host['path']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testEditWithNewAttributes() {
         // Add "empty" host:
         $hostname = $this->addHost();
@@ -189,6 +212,9 @@ class HostTest extends BaseTest {
         $this->assertEquals($ip, $host['attributes']['ipaddress']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testEditExistingAttributes() {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
@@ -225,6 +251,9 @@ class HostTest extends BaseTest {
         $this->assertEquals($updatedIP, $host['attributes']['ipaddress']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testEditResetAttributes() {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
@@ -263,6 +292,7 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testEditNonExistingHost() {
         $this->instance->edit(
@@ -273,6 +303,9 @@ class HostTest extends BaseTest {
         );
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testDelete() {
         $hostname = $this->addHost();
 
@@ -283,6 +316,7 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testDeleteWithRetry() {
         $hostname = $this->addHost();
@@ -296,6 +330,7 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testDeleteNonExistingHost() {
         $this->instance->delete($this->generateRandomString());
@@ -329,6 +364,7 @@ class HostTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testDiscoverServicesForNonExistingHost() {
         $this->instance->discoverServices($this->generateRandomString());

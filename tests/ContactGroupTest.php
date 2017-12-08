@@ -26,6 +26,9 @@ use bheisig\checkmkwebapi\ContactGroup;
 
 class ContactGroupTest extends GroupTest {
 
+    /**
+     * @throws \Exception on error
+     */
     public function setUp () {
         parent::setUp();
 

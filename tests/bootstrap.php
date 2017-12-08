@@ -22,52 +22,55 @@
  * @link https://github.com/bheisig/check_mk-web-api
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/BaseTest.php';
+try {
+    require_once __DIR__ . '/../vendor/autoload.php';
+    require_once __DIR__ . '/BaseTest.php';
+    require_once __DIR__ . '/GroupTest.php';
 
-$localConfigFile = __DIR__ . '/local.php';
-
-if (is_readable($localConfigFile)) {
-    require_once $localConfigFile;
-}
-
-$settings = [
-    'url' => 'string',
-    'username' => 'string',
-    'secret' => 'string',
-    'sites' => 'array'
-];
-
-foreach ($settings as $setting => $dataType) {
-    if (!array_key_exists($setting, $GLOBALS)) {
-        throw new \Exception(sprintf(
-            'Unable to perform unit tests because of configuration setting "%s" is missing',
-            $setting
-        ));
+    if (is_readable(__DIR__ . '/local.php')) {
+        require_once __DIR__ . '/local.php';
     }
 
-    $valid = true;
+    $settings = [
+        'url' => 'string',
+        'username' => 'string',
+        'secret' => 'string',
+        'sites' => 'array'
+    ];
 
-    switch ($dataType) {
-        case 'string':
-            if (!is_string($GLOBALS[$setting]) ||
-                strlen($GLOBALS[$setting]) === 0) {
-                $valid = false;
-            }
-            break;
-        case 'array':
-            if (!is_array($GLOBALS[$setting]) ||
-                count($GLOBALS[$setting]) === 0) {
-                $valid = false;
-            }
-            break;
-    }
+    foreach ($settings as $setting => $dataType) {
+        if (!array_key_exists($setting, $GLOBALS)) {
+            throw new \Exception(sprintf(
+                'Unable to perform unit tests because of configuration setting "%s" is missing',
+                $setting
+            ));
+        }
 
-    if ($valid === false) {
-        throw new \Exception(sprintf(
-            'Unable to perform unit tests because of configuration setting "%s" [%s] is invalid',
-            $setting,
-            $dataType
-        ));
+        $valid = true;
+
+        switch ($dataType) {
+            case 'string':
+                if (!is_string($GLOBALS[$setting]) ||
+                    strlen($GLOBALS[$setting]) === 0) {
+                    $valid = false;
+                }
+                break;
+            case 'array':
+                if (!is_array($GLOBALS[$setting]) ||
+                    count($GLOBALS[$setting]) === 0) {
+                    $valid = false;
+                }
+                break;
+        }
+
+        if ($valid === false) {
+            throw new \Exception(sprintf(
+                'Unable to perform unit tests because of configuration setting "%s" [%s] is invalid',
+                $setting,
+                $dataType
+            ));
+        }
     }
+} catch (\Exception $e) {
+    die('Ooops! ' . $e->getMessage());
 }

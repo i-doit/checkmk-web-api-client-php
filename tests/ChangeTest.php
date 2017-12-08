@@ -34,6 +34,9 @@ class ChangeTest extends BaseTest {
 
     protected $sites = [];
 
+    /**
+     * @throws \Exception on error
+     */
     public function setUp () {
         parent::setUp();
 
@@ -42,6 +45,9 @@ class ChangeTest extends BaseTest {
         $this->sites = $GLOBALS['sites'];
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testActivate() {
         // We need at least one change:
         (new Host($this->api))->add(

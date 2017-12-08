@@ -69,7 +69,7 @@ abstract class Group extends Request {
      *
      * @return array
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -85,7 +85,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function add($name, $alias) {
         $this->api->request(
@@ -107,7 +107,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function edit($name, $alias) {
         $this->api->request(
@@ -128,7 +128,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throw \Exception on error
+     * @throws \Exception on error
      */
     public function delete($name) {
         $this->api->request(

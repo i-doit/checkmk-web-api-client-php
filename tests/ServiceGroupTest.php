@@ -26,6 +26,9 @@ use bheisig\checkmkwebapi\ServiceGroup;
 
 class ServiceGroupTest extends GroupTest {
 
+    /**
+     * @throws \Exception on error
+     */
     public function setUp () {
         parent::setUp();
 

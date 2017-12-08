@@ -31,6 +31,9 @@ abstract class GroupTest extends BaseTest {
      */
     protected $instance;
 
+    /**
+     * @throws \Exception on error
+     */
     public function testGet() {
         $name = $this->generateRandomString();
         $alias = $this->generateRandomString();
@@ -52,11 +55,15 @@ abstract class GroupTest extends BaseTest {
 
     /**
      * @expectedException \Exception
+     * @throws \Exception on error
      */
     public function testGetNonExistingGroup() {
         $this->instance->get($this->generateRandomString());
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testGetAll() {
         $result = $this->instance->getAll();
 
@@ -72,6 +79,9 @@ abstract class GroupTest extends BaseTest {
         }
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testAdd() {
         $name = $this->generateRandomString();
         $alias = $this->generateRandomString();
@@ -88,6 +98,9 @@ abstract class GroupTest extends BaseTest {
         $this->assertEquals($alias, $group['alias']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testEdit() {
         $name = $this->generateRandomString();
         $alias = $this->generateRandomString();
@@ -112,6 +125,9 @@ abstract class GroupTest extends BaseTest {
         $this->assertEquals($alias, $group['alias']);
     }
 
+    /**
+     * @throws \Exception on error
+     */
     public function testDelete() {
         $name = $this->generateRandomString();
         $alias = $this->generateRandomString();

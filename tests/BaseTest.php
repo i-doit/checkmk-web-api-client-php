@@ -36,6 +36,8 @@ abstract class BaseTest extends TestCase {
 
     /**
      * Makes API available
+     *
+     * @throws \Exception on error
      */
     public function setUp() {
         $config = (new Config())
@@ -50,6 +52,8 @@ abstract class BaseTest extends TestCase {
      * Creates a new host with random hostname
      *
      * @return string Hostname
+     *
+     * @throws \Exception on error
      */
     protected function addHost() {
         $hostname = $this->generateRandomString();
