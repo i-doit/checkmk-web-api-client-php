@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 _tbd_
 
 
-##  0.1 – 2017-xx-xx
+##  0.1 – 2018-xx-xx
 
 Initial release
 
