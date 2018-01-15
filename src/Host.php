@@ -25,7 +25,7 @@
 namespace bheisig\checkmkwebapi;
 
 /**
- * Manipulate hosts
+ * Hosts
  */
 class Host extends Request {
 

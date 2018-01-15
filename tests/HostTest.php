@@ -49,9 +49,6 @@ class HostTest extends BaseTest {
         $result = $this->instance->get($hostname);
 
         $this->assertInternalType('array', $result);
-        $this->assertNotCount(0, $result);
-
-        $this->assertInternalType('array', $result);
         $this->assertCount(3, $result);
 
         $this->assertArrayHasKey('attributes', $result);
@@ -76,7 +73,7 @@ class HostTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testGetAll() {
-        // We need at minimum one host:
+        // At least we need one host:
         $this->addHost();
 
         $result = $this->instance->getAll();

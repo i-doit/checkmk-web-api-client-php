@@ -317,16 +317,7 @@ class API {
 
         // Try to parse this creepy "python output format"…
         if (!is_array($this->lastResponse)) {
-            $python = str_replace(
-                ['\'', ': True', ': False', ': None', '": u"'],
-                ['"', ': true', ': false', ': null', '": "'],
-                end($responseLines)
-            );
-
-            $this->lastResponse = json_decode(
-                $python,
-                true
-            );
+            $this->lastResponse = $this->convertPythonToJSON(end($responseLines));
         }
 
         if (!is_array($this->lastResponse)) {
@@ -343,6 +334,40 @@ class API {
         }
 
         return $this->lastResponse;
+    }
+
+    /**
+     * Convert python syntax into a JSON object
+     *
+     * @param string $python Python foo
+     *
+     * @return array|null Result as array, otherwise null
+     */
+    protected function convertPythonToJSON($python) {
+        $python = str_replace(
+            ['\'', 'True', 'False', 'None', '": u"'],
+            ['"', 'true', 'false', 'null', '": "'],
+            $python
+        );
+
+        // Convert nested tupels ((1, 2), (3, 4)) into arrays:
+        $python = preg_replace(
+            '/\(\((.+), (.+)\), \((.+), (.+)\)\)/',
+            '[[$1, $2], [$3, $4]]',
+            $python
+        );
+
+        // Convert tupels (1, 2) into arrays:
+        $python = preg_replace(
+            '/\((.+), (.+)\)/',
+            '[$1, $2]',
+            $python
+        );
+
+        return json_decode(
+            $python,
+            true
+        );
     }
 
     /**
