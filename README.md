@@ -203,6 +203,16 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 | `delete_*group`       | `delete()`            | Delete contact group by its name                                  |
 
 
+##  Rulesets
+
+Class `Ruleset` with public methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_ruleset`         | `get()`               | Read information about a ruleset by its name                      |
+| `get_rulesets_info`   | `getAll()`            | Read information about all rulesets                               |
+
+
 ##  Agents
 
 Class `Agent` with public methods:

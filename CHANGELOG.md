@@ -23,6 +23,7 @@ Initial release
 -   Create, read, update and delete sites
 -   Create, read, update and delete folders
 -   Create, read, update and delete host groups, service groups, contact groups
+-   Read rulesets
 -   Bake agents
 -   Activate changes
 
