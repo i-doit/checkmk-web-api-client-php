@@ -213,6 +213,20 @@ Class `Ruleset` with public methods:
 | `get_rulesets_info`   | `getAll()`            | Read information about all rulesets                               |
 
 
+##  Users
+
+Class `Users` with pulic methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| –                     | `get()`               | Read information about an user by its identifier                  |
+| `get_all_users`       | `getAll()`            | Read information about all users                                  |
+| –                     | `add()`               | Create new user with some attributes                              |
+| `add_users`           | `batchAdd()`          | Create new users with some attributes                             |
+| –                     | `delete()`            | Delete a user by its identifier                                   |
+| `delete_users`        | `batchDelete()`       | Delete users by their identifiers                                 |
+
+
 ##  Agents
 
 Class `Agent` with public methods:
