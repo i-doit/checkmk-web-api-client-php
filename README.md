@@ -203,6 +203,15 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 | `delete_*group`       | `delete()`            | Delete contact group by its name                                  |
 
 
+##  Agents
+
+Class `Agent` with public methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `bake_agents`         | `bake()`              | Bake agents but not sign them                                     |
+
+
 ##  Activate Changes
 
 Class `Change` with public methods:

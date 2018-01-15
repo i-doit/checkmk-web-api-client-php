@@ -18,10 +18,12 @@ Initial release
 
 ### Added
 
--   Handle hosts
--   Handle sites
--   Handle folders
--   Handle host groups, service groups, contact groups
+-   Create, read, update and delete hosts
+-   Discover services on hosts
+-   Create, read, update and delete sites
+-   Create, read, update and delete folders
+-   Create, read, update and delete host groups, service groups, contact groups
+-   Bake agents
 -   Activate changes
 
 
