@@ -232,6 +232,15 @@ Class `Change` with public methods:
 | –                     | `activateEverywhere`  | Activate changes on all sites                                     |
 
 
+##  Metrics
+
+Class `Graph` with public method:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_graph`           | `get()`               | Get metrics as a graph                                            |
+
+
 ##  Contribute
 
 Please, report any issues to [our issue tracker](https://github.com/bheisig/check_mk-web-api/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.

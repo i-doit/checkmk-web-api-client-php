@@ -26,6 +26,7 @@ Initial release
 -   Read rulesets
 -   Bake agents
 -   Activate changes
+-   Get metrics
 
 
 [Unreleased]: https://github.com/bheisig/check_mk-web-api/compare/0.1...HEAD
