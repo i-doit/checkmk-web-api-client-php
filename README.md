@@ -203,14 +203,14 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 | `delete_*group`       | `delete()`            | Delete contact group by its name                                  |
 
 
-##  Rulesets
+##  Host Tags
 
-Class `Ruleset` with public methods:
+Class `HostTag` with pulic methods:
 
 | API Call              | Class Method          | Description                                                       |
 | --------------------- | --------------------- | ------------------------------------------------------------------|
-| `get_ruleset`         | `get()`               | Read information about a ruleset by its name                      |
-| `get_rulesets_info`   | `getAll()`            | Read information about all rulesets                               |
+| `get_hosttags`        | `getAll()`            | Read information about all host tag groups and auxiliary tags     |
+| `set_hosttags`        | `set()`               | Overwrite all host tag groups and auxiliary tags                  |
 
 
 ##  Users
@@ -225,6 +225,16 @@ Class `Users` with pulic methods:
 | `add_users`           | `batchAdd()`          | Create new users with some attributes                             |
 | –                     | `delete()`            | Delete a user by its identifier                                   |
 | `delete_users`        | `batchDelete()`       | Delete users by their identifiers                                 |
+
+
+##  Rulesets
+
+Class `Ruleset` with public methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_ruleset`         | `get()`               | Read information about a ruleset by its name                      |
+| `get_rulesets_info`   | `getAll()`            | Read information about all rulesets                               |
 
 
 ##  Agents

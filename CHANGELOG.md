@@ -23,6 +23,7 @@ Initial release
 -   Create, read, update and delete sites
 -   Create, read, update and delete folders
 -   Create, read, update and delete host groups, service groups, contact groups
+-   Read and overwrite host tag groups and auxiliary tags
 -   Create, read and delete users
 -   Read rulesets
 -   Bake agents
