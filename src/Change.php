@@ -30,7 +30,7 @@ namespace bheisig\checkmkwebapi;
 class Change extends Request {
 
     /**
-     * Activate changes for specific sites
+     * Activate changes on specific sites
      *
      * @param string[] $sites List of sites
      * @param bool $allowForeignChanges Optional activate changes made by other users; defaults to false ("no")
@@ -58,7 +58,7 @@ class Change extends Request {
     }
 
     /**
-     * Activate changes for all sites
+     * Activate changes on all sites
      *
      * @param bool $allowForeignChanges Optional activate changes made by other users; defaults to false ("no")
      *
@@ -67,9 +67,19 @@ class Change extends Request {
      * @throws \Exception on error
      */
     public function activateEverywhere($allowForeignChanges = false) {
-//        $sites = (new Site($this->api))->getAll();
+        $sites = (new Site($this->api))->getAll();
 
-        // @todo Implement me!
+        $results = [];
+
+        foreach ($sites as $site) {
+            if (!array_key_exists('site_id', $site)) {
+                throw new \Exception('Site identifier missing');
+            }
+
+            $results[] = $this->activate($site['site_id'], $allowForeignChanges);
+        }
+
+        return $results;
     }
 
 }

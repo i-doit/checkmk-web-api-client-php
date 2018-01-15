@@ -196,7 +196,8 @@ Class `Change` with public methods:
 
 | API Call              | Class Method          | Description                                                               |
 | --------------------- | --------------------- | ------------------------------------------------------------------------- |
-| `activate_changes`    | `activate()`          | Activate changes for specific sites                                       |
+| `activate_changes`    | `activate()`          | Activate changes on specific sites                                        |
+| –                     | `activateEverywhere`  | Activate changes on all sites                                             |
 
 
 ##  Contribute
