@@ -171,33 +171,46 @@ Class `Host` with public methods:
 
 Class `Site` with public methods:
 
-| API Call              | Class Method          | Description                                                               |
-| --------------------- | --------------------- | ------------------------------------------------------------------------- |
-| `get_site`            | `get()`               | Read information about a site by its identifier                           |
-| –                     | `getAll()`            | Read information about all sites                                          |
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_site`            | `get()`               | Read information about a site by its identifier                   |
+| –                     | `getAll()`            | Read information about all sites                                  |
+
+
+##  Folders
+
+Class `Folder` with pulic methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_folder`          | `get()`               | Read information about a folder by its path                       |
+| `get_all_folders`     | `getAll()`            | Read information about all folders                                |
+| `add_folder`          | `add()`               | Create new folder with some attributes                            |
+| `edit_folder`         | `edit()`              | Edit a folder's attributes                                        |
+| `delete_folder`       | `delete()`            | Delete a folder by its path                                       |
 
 
 ##  Groups
 
 Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 
-| API Call              | Class Method          | Description                                                               |
-| --------------------- | --------------------- | ------------------------------------------------------------------------- |
-| `get_all_*groups`     | `getAll()`            | Read information about all groups                                         |
-| –                     | `get()`               | Read information about a group by its name                                |
-| `add_*group`          | `add()`               | Create new group with name and alias                                      |
-| `edit_*group`         | `edit()`              | Change the alias of a group                                               |
-| `delete_*group`       | `delete()`            | Delete contact group by its name                                          |
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `get_all_*groups`     | `getAll()`            | Read information about all groups                                 |
+| –                     | `get()`               | Read information about a group by its name                        |
+| `add_*group`          | `add()`               | Create new group with name and alias                              |
+| `edit_*group`         | `edit()`              | Change the alias of a group                                       |
+| `delete_*group`       | `delete()`            | Delete contact group by its name                                  |
 
 
 ##  Activate Changes
 
 Class `Change` with public methods:
 
-| API Call              | Class Method          | Description                                                               |
-| --------------------- | --------------------- | ------------------------------------------------------------------------- |
-| `activate_changes`    | `activate()`          | Activate changes on specific sites                                        |
-| –                     | `activateEverywhere`  | Activate changes on all sites                                             |
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| `activate_changes`    | `activate()`          | Activate changes on specific sites                                |
+| –                     | `activateEverywhere`  | Activate changes on all sites                                     |
 
 
 ##  Contribute

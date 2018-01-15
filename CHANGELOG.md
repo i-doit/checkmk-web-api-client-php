@@ -16,4 +16,13 @@ _tbd_
 Initial release
 
 
+### Added
+
+-   Handle hosts
+-   Handle sites
+-   Handle folders
+-   Handle host groups, service groups, contact groups
+-   Activate changes
+
+
 [Unreleased]: https://github.com/bheisig/check_mk-web-api/compare/0.1...HEAD
