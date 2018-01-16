@@ -31,4 +31,4 @@ Initial release
 -   Get metrics
 
 
-[Unreleased]: https://github.com/bheisig/check_mk-web-api/compare/0.1...HEAD
+[Unreleased]: https://github.com/bheisig/checkmkwebapi/compare/0.1...HEAD

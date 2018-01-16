@@ -19,7 +19,7 @@
  * @author Benjamin Heisig <https://benjamin.heisig.name/>
  * @copyright Copyright (C) 2018 Benjamin Heisig
  * @license http://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License (AGPL)
- * @link https://github.com/bheisig/check_mk-web-api
+ * @link https://github.com/bheisig/checkmkwebapi
  */
 
 use bheisig\checkmkwebapi\Change;

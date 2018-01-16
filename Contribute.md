@@ -12,17 +12,17 @@ We like you to read and follow our [code of conduct](CODE_OF_CONDUCT.md) before 
 
 The best and (probably) easiest way is to use the API client library for your own projects. It would be very nice to share your thoughts with us. We love to hear from you.
 
-If you have questions how to use it properly read the [documentation](Readme.md) carefully.
+If you have questions how to use it properly read the [documentation](README.md) carefully.
 
 
 ##  Report bugs
 
-If you find something strange please report it to [our issue tracker](https://github.com/bheisig/check_mk-web-api/issues).
+If you find something strange please report it to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
 
 
 ##  Make a wish
 
-Of course, there are some features in the pipeline. However, if you have good ideas how to improve the API client library please let us know! Write a feature request [in our issue tracker](https://github.com/bheisig/check_mk-web-api/issues).
+Of course, there are some features in the pipeline. However, if you have good ideas how to improve this project please let us know! Write a feature request [in our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
 
 
 ##  Setup a development environment
@@ -30,10 +30,10 @@ Of course, there are some features in the pipeline. However, if you have good id
 If you like to contribute source code, documentation snippets, self-explaining examples or other useful bits, fork this repository, setup the environment and make a pull request.
 
 ~~~ {.bash}
-git clone https://github.com/bheisig/check_mk-web-api.git
+git clone https://github.com/bheisig/checkmkwebapi.git
 ~~~
 
-If you have a GitHub account create a fork first and then clone the repository.
+If you have a GitHub account create a fork and then clone your own repository.
 
 After that, setup the environment with Composer:
 
@@ -41,23 +41,18 @@ After that, setup the environment with Composer:
 composer install
 ~~~
 
-Now it is the time to do your stuff. Do not forget to commit your changes. When you are done consider to make a pull requests.
+Now it is the time to do _your_ stuff. Do not forget to commit your changes. When you are done consider to make a pull requests.
 
 Notice, that any of your contributions merged into this repository will be [licensed under the AGPLv3](LICENSE).
 
 
 ##  Requirements
 
-This projects has some dependencies:
+This project has some dependencies for developers:
 
-*   [PHP](https://php.net/), version 5.6+
+*   See requirements mentioned in the [documentation](README.md)
 *   [Composer](https://getcomposer.org/)
-*   One or more working copies of [Check_MK](https://mathias-kettner.de/check_mk.html) (otherwise this API client library is senseless)
-
-Developers must meet some more requirements:
-
 *   [Git](https://git-scm.com/)
-*   [Pandoc](https://pandoc.org/)
 *   make
 
 
@@ -66,13 +61,33 @@ Developers must meet some more requirements:
 Unit tests are located under `tests/`. Just call `make phpunit` to execute all of them.
 
 
-##  Create a distribution tarball
+##  Release new version
 
-*   Bump version in file `project.json`
-*   Call `make`
-*   Call `make dist`
+… and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi):
 
-The last call creates a file caleld `check_mk-web-api-<VERSION>.tar.gz`.
+*   Bump version in `composer.json`
+*   Create a tag with
+
+    `git tag -s -m "Release version <VERSION>" <VERSION>`
+    
+    `git push --tags`
+
+There is already a webhook enabled to push the code from GitHub to packagist. This needs commit rights on this repository.
+
+
+##  Make rules
+
+This project comes with some [rules](Makefile) which will be used by `make`:
+
+| Make rule     | Description                                                           |
+| ------------- | --------------------------------------------------------------------- |
+| `gitstats`    | Create a little website with Git statistics located under `gitstats`  |
+| `gource`      | Visualize git commits                                                 |
+| `phpdox`      | Create a source code documentation                                    |
+| `phploc`      | Print source code statistics                                          |
+| `phpunit`     | Run unit tests                                                        |
+
+For example, execute `make gource`.
 
 
 ##  Donate

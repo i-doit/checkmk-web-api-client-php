@@ -17,7 +17,7 @@ This client communicates with Check_MK over its Web API. It provides a simple, b
 
 Meet these simple requirements before using the client:
 
-*   One or more Check_MK sites, version 1.4 or higher (most calls only work with 1.5)
+*   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
 *   PHP, version 5.6 or higher (7.1 is recommended)
 *   PHP modules `curl` and `json`
 
@@ -36,7 +36,7 @@ For a system-wide installation add `global` as an option:
 composer global require "bheisig/checkmkwebapi=>=0.1"
 ~~~
 
-As an alternative add a new dependency on `bheisig/idoitapi` to your project's `composer.json` file. Here is a minimal example to install the current development branch locally:
+As an alternative add a new dependency on `bheisig/checkmkwebapi` to your project's `composer.json` file. Here is a minimal example to install the current development branch locally:
 
 ~~~ {.json}
 {
@@ -267,7 +267,7 @@ Class `Graph` with public method:
 
 ##  Contribute
 
-Please, report any issues to [our issue tracker](https://github.com/bheisig/check_mk-web-api/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.
+Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.
 
 
 ##  Copyright & License

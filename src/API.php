@@ -19,7 +19,7 @@
  * @author Benjamin Heisig <https://benjamin.heisig.name/>
  * @copyright Copyright (C) 2018 Benjamin Heisig
  * @license http://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License (AGPL)
- * @link https://github.com/bheisig/check_mk-web-api
+ * @link https://github.com/bheisig/checkmkwebapi
  */
 
 namespace bheisig\checkmkwebapi;
@@ -79,13 +79,6 @@ class API {
     protected $options = [];
 
     /**
-     * Information about this project
-     *
-     * @var array
-     */
-    protected $project = [];
-
-    /**
      * Counter for requests
      *
      * @var int
@@ -104,10 +97,13 @@ class API {
 
         $this->config->validate();
 
-        $projectFile = __DIR__ . '/../project.json';
+        $composerFile = __DIR__ . '/../composer.json';
 
-        if (is_readable($projectFile)) {
-            $this->project = json_decode(file_get_contents($projectFile), true);
+        if (is_readable($composerFile)) {
+            $composer = json_decode(file_get_contents($composerFile), true);
+            $userAgent = $composer['name'] . ' ' . $composer['version'];
+        } else {
+            $userAgent = 'bheisig/checkmkwebapi';
         }
 
         $this->options = [
@@ -122,7 +118,7 @@ class API {
             CURLOPT_PORT => $this->config->getPort(),
             CURLOPT_REDIR_PROTOCOLS => (CURLPROTO_HTTP | CURLPROTO_HTTPS),
             CURLOPT_ENCODING => 'application/json',
-            CURLOPT_USERAGENT => $this->project['tag'] . ' ' . $this->project['version'],
+            CURLOPT_USERAGENT => $userAgent,
 // @todo "Content-Type: application/json" returns an HTTP 501 NOT IMPLEMENTED.
 //            CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
             CURLOPT_SSL_VERIFYPEER => true,

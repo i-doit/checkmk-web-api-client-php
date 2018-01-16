@@ -1,9 +1,10 @@
 {
     "name": "bheisig/checkmkwebapi",
+    "version": "0.1",
     "description": "Easy-to-use, but feature-rich client library for Check_MK's Web API",
     "type": "library",
     "keywords": ["check_mk", "checkmk", "wato", "monitoring", "monitoring love", "api"],
-    "homepage": "https://github.com/bheisig/check_mk-web-api",
+    "homepage": "https://github.com/bheisig/checkmkwebapi",
     "license": "AGPL-3.0+",
     "authors": [
         {
@@ -14,8 +15,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/bheisig/check_mk-web-api/issues",
-        "source": "https://github.com/bheisig/check_mk-web-api"
+        "issues": "https://github.com/bheisig/checkmkwebapi/issues",
+        "source": "https://github.com/bheisig/checkmkwebapi"
     },
     "require": {
         "php": ">=5.6.0"
