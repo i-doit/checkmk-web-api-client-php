@@ -64,11 +64,9 @@ class ChangeTest extends BaseTest {
         $this->assertInternalType('array', $result);
         $this->assertCount(count($this->sites), $result);
 
-        $count = 0;
-
         foreach ($result as $site => $details) {
             $this->assertInternalType('string', $site);
-            $this->assertEquals($this->sites[$count], $site);
+            $this->assertContains($site, $this->sites);
 
             $this->assertInternalType('array', $details);
             $this->assertNotCount(0, $details);
@@ -93,10 +91,9 @@ class ChangeTest extends BaseTest {
             }
 
             $this->assertEquals('done', $details['_phase']);
-            $this->assertEquals('Success', $details['_status_text']);
-            $this->assertEquals('success', $details['_state']);
+            $this->assertContains($details['_status_text'], ['Activated', 'Success']);
+            $this->assertContains($details['_state'], ['success', 'warning']);
             $this->assertEquals($site, $details['_site_id']);
-            $this->assertCount(0, $details['_warnings']);
         }
     }
 
