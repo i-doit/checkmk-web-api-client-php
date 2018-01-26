@@ -68,18 +68,17 @@ class Change extends Request {
      */
     public function activateEverywhere($allowForeignChanges = false) {
         $sites = (new Site($this->api))->getAll();
-
-        $results = [];
+        $affectedSites = [];
 
         foreach ($sites as $site) {
             if (!array_key_exists('site_id', $site)) {
                 throw new \Exception('Site identifier missing');
             }
 
-            $results[] = $this->activate($site['site_id'], $allowForeignChanges);
+            $affectedSites[] = $site['site_id'];
         }
 
-        return $results;
+        return $this->activate($affectedSites, $allowForeignChanges);
     }
 
 }

@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
--   Broken unit test for activating changes on all sites
+-   PHP error while activating changes on all sites
+-   Broken unit test for activating changes
 
 
 ##  0.1 – 2018-01-16
