@@ -311,33 +311,23 @@ class API {
             }
         }
 
-        $responseLines = explode(PHP_EOL, $responseString);
+        $headerLength = curl_getinfo($this->resource, CURLINFO_HEADER_SIZE);
+        $this->lastResponseHeaders = substr($responseString, 0, $headerLength);
 
-        // Remove last line without content:
-        if (strlen(end($responseLines)) < 2) {
-            $responseLines = array_slice(
-                $responseLines,
-                0,
-                (count($responseLines) - 1)
-            );
-        }
+        $body = substr($responseString, $headerLength);
 
-        $this->lastResponseHeaders = implode(PHP_EOL, array_slice($responseLines, 0, -1));
-
-        $this->lastResponse = json_decode(end($responseLines), true);
+        $this->lastResponse = json_decode(trim($body), true);
 
         // Try to parse this creepy "python output format"…
         if (!is_array($this->lastResponse)) {
-            $this->lastResponse = $this->convertPythonToJSON(end($responseLines));
+            $this->lastResponse = $this->convertPythonToArray($body);
         }
 
         if (!is_array($this->lastResponse)) {
-            $message = end($responseLines);
-
-            if (is_string($message) && strlen($message) > 0) {
+            if (is_string($body) && strlen($body) > 0) {
                 throw new \Exception(sprintf(
                     'Check_MK responded with an error message: %s',
-                    $message
+                    $body
                 ));
             } else {
                 throw new \Exception('Check_MK responded with an invalid JSON string.');
@@ -348,13 +338,13 @@ class API {
     }
 
     /**
-     * Convert python syntax into a JSON object
+     * Convert python syntax into an array
      *
      * @param string $python Python foo
      *
      * @return array|null Result as array, otherwise null
      */
-    protected function convertPythonToJSON($python) {
+    protected function convertPythonToArray($python) {
         $python = str_replace(
             ['\'', 'True', 'False', 'None', '": u"'],
             ['"', 'true', 'false', 'null', '": "'],
