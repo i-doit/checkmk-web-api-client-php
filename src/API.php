@@ -212,12 +212,13 @@ class API {
      * @param string $action Action
      * @param array $data Optional POST payload
      * @param array $params Optional additional GET parameters
+     * @param string $entryPoint Entry point; defaults to "webapi.py"
      *
      * @return mixed Result of request
      *
      * @throws \Exception on error
      */
-    public function request($action, array $data = [], array $params = []) {
+    public function request($action, array $data = [], array $params = [], $entryPoint = 'webapi.py') {
         $params['action'] = $action;
         $params['_username'] = $this->config->getUsername();
         $params['_secret'] = $this->config->getSecret();
@@ -228,9 +229,23 @@ class API {
             $params['output_format'] = 'json';
         }
 
+        // Combine base URL with entry point:
+        if (substr($this->config->getURL(), -1) !== '/' &&
+            substr($entryPoint, 0, 1) !== '/') {
+            $url = $this->config->getURL() . '/' . $entryPoint;
+        } else if (substr($this->config->getURL(), -1) !== '/' &&
+            substr($entryPoint, 0, 1) === '/') {
+            $url = $this->config->getURL() . $entryPoint;
+        } else if (substr($this->config->getURL(), -1) === '/' &&
+            substr($entryPoint, 0, 1) !== '/') {
+            $url = $this->config->getURL() . $entryPoint;
+        } else {
+            $url = $url = $this->config->getURL() . substr($entryPoint, 0, -1);
+        }
+
         $this->options[CURLOPT_URL] = sprintf(
             '%s?%s',
-            $this->config->getURL(),
+            $url,
             http_build_query($params)
         );
 

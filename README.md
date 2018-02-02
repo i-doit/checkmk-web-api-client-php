@@ -91,7 +91,7 @@ use bheisig\checkmkwebapi\Host;
 
 $config = new Config();
 $config
-    ->setURL('https://monitoring.example.org/mysite/check_mk/webapi.py')
+    ->setURL('https://monitoring.example.org/mysite/check_mk/')
     ->setUsername('automation')
     ->setSecret('abc123')
 
@@ -114,7 +114,7 @@ use bheisig\checkmkwebapi\Config;
 
 $config = new Config();
 $config
-    ->setURL('https://monitoring.example.org/mysite/check_mk/webapi.py')
+    ->setURL('https://monitoring.example.org/mysite/check_mk/')
     ->setPort(443)
     ->setUsername('automation')
     ->setSecret('abc123')
@@ -134,7 +134,7 @@ The `Config` class has public methods which must be called to configure the API:
 
 | Setting               | Parameter | Required  | Description                                                                                           |
 | --------------------- | --------- | --------- | ----------------------------------------------------------------------------------------------------- |
-| `setURL()`            | string    | yes       | URL to Check_MK Web API, probably the base URL appended by `webapi.py`                                |
+| `setURL()`            | string    | yes       | URL to Check_MK *without* entry point, for example `https://monitoring.example.com/mysite/check_mk/`  |
 | `setPort()`           | integer   | no        | Port on which the Web server listens; if not set port `80` will be used for HTTP and `443` for HTTPS  |
 | `setUsername()`       | string    | yes       | User for authentication, probably `automation`                                                        |
 | `setSecret()`         | string    | yes       | Secret specified for user                                                                             |

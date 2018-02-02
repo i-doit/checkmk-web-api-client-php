@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ##  [Unreleased]
 
 
+### Added
+
+-   Configure API entry point for each call by passing it to `API::request()`
+
+
+### Changed
+
+-   Switched configuration setting for URL to base URL; remove entry point `webapi.py` from your code; this is done automatically
+
+
 ### Fixed
 
 -   PHP error while activating changes on all sites

@@ -35,6 +35,8 @@ abstract class Group extends Request {
      * Constructor
      *
      * @param \bheisig\checkmkwebapi\API $api API client
+     *
+     * @throws \ReflectionException on error
      */
     public function __construct (API $api) {
         parent::__construct($api);
