@@ -265,6 +265,18 @@ Class `Graph` with public method:
 | `get_graph`           | `get()`               | Get metrics as a graph                                            |
 
 
+##  Inventory
+
+Check_MK can collect various information about your hardware/software inventory.
+
+Class `Inventory` with public methods:
+
+| API Call              | Class Method          | Description                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------|
+| -                     | `getHost()`           | Read hardware/software inventory data for a specific host         |
+| -                     | `getHosts()`          | Read hardware/software inventory data for one or more hosts       |
+
+
 ##  Contribute
 
 Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.

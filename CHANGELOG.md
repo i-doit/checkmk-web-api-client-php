@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+-   Read hardware/software inventory data for hosts (see class `Inventory`)
 -   Configure API entry point for each call by passing it to `API::request()`
 
 
