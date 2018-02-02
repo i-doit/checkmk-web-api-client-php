@@ -66,6 +66,7 @@ Unit tests are located under `tests/`. Just call `make phpunit` to execute all o
 … and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi):
 
 *   Bump version in `composer.json`
+*   Update `README.md` and `CHANGELOG.md`
 *   Create a tag with
 
     `git tag -s -m "Release version <VERSION>" <VERSION>`

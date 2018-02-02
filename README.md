@@ -27,13 +27,13 @@ Meet these simple requirements before using the client:
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
 ~~~ {.bash}
-composer require "bheisig/checkmkwebapi=>=0.1"
+composer require "bheisig/checkmkwebapi=>=0.2"
 ~~~
 
 For a system-wide installation add `global` as an option:
 
 ~~~ {.bash}
-composer global require "bheisig/checkmkwebapi=>=0.1"
+composer global require "bheisig/checkmkwebapi=>=0.2"
 ~~~
 
 As an alternative add a new dependency on `bheisig/checkmkwebapi` to your project's `composer.json` file. Here is a minimal example to install the current development branch locally:
@@ -41,7 +41,7 @@ As an alternative add a new dependency on `bheisig/checkmkwebapi` to your projec
 ~~~ {.json}
 {
     "require": {
-        "bheisig/checkmkwebapi": ">=0.1"
+        "bheisig/checkmkwebapi": ">=0.2"
     }
 }
 ~~~
@@ -52,7 +52,7 @@ After that you need to call Composer to install this client (under `vendor/bheis
 composer install
 ~~~
 
-This command installs version `0.1` or higher if available. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
+This command installs version `0.2` or higher if available. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
 
 ~~~ {.bash}
 composer require "bheisig/checkmkwebapi=@DEV"
