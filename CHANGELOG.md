@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ##  [Unreleased]
 
-_tbd_
+
+### Fixed
+
+-   Unable to parse Python tupels found in site configuration
 
 
 ##  [0.2] – 2018-02-02

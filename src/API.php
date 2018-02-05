@@ -365,6 +365,13 @@ class API {
             $python
         );
 
+        // Convert tupels ("abc", 123) into arrays:
+        $python = preg_replace(
+            '/\((.+), (.+)\)/',
+            '[$1, $2]',
+            $python
+        );
+
         return json_decode(
             $python,
             true
