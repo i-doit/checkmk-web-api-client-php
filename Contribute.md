@@ -70,10 +70,10 @@ Unit tests are located under `tests/`. Just call `make phpunit` to execute all o
 *   Create a tag with
 
     `git tag -s -m "Release version <VERSION>" <VERSION>`
-    
+
     `git push --tags`
 
-There is already a webhook enabled to push the code from GitHub to packagist. This needs commit rights on this repository.
+There is already a webhook enabled to push the code from GitHub to packagist. This needs commit rights for this repository.
 
 
 ##  Make rules
