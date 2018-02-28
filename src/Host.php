@@ -106,13 +106,21 @@ class Host extends Request {
      * @throws \Exception on error
      */
     public function edit($hostname, array $attributes = [], array $unsetAttributes = []) {
+        $data = [
+            'hostname' => $hostname
+        ];
+
+        if (count($attributes) > 0) {
+            $data['attributes'] = $attributes;
+        }
+
+        if (count($unsetAttributes) > 0) {
+            $data['unset_attributes'] = $unsetAttributes;
+        }
+
         $this->api->request(
             'edit_host',
-            [
-                'hostname' => $hostname,
-                'unset_attributes' => $unsetAttributes,
-                'attributes' => $attributes
-            ]
+            $data
         );
 
         return $this;
