@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ##  [Unreleased]
 
 
+### Added
+
+-   Throw exception when parsing of "Python output" failed
+
+
 ### Fixed
 
 -   Unsetting attributes without changes on other attributes caused an error (method `Host::edit()`) 

@@ -321,6 +321,13 @@ class API {
         // Try to parse this creepy "python output format"…
         if (!is_array($this->lastResponse)) {
             $this->lastResponse = $this->convertPythonToArray($body);
+
+            if (!is_array($this->lastResponse) && strpos("'result_code': 0", $body) !== false) {
+                throw new \Exception(sprintf(
+                    'Unable to parse this response from Check_MK: %s',
+                    $body
+                ));
+            }
         }
 
         if (!is_array($this->lastResponse)) {
