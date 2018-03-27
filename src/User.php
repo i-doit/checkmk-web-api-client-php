@@ -27,7 +27,7 @@ namespace bheisig\checkmkwebapi;
 /**
  * Users
  */
-class Users extends Request {
+class User extends Request {
 
     /**
      * Read information about an user by its identifier

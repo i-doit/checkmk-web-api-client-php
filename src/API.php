@@ -39,7 +39,7 @@ class API {
     /**
      * cURL resource
      *
-     * @var resource
+     * @var resource|null
      */
     protected $resource;
 
@@ -316,13 +316,13 @@ class API {
 
         $body = substr($responseString, $headerLength);
 
-        $this->lastResponse = json_decode(trim($body), true);
+        $lastResponse = json_decode(trim($body), true);
 
         // Try to parse this creepy "python output format"…
-        if (!is_array($this->lastResponse)) {
-            $this->lastResponse = $this->convertPythonToArray($body);
+        if (!is_array($lastResponse)) {
+            $lastResponse = $this->convertPythonToArray($body);
 
-            if (!is_array($this->lastResponse) && strpos("'result_code': 0", $body) !== false) {
+            if (!is_array($lastResponse) && strpos("'result_code': 0", $body) !== false) {
                 throw new \Exception(sprintf(
                     'Unable to parse this response from Check_MK: %s',
                     $body
@@ -330,7 +330,7 @@ class API {
             }
         }
 
-        if (!is_array($this->lastResponse)) {
+        if (!is_array($lastResponse)) {
             if (is_string($body) && strlen($body) > 0) {
                 throw new \Exception(sprintf(
                     'Check_MK responded with an error message: %s',
@@ -340,6 +340,8 @@ class API {
                 throw new \Exception('Check_MK responded with an invalid JSON string.');
             }
         }
+
+        $this->lastResponse = $lastResponse;
 
         return $this->lastResponse;
     }

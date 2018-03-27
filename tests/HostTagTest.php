@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+namespace bheisig\checkmkwebapi\tests;
+
 use bheisig\checkmkwebapi\HostTag;
 
 class HostTagTest extends BaseTest {
@@ -54,9 +56,13 @@ class HostTagTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testSet() {
-        $tags = $this->instance->getAll();
+        $allTags = $this->instance->getAll();
+        $tags = [
+            'aux_tags' => $allTags['aux_tags'],
+            'tag_groups' => $allTags['tag_groups']
+        ];
 
-        $result = $this->instance->set($tags);
+        $result = $this->instance->set($tags, $allTags['configuration_hash']);
 
         $this->assertInstanceOf(HostTag::class, $result);
     }

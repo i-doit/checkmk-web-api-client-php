@@ -17,3 +17,9 @@ phploc :
 
 phpunit :
 	./vendor/bin/phpunit --configuration tests/phpunit.xml
+
+phpstan :
+	./vendor/bin/phpstan analyze -l max src tests
+
+phpcpd :
+	./vendor/bin/phpcpd src/ tests/

@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+namespace bheisig\checkmkwebapi\tests;
+
 use bheisig\checkmkwebapi\Folder;
 
 class FolderTest extends BaseTest {

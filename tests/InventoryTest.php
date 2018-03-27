@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+namespace bheisig\checkmkwebapi\tests;
+
 use bheisig\checkmkwebapi\Inventory;
 
 class InventoryTest extends BaseTest {

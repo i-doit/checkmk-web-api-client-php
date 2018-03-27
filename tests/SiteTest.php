@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+namespace bheisig\checkmkwebapi\tests;
+
 use bheisig\checkmkwebapi\Site;
 
 class SiteTest extends BaseTest {
@@ -135,7 +137,8 @@ class SiteTest extends BaseTest {
 //            }
 
         if (array_key_exists('socket', $site['site_config'])) {
-            $this->assertInternalType('string', $site['site_config']['socket']);
+            // Structure depends on site configuration:
+            $this->assertInternalType('array', $site['site_config']['socket']);
         }
 
         if (array_key_exists('url_prefix', $site['site_config'])) {

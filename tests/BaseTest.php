@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+namespace bheisig\checkmkwebapi\tests;
+
 use PHPUnit\Framework\TestCase;
 use bheisig\checkmkwebapi\API;
 use bheisig\checkmkwebapi\Config;
