@@ -139,7 +139,9 @@ abstract class GroupTest extends BaseTest {
             $alias
         );
 
-        $this->instance->delete($name);
+        $result = $this->instance->delete($name);
+
+        $this->assertInstanceOf(Group::class, $result);
     }
 
 }

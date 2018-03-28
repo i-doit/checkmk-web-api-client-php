@@ -136,7 +136,9 @@ class FolderTest extends BaseTest {
         $this->instance->add($folderPath);
 
         // Check_MK only says "Edited properties of folder XY":
-        $this->instance->add($folderPath);
+        $result = $this->instance->add($folderPath);
+
+        $this->assertInstanceOf(Folder::class, $result);
     }
 
     public function testEditWithNewAttributes() {

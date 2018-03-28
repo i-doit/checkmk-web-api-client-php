@@ -151,13 +151,15 @@ class HostTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testAddWithNonExistingFolder() {
-        $this->instance->add(
+        $result = $this->instance->add(
             $this->generateRandomString(),
             // This folder does not exist:
             $this->generateRandomString(),
             [],
             false
         );
+
+        $this->assertInstanceOf(Host::class, $result);
     }
 
     /**
@@ -294,12 +296,14 @@ class HostTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testEditNonExistingHost() {
-        $this->instance->edit(
+        $result = $this->instance->edit(
             $this->generateRandomString(),
             [
                 'ipaddress' => $this->generateIPv4Address()
             ]
         );
+
+        $this->assertInstanceOf(Host::class, $result);
     }
 
     /**
@@ -332,7 +336,9 @@ class HostTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testDeleteNonExistingHost() {
-        $this->instance->delete($this->generateRandomString());
+        $result = $this->instance->delete($this->generateRandomString());
+
+        $this->assertInstanceOf(Host::class, $result);
     }
 
     public function testDiscoverServices() {
@@ -366,7 +372,9 @@ class HostTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testDiscoverServicesForNonExistingHost() {
-        $this->instance->discoverServices($this->generateRandomString());
+        $result = $this->instance->discoverServices($this->generateRandomString());
+
+        $this->assertInternalType('string', $result);
     }
 
 }
