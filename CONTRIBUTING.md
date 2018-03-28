@@ -51,19 +51,19 @@ Notice, that any of your contributions merged into this repository will be [lice
 This project has some dependencies for developers:
 
 *   See requirements mentioned in the [documentation](README.md)
+*   [Xdebug](https://xdebug.org/)
 *   [Composer](https://getcomposer.org/)
 *   [Git](https://git-scm.com/)
-*   make
 
 
 ##  Run unit tests
 
-Unit tests are located under `tests/`. Just call `make phpunit` to execute all of them.
+Unit tests are located under `tests/`. Just call `composer phpunit` to execute all of them.
 
 
 ##  Release new version
 
-… and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi):
+… and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi). You need commit rights for this repository.
 
 *   Bump version in `composer.json`
 *   Update `README.md` and `CHANGELOG.md`
@@ -73,22 +73,26 @@ Unit tests are located under `tests/`. Just call `make phpunit` to execute all o
 
     `git push --tags`
 
-There is already a webhook enabled to push the code from GitHub to packagist. This needs commit rights for this repository.
+There is already a webhook enabled to push the code from GitHub to packagist.
 
 
-##  Make rules
+##  Composer scripts
+    
+This project comes with some useful composer scripts:
 
-This project comes with some [rules](Makefile) which will be used by `make`:
+| Command                   | Description                       |
+| ------------------------- | --------------------------------- |
+| `composer gitstats`       | Create Git statistics             |
+| `composer gource`         | Visualize Git history             |
+| `composer phpcpd`         | Detect copy/paste in source code  |
+| `composer phpdox`         | Create source code documentation  |
+| `composer phploc`         | Print source code statistics      |
+| `composer phpmd`          | Detect mess in source code        |
+| `composer phpstan`        | Analyze source code               |
+| `composer phpunit`        | Perform unit tests                |
+| `composer syntax-check`   | Check syntax of source code       |
 
-| Make rule     | Description                                                           |
-| ------------- | --------------------------------------------------------------------- |
-| `gitstats`    | Create a little website with Git statistics located under `gitstats`  |
-| `gource`      | Visualize git commits                                                 |
-| `phpdox`      | Create a source code documentation                                    |
-| `phploc`      | Print source code statistics                                          |
-| `phpunit`     | Run unit tests                                                        |
-
-For example, execute `make gource`.
+For example, execute `composer phpstan`.
 
 
 ##  Donate
