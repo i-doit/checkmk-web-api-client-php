@@ -320,7 +320,7 @@ class API {
 
         // Try to parse this creepy "python output format"…
         if (!is_array($lastResponse)) {
-            $lastResponse = $this->convertPythonToArray($body);
+            $lastResponse = Python::decode($body);
 
             if (!is_array($lastResponse) && strpos("'result_code': 0", $body) !== false) {
                 throw new \Exception(sprintf(
@@ -344,47 +344,6 @@ class API {
         $this->lastResponse = $lastResponse;
 
         return $this->lastResponse;
-    }
-
-    /**
-     * Convert python syntax into an array
-     *
-     * @param string $python Python foo
-     *
-     * @return array|null Result as array, otherwise null
-     */
-    protected function convertPythonToArray($python) {
-        $python = str_replace(
-            ['\'', 'True', 'False', 'None', '": u"'],
-            ['"', 'true', 'false', 'null', '": "'],
-            $python
-        );
-
-        // Convert nested tupels ((1, 2), (3, 4)) into arrays:
-        $python = preg_replace(
-            '/\(\((.+), (.+)\), \((.+), (.+)\)\)/',
-            '[[$1, $2], [$3, $4]]',
-            $python
-        );
-
-        // Convert tupels (1, 2) into arrays:
-        $python = preg_replace(
-            '/\((.+), (.+)\)/',
-            '[$1, $2]',
-            $python
-        );
-
-        // Convert tupels ("abc", 123) into arrays:
-        $python = preg_replace(
-            '/\((.+), (.+)\)/',
-            '[$1, $2]',
-            $python
-        );
-
-        return json_decode(
-            $python,
-            true
-        );
     }
 
     /**

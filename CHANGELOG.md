@@ -16,8 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+-   "Python output" often causes problems because of tupels in Python dictionaries
 -   Unsetting attributes without changes on other attributes caused an error (method `Host::edit()`) 
--   Unable to parse Python tupels found in site configuration
 
 
 ##  [0.2] – 2018-02-02
