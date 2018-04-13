@@ -4,6 +4,7 @@ Easy-to-use, but feature-rich client for Check_MK Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
+[![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
 
 ##  About
