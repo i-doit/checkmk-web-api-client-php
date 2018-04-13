@@ -16,6 +16,10 @@ install:
 script:
   - composer ci
 
+matrix:
+  allow_failures:
+    - php: nightly
+
 notifications:
   email:
     on_success: never
