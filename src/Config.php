@@ -327,9 +327,9 @@ class Config {
 
         if (isset($this->port)) {
             $this->assertPort('port', $this->port);
-        } else if (strpos($this->url, 'https://') === 0) {
+        } elseif (strpos($this->url, 'https://') === 0) {
             $this->port = 443;
-        } else if (strpos($this->url, 'http://') === 0) {
+        } elseif (strpos($this->url, 'http://') === 0) {
             $this->port = 80;
         }
 

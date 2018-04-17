@@ -27,4 +27,6 @@ namespace bheisig\checkmkwebapi;
 /**
  * Contact groups
  */
-class ContactGroup extends Group {}
+class ContactGroup extends Group {
+
+}

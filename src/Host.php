@@ -99,7 +99,8 @@ class Host extends Request {
      *
      * @param string $hostname Hostname
      * @param array $attributes Optional attributes to create/update
-     * @param array $unsetAttributes Optional attributes to unset (reset to default); works only with other attributes to create/update
+     * @param array $unsetAttributes Optional attributes to unset (reset to default); works only with other attributes
+     * to create/update
      *
      * @return self Returns itself
      *

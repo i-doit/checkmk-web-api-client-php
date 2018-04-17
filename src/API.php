@@ -233,10 +233,10 @@ class API {
         if (substr($this->config->getURL(), -1) !== '/' &&
             substr($entryPoint, 0, 1) !== '/') {
             $url = $this->config->getURL() . '/' . $entryPoint;
-        } else if (substr($this->config->getURL(), -1) !== '/' &&
+        } elseif (substr($this->config->getURL(), -1) !== '/' &&
             substr($entryPoint, 0, 1) === '/') {
             $url = $this->config->getURL() . $entryPoint;
-        } else if (substr($this->config->getURL(), -1) === '/' &&
+        } elseif (substr($this->config->getURL(), -1) === '/' &&
             substr($entryPoint, 0, 1) !== '/') {
             $url = $this->config->getURL() . $entryPoint;
         } else {
@@ -294,7 +294,7 @@ class API {
         $this->lastInfo = curl_getinfo($this->resource);
 
         if ($responseString === false) {
-            switch($this->lastInfo['http_code']) {
+            switch ($this->lastInfo['http_code']) {
                 case 0:
                     $message = curl_error($this->resource);
 

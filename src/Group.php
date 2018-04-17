@@ -38,7 +38,7 @@ abstract class Group extends Request {
      *
      * @throws \ReflectionException on error
      */
-    public function __construct (API $api) {
+    public function __construct(API $api) {
         parent::__construct($api);
 
         $this->prefix = strtolower((new \ReflectionClass($this))->getShortName());

@@ -27,4 +27,6 @@ namespace bheisig\checkmkwebapi;
 /**
  * Service groups
  */
-class ServiceGroup extends Group {}
+class ServiceGroup extends Group {
+
+}

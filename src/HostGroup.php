@@ -27,4 +27,6 @@ namespace bheisig\checkmkwebapi;
 /**
  * Host groups
  */
-class HostGroup extends Group {}
+class HostGroup extends Group {
+
+}

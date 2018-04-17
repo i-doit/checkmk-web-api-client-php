@@ -36,7 +36,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws \Exception on error
      */
-    public function setUp () {
+    public function setUp() {
         parent::setUp();
 
         $this->instance = new Folder($this->api);
@@ -225,55 +225,55 @@ class FolderTest extends BaseTest {
         $this->assertCount(2, $folder);
 
         $this->assertArrayHasKey('attributes', $folder);
-        $this->assertInternalType('array',$folder['attributes']);
+        $this->assertInternalType('array', $folder['attributes']);
 
         $this->assertArrayHasKey('network_scan', $folder['attributes']);
-        $this->assertInternalType('array',$folder['attributes']['network_scan']);
+        $this->assertInternalType('array', $folder['attributes']['network_scan']);
 
         $this->assertArrayHasKey('tag_agent', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['tag_agent']);
+        $this->assertInternalType('string', $folder['attributes']['tag_agent']);
 
         $this->assertArrayHasKey('snmp_community', $folder['attributes']);
         // May be null…
 
         $this->assertArrayHasKey('ipv6address', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['ipv6address']);
+        $this->assertInternalType('string', $folder['attributes']['ipv6address']);
 
         $this->assertArrayHasKey('alias', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['alias']);
+        $this->assertInternalType('string', $folder['attributes']['alias']);
 
         $this->assertArrayHasKey('management_protocol', $folder['attributes']);
         // May be null…
 
         $this->assertArrayHasKey('site', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['site']);
+        $this->assertInternalType('string', $folder['attributes']['site']);
 
         $this->assertArrayHasKey('tag_address_family', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['tag_address_family']);
+        $this->assertInternalType('string', $folder['attributes']['tag_address_family']);
 
         $this->assertArrayHasKey('tag_criticality', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['tag_criticality']);
+        $this->assertInternalType('string', $folder['attributes']['tag_criticality']);
 
         $this->assertArrayHasKey('network_scan_result', $folder['attributes']);
-        $this->assertInternalType('array',$folder['attributes']['network_scan_result']);
+        $this->assertInternalType('array', $folder['attributes']['network_scan_result']);
 
         $this->assertArrayHasKey('parents', $folder['attributes']);
-        $this->assertInternalType('array',$folder['attributes']['parents']);
+        $this->assertInternalType('array', $folder['attributes']['parents']);
 
         $this->assertArrayHasKey('management_address', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['management_address']);
+        $this->assertInternalType('string', $folder['attributes']['management_address']);
 
         $this->assertArrayHasKey('tag_networking', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['tag_networking']);
+        $this->assertInternalType('string', $folder['attributes']['tag_networking']);
 
         $this->assertArrayHasKey('ipaddress', $folder['attributes']);
-        $this->assertInternalType('string',$folder['attributes']['ipaddress']);
+        $this->assertInternalType('string', $folder['attributes']['ipaddress']);
 
         $this->assertArrayHasKey('management_snmp_community', $folder['attributes']);
         // May be null…
 
         $this->assertArrayHasKey('configuration_hash', $folder);
-        $this->assertInternalType('string',$folder['configuration_hash']);
+        $this->assertInternalType('string', $folder['configuration_hash']);
     }
 
 }

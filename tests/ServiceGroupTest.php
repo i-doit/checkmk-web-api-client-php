@@ -31,7 +31,7 @@ class ServiceGroupTest extends GroupTest {
     /**
      * @throws \Exception on error
      */
-    public function setUp () {
+    public function setUp() {
         parent::setUp();
 
         $this->instance = new ServiceGroup($this->api);

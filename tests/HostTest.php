@@ -36,7 +36,7 @@ class HostTest extends BaseTest {
     /**
      * @throws \Exception on error
      */
-    public function setUp () {
+    public function setUp() {
         parent::setUp();
 
         $this->instance = new Host($this->api);
@@ -54,7 +54,7 @@ class HostTest extends BaseTest {
         $this->assertCount(3, $result);
 
         $this->assertArrayHasKey('attributes', $result);
-        $this->assertInternalType('array',$result['attributes']);
+        $this->assertInternalType('array', $result['attributes']);
 
         $this->assertArrayHasKey('hostname', $result);
         $this->assertEquals($hostname, $result['hostname']);
@@ -89,7 +89,7 @@ class HostTest extends BaseTest {
             $this->assertCount(3, $details);
 
             $this->assertArrayHasKey('attributes', $details);
-            $this->assertInternalType('array',$details['attributes']);
+            $this->assertInternalType('array', $details['attributes']);
 
             $this->assertArrayHasKey('hostname', $details);
             $this->assertEquals($hostname, $details['hostname']);

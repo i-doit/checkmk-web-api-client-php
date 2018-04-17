@@ -36,7 +36,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws \Exception on error
      */
-    public function setUp () {
+    public function setUp() {
         parent::setUp();
 
         $this->instance = new Inventory($this->api);
@@ -45,7 +45,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws \Exception on error
      */
-    public function testGetExistingHost () {
+    public function testGetExistingHost() {
         $hostname = $this->addHost();
 
         $result = $this->instance->getHost($hostname);

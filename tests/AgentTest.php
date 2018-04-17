@@ -36,7 +36,7 @@ class AgentTest extends BaseTest {
     /**
      * @throws \Exception on error
      */
-    public function setUp () {
+    public function setUp() {
         parent::setUp();
 
         $this->instance = new Agent($this->api);
