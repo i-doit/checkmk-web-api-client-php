@@ -37,6 +37,9 @@ class Python {
      * @return array|null Result as array, otherwise null
      */
     public static function decode($value) {
+        // Remove line breaks:
+        $value = trim(preg_replace('/\s+/', ' ', $value));
+
         $value = str_replace(
             ['\'', 'True', 'False', 'None', '": u"'],
             ['"', 'true', 'false', 'null', '": "'],
