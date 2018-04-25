@@ -41,8 +41,8 @@ class Python {
         $value = trim(preg_replace('/\s+/', ' ', $value));
 
         $value = str_replace(
-            ['\'', 'True', 'False', 'None', '": u"'],
-            ['"', 'true', 'false', 'null', '": "'],
+            ['\'', 'True', 'False', 'None', '": u"', ', u"'],
+            ['"', 'true', 'false', 'null', '": "', ', "'],
             $value
         );
 
