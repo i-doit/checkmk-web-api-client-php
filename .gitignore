@@ -1,4 +1,4 @@
-.idea/
-vendor/
-*.tar.gz
-composer.lock
+/.idea/
+/vendor/
+/composer.lock
+/tests/local.php
