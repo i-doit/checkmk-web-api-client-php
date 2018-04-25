@@ -19,8 +19,8 @@ This client communicates with Check_MK over its Web API. It provides a simple, b
 Meet these simple requirements before using the client:
 
 *   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
-*   PHP, version 5.6 or higher (7.1 is recommended)
-*   PHP modules `curl` and `json`
+*   PHP, version 5.6 or higher (7.2 is recommended)
+*   PHP modules `curl`, `date`, `json`, `openssl` and `zlib`
 
 
 ##  Installation
@@ -28,36 +28,13 @@ Meet these simple requirements before using the client:
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
 ~~~ {.bash}
-composer require "bheisig/checkmkwebapi=>=0.2"
+composer require "bheisig/checkmkwebapi=>=0.3"
 ~~~
 
-For a system-wide installation add `global` as an option:
-
-~~~ {.bash}
-composer global require "bheisig/checkmkwebapi=>=0.2"
-~~~
-
-As an alternative add a new dependency on `bheisig/checkmkwebapi` to your project's `composer.json` file. Here is a minimal example to install the current development branch locally:
-
-~~~ {.json}
-{
-    "require": {
-        "bheisig/checkmkwebapi": ">=0.2"
-    }
-}
-~~~
-
-After that you need to call Composer to install this client (under `vendor/bheisig/checkmkwebapi/` by default):
-
-~~~ {.bash}
-composer install
-~~~
-
-This command installs version `0.2` or higher if available. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
+This command installs version `0.3` or higher if available. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
 
 ~~~ {.bash}
 composer require "bheisig/checkmkwebapi=@DEV"
-composer install
 ~~~
 
 
@@ -280,7 +257,7 @@ Class `Inventory` with public methods:
 
 ##  Contribute
 
-Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`Contribute.md`](Contribute.md) for details.
+Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 
 ##  Copyright & License
