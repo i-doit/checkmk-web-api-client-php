@@ -92,10 +92,10 @@ class ChangeTest extends BaseTest {
                 $this->assertInternalType($type, $details[$key]);
             }
 
-            $this->assertEquals('done', $details['_phase']);
-            $this->assertContains($details['_status_text'], ['Activated', 'Success']);
-            $this->assertContains($details['_state'], ['success', 'warning']);
-            $this->assertEquals($site, $details['_site_id']);
+            $this->assertSame('done', $details['_phase']);
+            $this->assertContains($details['_status_text'], ['Activated', 'Success', 'Failed']);
+            $this->assertContains($details['_state'], ['success', 'warning', 'error']);
+            $this->assertSame($site, $details['_site_id']);
         }
     }
 

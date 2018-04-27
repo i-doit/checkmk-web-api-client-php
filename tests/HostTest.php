@@ -57,7 +57,7 @@ class HostTest extends BaseTest {
         $this->assertInternalType('array', $result['attributes']);
 
         $this->assertArrayHasKey('hostname', $result);
-        $this->assertEquals($hostname, $result['hostname']);
+        $this->assertSame($hostname, $result['hostname']);
 
         $this->assertArrayHasKey('path', $result);
         $this->assertInternalType('string', $result['path']);
@@ -92,7 +92,7 @@ class HostTest extends BaseTest {
             $this->assertInternalType('array', $details['attributes']);
 
             $this->assertArrayHasKey('hostname', $details);
-            $this->assertEquals($hostname, $details['hostname']);
+            $this->assertSame($hostname, $details['hostname']);
 
             $this->assertArrayHasKey('path', $details);
             $this->assertInternalType('string', $details['path']);
@@ -111,7 +111,7 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
+        $this->assertSame($hostname, $host['hostname']);
     }
 
     /**
@@ -135,11 +135,11 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
+        $this->assertSame($hostname, $host['hostname']);
         $this->assertArrayHasKey('alias', $host['attributes']);
-        $this->assertEquals($alias, $host['attributes']['alias']);
+        $this->assertSame($alias, $host['attributes']['alias']);
         $this->assertArrayHasKey('ipaddress', $host['attributes']);
-        $this->assertEquals($ip, $host['attributes']['ipaddress']);
+        $this->assertSame($ip, $host['attributes']['ipaddress']);
     }
 
     public function testAddWithExistingFolder() {
@@ -180,8 +180,8 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
-        $this->assertEquals($folder, $host['path']);
+        $this->assertSame($hostname, $host['hostname']);
+        $this->assertSame($folder, $host['path']);
     }
 
     /**
@@ -206,11 +206,11 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
+        $this->assertSame($hostname, $host['hostname']);
         $this->assertArrayHasKey('alias', $host['attributes']);
-        $this->assertEquals($alias, $host['attributes']['alias']);
+        $this->assertSame($alias, $host['attributes']['alias']);
         $this->assertArrayHasKey('ipaddress', $host['attributes']);
-        $this->assertEquals($ip, $host['attributes']['ipaddress']);
+        $this->assertSame($ip, $host['attributes']['ipaddress']);
     }
 
     /**
@@ -245,11 +245,11 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
+        $this->assertSame($hostname, $host['hostname']);
         $this->assertArrayHasKey('alias', $host['attributes']);
-        $this->assertEquals($updatedAlias, $host['attributes']['alias']);
+        $this->assertSame($updatedAlias, $host['attributes']['alias']);
         $this->assertArrayHasKey('ipaddress', $host['attributes']);
-        $this->assertEquals($updatedIP, $host['attributes']['ipaddress']);
+        $this->assertSame($updatedIP, $host['attributes']['ipaddress']);
     }
 
     /**
@@ -284,7 +284,7 @@ class HostTest extends BaseTest {
 
         $host = $this->instance->get($hostname);
 
-        $this->assertEquals($hostname, $host['hostname']);
+        $this->assertSame($hostname, $host['hostname']);
         $this->assertArrayHasKey('ipaddress', $host['attributes']);
         $this->assertEmpty($host['attributes']['ipaddress']);
         $this->assertArrayHasKey('alias', $host['attributes']);

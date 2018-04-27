@@ -52,7 +52,7 @@ abstract class GroupTest extends BaseTest {
 
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('alias', $result);
-        $this->assertEquals($alias, $result['alias']);
+        $this->assertSame($alias, $result['alias']);
     }
 
     /**
@@ -97,7 +97,7 @@ abstract class GroupTest extends BaseTest {
 
         $group = $this->instance->get($name);
 
-        $this->assertEquals($alias, $group['alias']);
+        $this->assertSame($alias, $group['alias']);
     }
 
     /**
@@ -124,7 +124,7 @@ abstract class GroupTest extends BaseTest {
         $group = $this->instance->get($name);
 
         $this->assertArrayHasKey('alias', $group);
-        $this->assertEquals($alias, $group['alias']);
+        $this->assertSame($alias, $group['alias']);
     }
 
     /**

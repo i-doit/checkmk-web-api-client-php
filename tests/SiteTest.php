@@ -54,7 +54,7 @@ class SiteTest extends BaseTest {
 
             $this->assertArrayHasKey('site_id', $site);
             $this->assertInternalType('string', $site['site_id']);
-            $this->assertEquals($id, $site['site_id']);
+            $this->assertSame($id, $site['site_id']);
 
             $this->evaluateSite($site);
         }

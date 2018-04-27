@@ -83,7 +83,7 @@ class FolderTest extends BaseTest {
 
             // First entry is the root folder:
             if ($counter === 0) {
-                $this->assertEquals('', $folderPath);
+                $this->assertSame('', $folderPath);
             }
 
             $counter++;
@@ -125,7 +125,7 @@ class FolderTest extends BaseTest {
         $this->assertArrayHasKey('attributes', $folder);
         $this->assertArrayHasKey('alias', $folder['attributes']);
         // @todo 'alias' seems to be a bad example, but I don't know any better:
-//        $this->assertEquals($alias, $folder['attributes']['alias']);
+//        $this->assertSame($alias, $folder['attributes']['alias']);
     }
 
     /**
