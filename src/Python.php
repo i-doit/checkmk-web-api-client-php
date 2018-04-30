@@ -46,7 +46,15 @@ class Python {
             $value
         );
 
-        $element = '(null|true|false|[0-9]+|"[a-zA-Z0-9\._\-]*"|\[.*\]|{.+})';
+        // null
+        // true
+        // false
+        // 123
+        // 123.45
+        // "abc_123.456-789"
+        // JSON array (with brackets "[" and "]")
+        // JSON object (with brackets "{" and "}")
+        $element = '(null|true|false|[0-9]+|[0-9]+\.[0-9]+|"[a-zA-Z0-9\._\-]*"|\[.*\]|{.+})';
 
         // Convert nested tupels ((1, 2), (3, 4)) into arrays:
         $value = preg_replace(
