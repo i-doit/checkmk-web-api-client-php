@@ -59,7 +59,11 @@ class Host extends Request {
      */
     public function getAll() {
         return $this->api->request(
-            'get_all_hosts'
+            'get_all_hosts',
+            [],
+            [
+                'effective_attributes' => 1
+            ]
         );
     }
 
