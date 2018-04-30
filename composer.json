@@ -27,6 +27,7 @@
         "ext-zlib": "*"
     },
     "require-dev": {
+        "php": ">=7.1.0",
         "phploc/phploc": "^4.0",
         "phpmd/phpmd" : "@stable",
         "phpstan/phpstan": "^0.9.2",
