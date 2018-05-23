@@ -90,8 +90,6 @@ class PythonTest extends BaseTest {
             $result = Python::decode($value);
 
             $this->assertInternalType('array', $result, $value);
-
-            echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         }
     }
 

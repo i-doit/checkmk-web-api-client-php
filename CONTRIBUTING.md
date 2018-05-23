@@ -51,7 +51,7 @@ Notice, that any of your contributions merged into this repository will be [lice
 This project has some dependencies for developers:
 
 *   See requirements mentioned in the [documentation](README.md)
-*   You need at least PHP 7.1 (7.2 is recommended), for example for running unit tests
+*   You need at least PHP 7.1 (7.2 is recommended), for example to run unit tests
 *   [Xdebug](https://xdebug.org/)
 *   [Composer](https://getcomposer.org/)
 *   [Git](https://git-scm.com/)
