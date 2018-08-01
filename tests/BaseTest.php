@@ -28,6 +28,7 @@ use PHPUnit\Framework\TestCase;
 use bheisig\checkmkwebapi\API;
 use bheisig\checkmkwebapi\Config;
 use bheisig\checkmkwebapi\Host;
+use Symfony\Component\Dotenv\Dotenv;
 
 abstract class BaseTest extends TestCase {
 
@@ -42,10 +43,13 @@ abstract class BaseTest extends TestCase {
      * @throws \Exception on error
      */
     public function setUp() {
+        $dotenv = new Dotenv();
+        $dotenv->load(__DIR__ . '/../.env');
+
         $config = (new Config())
-            ->setURL($GLOBALS['url'])
-            ->setUsername($GLOBALS['username'])
-            ->setSecret($GLOBALS['secret']);
+            ->setURL(getenv('URL'))
+            ->setUsername(getenv('USERNAME'))
+            ->setSecret(getenv('SECRET'));
 
         $this->api = new API($config);
     }

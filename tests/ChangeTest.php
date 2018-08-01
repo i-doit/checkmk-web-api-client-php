@@ -44,7 +44,7 @@ class ChangeTest extends BaseTest {
 
         $this->instance = new Change($this->api);
 
-        $this->sites = $GLOBALS['sites'];
+        $this->sites = explode(',', getenv('SITES'));
     }
 
     /**

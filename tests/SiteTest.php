@@ -46,7 +46,9 @@ class SiteTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testGet() {
-        foreach ($GLOBALS['sites'] as $id) {
+        $sites = explode(',', getenv('SITES'));
+
+        foreach ($sites as $id) {
             $site = $this->instance->get($id);
 
             $this->assertInternalType('array', $site);
@@ -74,7 +76,7 @@ class SiteTest extends BaseTest {
     public function testGetAll() {
         $sites = $this->instance->getAll();
 
-        $expectedSites = $GLOBALS['sites'];
+        $expectedSites = explode(',', getenv('SITES'));
 
         $this->assertInternalType('array', $sites);
         // @todo $sites contains only sites which monitor hosts, so unused sites cannot be fetched:

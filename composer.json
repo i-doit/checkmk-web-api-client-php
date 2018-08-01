@@ -35,7 +35,8 @@
         "sebastian/phpcpd": ">=3.0.1",
         "sensiolabs/security-checker": "^4.1",
         "squizlabs/php_codesniffer": "*",
-        "ext-xdebug": "*"
+        "ext-xdebug": "*",
+        "symfony/dotenv": "^4.1"
     },
     "autoload": {
         "psr-4": {
