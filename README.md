@@ -71,7 +71,7 @@ $config = new Config();
 $config
     ->setURL('https://monitoring.example.org/mysite/check_mk/')
     ->setUsername('automation')
-    ->setSecret('abc123')
+    ->setSecret('abc123');
 
 $api = new API($config);
 
