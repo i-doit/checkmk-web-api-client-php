@@ -33,19 +33,20 @@ class Host extends Request {
      * Read information about a host by its hostname
      *
      * @param string $hostname Hostname
+     * @param bool $effectiveAttributes Also fetch inherit settings from rulesets, folders, etc. Defaults to true.
      *
      * @return array
      *
      * @throws \Exception on error
      */
-    public function get($hostname) {
+    public function get($hostname, $effectiveAttributes = true) {
         return $this->api->request(
             'get_host',
             [
                 'hostname' => $hostname
             ],
             [
-                'effective_attributes' => 1
+                'effective_attributes' => $effectiveAttributes ? 1 : 0
             ]
         );
     }
@@ -54,15 +55,16 @@ class Host extends Request {
      * Read information about all hosts
      *
      * @return array
+     * @param bool $effectiveAttributes Also fetch inherit settings from rulesets, folders, etc. Defaults to true.
      *
      * @throws \Exception on error
      */
-    public function getAll() {
+    public function getAll($effectiveAttributes = true) {
         return $this->api->request(
             'get_all_hosts',
             [],
             [
-                'effective_attributes' => 1
+                'effective_attributes' => $effectiveAttributes ? 1 : 0
             ]
         );
     }

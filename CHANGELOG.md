@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
--   `Host::getAll()`: Fetch all "effective" attributes from hosts
+-   `Host::getAll()`/`Host::get()`: Fetch all "effective" attributes from hosts by default
 
 
 ### Fixed
