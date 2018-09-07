@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi\tests;
 
 use bheisig\checkmkwebapi\Group;
