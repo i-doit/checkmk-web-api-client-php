@@ -33,7 +33,7 @@ class Host extends Request {
      * Read information about a host by its hostname
      *
      * @param string $hostname Hostname
-     * @param bool $effectiveAttributes Also fetch inherit settings from rulesets, folders, etc. Defaults to true.
+     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc. Defaults to true.
      *
      * @return array
      *
@@ -55,7 +55,7 @@ class Host extends Request {
      * Read information about all hosts
      *
      * @return array
-     * @param bool $effectiveAttributes Also fetch inherit settings from rulesets, folders, etc. Defaults to true.
+     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc. Defaults to true.
      *
      * @throws \Exception on error
      */

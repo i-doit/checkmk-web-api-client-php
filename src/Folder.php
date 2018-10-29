@@ -46,7 +46,7 @@ class Folder extends Request {
             ],
             [
                 'effective_attributes' => 1,
-                'output_format' => 'python'
+                'output_format' => 'json'
             ]
         );
     }
@@ -63,7 +63,7 @@ class Folder extends Request {
             'get_all_folders',
             [],
             [
-                'output_format' => 'python'
+                'output_format' => 'json'
             ]
         );
     }

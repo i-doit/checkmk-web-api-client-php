@@ -76,7 +76,7 @@ abstract class BaseTest extends TestCase {
      * @return string
      */
     protected function generateRandomString() {
-        return hash('sha256', microtime(true));
+        return hash('sha256', (string) microtime(true));
     }
 
     /**

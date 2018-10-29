@@ -83,7 +83,7 @@ class FolderTest extends BaseTest {
 
             $this->assertInternalType('array', $folder);
 
-            // First entry is the root folder:
+            // First entry is always the root folder:
             if ($counter === 0) {
                 $this->assertSame('', $folderPath);
             }
