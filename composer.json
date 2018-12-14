@@ -1,6 +1,6 @@
 {
     "name": "bheisig/checkmkwebapi",
-    "version": "0.3",
+    "version": "0.4",
     "description": "Easy-to-use, but feature-rich client library for Check_MK's Web API",
     "type": "library",
     "keywords": ["check_mk", "checkmk", "wato", "monitoring", "monitoring love", "api"],
