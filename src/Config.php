@@ -30,6 +30,26 @@ namespace bheisig\checkmkwebapi;
 class Config {
 
     /**
+     * Lowest allowed port number:
+     */
+    const PORT_MIN = 1;
+
+    /**
+     * Highest allowed port number
+     */
+    const PORT_MAX = 65535;
+
+    /**
+     * Standard HTTP port number
+     */
+    const HTTP_PORT = 80;
+
+    /**
+     * Standard HTTPS port number
+     */
+    const HTTPS_PORT = 443;
+
+    /**
      * @var string
      */
     protected $url;
@@ -50,7 +70,7 @@ class Config {
     protected $secret;
 
     /**
-     * @var bool
+     * @var bool Defaults to false
      */
     protected $proxyEnabled = false;
 
@@ -80,9 +100,14 @@ class Config {
     protected $proxyPassword;
 
     /**
+     * @var bool Defaults to false
+     */
+    protected $bypassSecureConnection = false;
+
+    /**
      * Set URL
      * @param string $url URL
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setURL($url) {
@@ -102,7 +127,7 @@ class Config {
     /**
      * Set port number
      * @param int $port Port number
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setPort($port) {
@@ -122,7 +147,7 @@ class Config {
     /**
      * Set username
      * @param string $username Username
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setUsername($username) {
@@ -142,7 +167,7 @@ class Config {
     /**
      * Set secret
      * @param string $secret Secret
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setSecret($secret) {
@@ -179,7 +204,7 @@ class Config {
 
     /**
      * Are proxy settings enabled?
-     * @return bool
+     * @return bool Defaults to false
      */
     public function isProxyEnabled() {
         return $this->proxyEnabled;
@@ -187,7 +212,7 @@ class Config {
 
     /**
      * Set proxy type to "HTTP"
-     * @return self
+     * @return self Returns itself
      */
     public function useHTTPProxy() {
         $this->proxyType = 'HTTP';
@@ -196,7 +221,7 @@ class Config {
 
     /**
      * Set to proxy type to "SOCKS5"
-     * @return self
+     * @return self Returns itself
      */
     public function useSOCKS5Proxy() {
         $this->proxyType = 'SOCKS5';
@@ -214,7 +239,7 @@ class Config {
     /**
      * Set proxy host
      * @param string $host Hostname or IP address
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setProxyHost($host) {
@@ -234,7 +259,7 @@ class Config {
     /**
      * Set proxy port number
      * @param int $port Port number
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setProxyPort($port) {
@@ -254,7 +279,7 @@ class Config {
     /**
      * Set proxy username
      * @param string $username Username
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setProxyUsername($username) {
@@ -274,7 +299,7 @@ class Config {
     /**
      * Set proxy password
      * @param string $password Password
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on error
      */
     public function setProxyPassword($password) {
@@ -292,8 +317,25 @@ class Config {
     }
 
     /**
+     * Bypass secure connection
+     * @return self Returns itself
+     */
+    public function bypassSecureConnection() {
+        $this->bypassSecureConnection = true;
+        return $this;
+    }
+
+    /**
+     * Is secure connection bypassed?
+     * @return bool Defaults to false
+     */
+    public function isSecureConnectionBypassed() {
+        return $this->bypassSecureConnection;
+    }
+
+    /**
      * Run tests on configuration settings
-     * @return self
+     * @return self Returns itself
      * @throws \Exception on any misconfigured setting
      */
     public function validate() {
@@ -328,9 +370,9 @@ class Config {
         if (isset($this->port)) {
             $this->assertPort('port', $this->port);
         } elseif (strpos($this->url, 'https://') === 0) {
-            $this->port = 443;
+            $this->port = self::HTTPS_PORT;
         } elseif (strpos($this->url, 'http://') === 0) {
-            $this->port = 80;
+            $this->port = self::HTTP_PORT;
         }
 
         /**
@@ -408,10 +450,12 @@ class Config {
      * @throws \Exception on error
      */
     protected function assertPort($key, $value) {
-        if (!is_int($value) || $value < 1 || $value > 65535) {
+        if (!is_int($value) || $value < self::PORT_MIN || $value > self::PORT_MAX) {
             throw new \Exception(sprintf(
-                'Configuration setting "%s" is not a valid port number between 1 and 65535.',
-                $key
+                'Configuration setting "%s" is not a valid port number between %s and %s.',
+                $key,
+                self::PORT_MIN,
+                self::PORT_MAX
             ));
         }
     }

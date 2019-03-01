@@ -121,10 +121,6 @@ class API {
             CURLOPT_USERAGENT => $userAgent,
 // @todo "Content-Type: application/json" returns an HTTP 501 NOT IMPLEMENTED.
 //            CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            // TLS 1.2:
-            CURLOPT_SSLVERSION => 6,
             // In seconds:
             CURLOPT_CONNECTTIMEOUT => 10
         ];
@@ -170,6 +166,16 @@ class API {
                 default:
                     throw new \Exception(sprintf('Unknown proxy type "%s"', $this->config->getProxyType()));
             }
+        }
+
+        if ($this->config->isSecureConnectionBypassed() === true) {
+            $this->options[CURLOPT_SSL_VERIFYPEER] = false;
+            $this->options[CURLOPT_SSL_VERIFYHOST] = 0;
+            $this->options[CURLOPT_SSLVERSION] = CURL_SSLVERSION_DEFAULT;
+        } else {
+            $this->options[CURLOPT_SSL_VERIFYPEER] = true;
+            $this->options[CURLOPT_SSL_VERIFYHOST] = 2;
+            $this->options[CURLOPT_SSLVERSION] = CURL_SSLVERSION_TLSv1_2;
         }
 
         return $this;

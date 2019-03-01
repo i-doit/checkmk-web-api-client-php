@@ -105,7 +105,7 @@ class ChangeTest extends BaseTest {
         // @todo Simulate foreign changes!
     }
 
-    public function testActivateEverwhere() {
+    public function testActivateEverywhere() {
         // @todo Implement me!
     }
 
