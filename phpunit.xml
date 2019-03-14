@@ -1,7 +1,7 @@
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.0/phpunit.xsd"
-    bootstrap="../vendor/autoload.php"
+    bootstrap="./vendor/autoload.php"
     cacheTokens="false"
     colors="true"
     timeoutForSmallTests="10"
@@ -11,7 +11,7 @@
     beStrictAboutCoversAnnotation="true">
     <testsuites>
         <testsuite name="Unit Tests">
-            <directory>../tests/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
     <logging>
@@ -19,7 +19,7 @@
     </logging>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../src/</directory>
+            <directory suffix=".php">./src/</directory>
         </whitelist>
     </filter>
 </phpunit>

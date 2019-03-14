@@ -52,17 +52,17 @@ class HostTest extends BaseTest {
 
         $result = $this->instance->get($hostname);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertCount(3, $result);
 
         $this->assertArrayHasKey('attributes', $result);
-        $this->assertInternalType('array', $result['attributes']);
+        $this->assertIsArray($result['attributes']);
 
         $this->assertArrayHasKey('hostname', $result);
         $this->assertSame($hostname, $result['hostname']);
 
         $this->assertArrayHasKey('path', $result);
-        $this->assertInternalType('string', $result['path']);
+        $this->assertIsString($result['path']);
     }
 
     /**
@@ -82,22 +82,22 @@ class HostTest extends BaseTest {
 
         $result = $this->instance->getAll();
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertNotCount(0, $result);
 
         foreach ($result as $hostname => $details) {
-            $this->assertInternalType('string', $hostname);
-            $this->assertInternalType('array', $details);
+            $this->assertIsString($hostname);
+            $this->assertIsArray($details);
             $this->assertCount(3, $details);
 
             $this->assertArrayHasKey('attributes', $details);
-            $this->assertInternalType('array', $details['attributes']);
+            $this->assertIsArray($details['attributes']);
 
             $this->assertArrayHasKey('hostname', $details);
             $this->assertSame($hostname, $details['hostname']);
 
             $this->assertArrayHasKey('path', $details);
-            $this->assertInternalType('string', $details['path']);
+            $this->assertIsString($details['path']);
         }
     }
 
@@ -349,7 +349,7 @@ class HostTest extends BaseTest {
 //
 //        $result = $this->instance->discoverServices($hostname);
 //
-//        $this->assertInternalType('string', $result);
+//        $this->assertIsString($result);
 //        $this->assertNotEmpty($result);
     }
 
@@ -364,7 +364,7 @@ class HostTest extends BaseTest {
 //
 //            $result = $this->instance->discoverServices($hostname, $mode);
 //
-//            $this->assertInternalType('string', $result);
+//            $this->assertIsString($result);
 //            $this->assertNotEmpty($result);
 //        }
     }
@@ -376,7 +376,7 @@ class HostTest extends BaseTest {
     public function testDiscoverServicesForNonExistingHost() {
         $result = $this->instance->discoverServices($this->generateRandomString());
 
-        $this->assertInternalType('string', $result);
+        $this->assertIsString($result);
     }
 
 }

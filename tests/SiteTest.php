@@ -48,16 +48,28 @@ class SiteTest extends BaseTest {
      * @throws \Exception on error
      */
     public function testGet() {
-        $sites = explode(',', getenv('SITES'));
+        /**
+         * Pre-condition:
+         */
+
+        $sites = [];
+
+        if (is_string(getenv('SITES'))) {
+            $sites = explode(',', getenv('SITES'));
+        }
+
+        /**
+         * Run actual tests:
+         */
 
         foreach ($sites as $id) {
             $site = $this->instance->get($id);
 
-            $this->assertInternalType('array', $site);
+            $this->assertIsArray($site);
             $this->assertCount(3, $site);
 
             $this->assertArrayHasKey('site_id', $site);
-            $this->assertInternalType('string', $site['site_id']);
+            $this->assertIsString($site['site_id']);
             $this->assertSame($id, $site['site_id']);
 
             $this->evaluateSite($site);
@@ -78,18 +90,22 @@ class SiteTest extends BaseTest {
     public function testGetAll() {
         $sites = $this->instance->getAll();
 
-        $expectedSites = explode(',', getenv('SITES'));
+        $expectedSites = [];
 
-        $this->assertInternalType('array', $sites);
+        if (is_string(getenv('SITES'))) {
+            $expectedSites = explode(',', getenv('SITES'));
+        }
+
+        $this->assertIsArray($sites);
         // @todo $sites contains only sites which monitor hosts, so unused sites cannot be fetched:
 //        $this->assertCount(count($expectedSites), $sites);
 
         foreach ($sites as $site) {
-            $this->assertInternalType('array', $site);
+            $this->assertIsArray($site);
             $this->assertCount(3, $site);
 
             $this->assertArrayHasKey('site_id', $site);
-            $this->assertInternalType('string', $site['site_id']);
+            $this->assertIsString($site['site_id']);
             $this->assertContains($site['site_id'], $expectedSites);
 
             $this->evaluateSite($site);
@@ -98,41 +114,41 @@ class SiteTest extends BaseTest {
 
     protected function evaluateSite($site) {
         $this->assertArrayHasKey('site_config', $site);
-        $this->assertInternalType('array', $site['site_config']);
+        $this->assertIsArray($site['site_config']);
         $this->assertNotCount(0, $site['site_config']);
 
         $this->assertArrayHasKey('disabled', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['disabled']);
+        $this->assertIsBool($site['site_config']['disabled']);
 
         $this->assertArrayHasKey('alias', $site['site_config']);
-        $this->assertInternalType('string', $site['site_config']['alias']);
+        $this->assertIsString($site['site_config']['alias']);
 
         $this->assertArrayHasKey('user_login', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['user_login']);
+        $this->assertIsBool($site['site_config']['user_login']);
 
         $this->assertArrayHasKey('timeout', $site['site_config']);
-        $this->assertInternalType('integer', $site['site_config']['timeout']);
+        $this->assertIsInt($site['site_config']['timeout']);
 
         $this->assertArrayHasKey('replication', $site['site_config']);
-        $this->assertInternalType('string', $site['site_config']['replication']);
+        $this->assertIsString($site['site_config']['replication']);
 
         $this->assertArrayHasKey('replicate_ec', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['replicate_ec']);
+        $this->assertIsBool($site['site_config']['replicate_ec']);
 
         $this->assertArrayHasKey('multisiteurl', $site['site_config']);
-        $this->assertInternalType('string', $site['site_config']['multisiteurl']);
+        $this->assertIsString($site['site_config']['multisiteurl']);
 
         $this->assertArrayHasKey('insecure', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['insecure']);
+        $this->assertIsBool($site['site_config']['insecure']);
 
         $this->assertArrayHasKey('persist', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['persist']);
+        $this->assertIsBool($site['site_config']['persist']);
 
         $this->assertArrayHasKey('disable_wato', $site['site_config']);
-        $this->assertInternalType('boolean', $site['site_config']['disable_wato']);
+        $this->assertIsBool($site['site_config']['disable_wato']);
 
         $this->assertArrayHasKey('configuration_hash', $site);
-        $this->assertInternalType('string', $site['configuration_hash']);
+        $this->assertIsString($site['configuration_hash']);
         $this->assertNotEmpty($site['configuration_hash']);
 
         // Optional keys:
@@ -142,23 +158,23 @@ class SiteTest extends BaseTest {
 
         if (array_key_exists('socket', $site['site_config'])) {
             // Structure depends on site configuration:
-            $this->assertInternalType('array', $site['site_config']['socket']);
+            $this->assertIsArray($site['site_config']['socket']);
         }
 
         if (array_key_exists('url_prefix', $site['site_config'])) {
-            $this->assertInternalType('string', $site['site_config']['url_prefix']);
+            $this->assertIsString($site['site_config']['url_prefix']);
         }
 
         if (array_key_exists('user_sync', $site['site_config'])) {
-            $this->assertInternalType('string', $site['site_config']['user_sync']);
+            $this->assertIsString($site['site_config']['user_sync']);
         }
 
         if (array_key_exists('secret', $site['site_config'])) {
-            $this->assertInternalType('string', $site['site_config']['secret']);
+            $this->assertIsString($site['site_config']['secret']);
         }
 
         if (array_key_exists('relicate_mkps', $site['site_config'])) {
-            $this->assertInternalType('boolean', $site['site_config']['relicate_mkps']);
+            $this->assertIsBool($site['site_config']['relicate_mkps']);
         }
     }
 

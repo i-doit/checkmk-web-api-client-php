@@ -48,10 +48,19 @@ abstract class BaseTest extends TestCase {
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../.env');
 
-        $config = (new Config())
-            ->setURL(getenv('URL'))
-            ->setUsername(getenv('USERNAME'))
-            ->setSecret(getenv('SECRET'));
+        $config = new Config();
+
+        if (is_string(getenv('URL'))) {
+            $config->setURL(getenv('URL'));
+        }
+
+        if (is_string(getenv('USERNAME'))) {
+            $config->setUsername(getenv('USERNAME'));
+        }
+
+        if (is_string(getenv('SECRET'))) {
+            $config->setSecret(getenv('SECRET'));
+        }
 
         $this->api = new API($config);
     }

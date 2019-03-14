@@ -38,13 +38,20 @@ class Python {
      */
     public static function decode($value) {
         // Remove line breaks:
-        $value = trim(preg_replace('/\s+/', ' ', $value));
+        $value = preg_replace('/\s+/', ' ', $value);
+        if (!is_string($value)) {
+            return null;
+        }
+        $value = trim($value);
 
         $value = str_replace(
             ['\'', 'True', 'False', 'None', '": u"', ', u"'],
             ['"', 'true', 'false', 'null', '": "', ', "'],
             $value
         );
+        if (!is_string($value)) {
+            return null;
+        }
 
         // null
         // true
@@ -62,6 +69,9 @@ class Python {
             '[[$1, $2], [$3, $4]]',
             $value
         );
+        if (!is_string($value)) {
+            return null;
+        }
 
         $count = 1;
 
@@ -77,12 +87,19 @@ class Python {
                 -1,
                 $count
             );
+            if (!is_string($value)) {
+                return null;
+            }
         }
 
-        return json_decode(
+        $decoded = json_decode(
             $value,
             true
         );
+        if (!is_array($decoded)) {
+            return null;
+        }
+        return $decoded;
     }
 
 }

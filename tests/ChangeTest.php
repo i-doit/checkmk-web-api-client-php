@@ -46,7 +46,9 @@ class ChangeTest extends BaseTest {
 
         $this->instance = new Change($this->api);
 
-        $this->sites = explode(',', getenv('SITES'));
+        if (is_string(getenv('SITES'))) {
+            $this->sites = explode(',', getenv('SITES'));
+        }
     }
 
     /**
@@ -65,34 +67,48 @@ class ChangeTest extends BaseTest {
 
         $result = $this->instance->activate($this->sites);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertCount(count($this->sites), $result);
 
         foreach ($result as $site => $details) {
-            $this->assertInternalType('string', $site);
+            $this->assertIsString($site);
             $this->assertContains($site, $this->sites);
 
-            $this->assertInternalType('array', $details);
+            $this->assertIsArray($details);
             $this->assertNotCount(0, $details);
 
-            $keys = [
-                '_time_updated' => 'double',
-                '_status_details' => 'string',
-                '_phase' => 'string',
-                '_status_text' => 'string',
-                '_pid' => 'int',
-                '_state' => 'string',
-                '_time_ended' => 'double',
-                '_expected_duration' => 'double',
-                '_time_started' => 'double',
-                '_site_id' => 'string',
-                '_warnings' => 'array'
-            ];
+            $this->assertArrayHasKey('_time_updated', $details);
+            $this->assertIsFloat($details['_time_updated']);
 
-            foreach ($keys as $key => $type) {
-                $this->assertArrayHasKey($key, $details);
-                $this->assertInternalType($type, $details[$key]);
-            }
+            $this->assertArrayHasKey('_status_details', $details);
+            $this->assertIsString($details['_status_details']);
+
+            $this->assertArrayHasKey('_phase', $details);
+            $this->assertIsString($details['_phase']);
+
+            $this->assertArrayHasKey('_status_text', $details);
+            $this->assertIsString($details['_status_text']);
+
+            $this->assertArrayHasKey('_pid', $details);
+            $this->assertIsInt($details['_pid']);
+
+            $this->assertArrayHasKey('_state', $details);
+            $this->assertIsString($details['_state']);
+
+            $this->assertArrayHasKey('_time_ended', $details);
+            $this->assertIsFloat($details['_time_ended']);
+
+            $this->assertArrayHasKey('_expected_duration', $details);
+            $this->assertIsFloat($details['_expected_duration']);
+
+            $this->assertArrayHasKey('_time_started', $details);
+            $this->assertIsFloat($details['_time_started']);
+
+            $this->assertArrayHasKey('_site_id', $details);
+            $this->assertIsString($details['_site_id']);
+
+            $this->assertArrayHasKey('_warnings', $details);
+            $this->assertIsArray($details['_warnings']);
 
             $this->assertSame('done', $details['_phase']);
             $this->assertContains($details['_status_text'], ['Activated', 'Success', 'Failed']);

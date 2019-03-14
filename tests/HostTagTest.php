@@ -50,7 +50,7 @@ class HostTagTest extends BaseTest {
     public function testGetAll() {
         $result = $this->instance->getAll();
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertNotCount(0, $result);
     }
 

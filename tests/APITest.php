@@ -69,14 +69,14 @@ class APITest extends BaseTest {
 
         $count = $this->api->countRequests();
 
-        $this->assertInternalType('integer', $count);
+        $this->assertIsInt($count);
         $this->assertEquals(1, $count);
 
         $this->api->request('get_all_hosts');
 
         $count = $this->api->countRequests();
 
-        $this->assertInternalType('integer', $count);
+        $this->assertIsInt($count);
         $this->assertEquals(2, $count);
     }
 
@@ -86,7 +86,7 @@ class APITest extends BaseTest {
     public function testRequest() {
         $result = $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertNotCount(0, $result);
     }
 
@@ -96,7 +96,7 @@ class APITest extends BaseTest {
     public function testGetLastInfo() {
         $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('array', $this->api->getLastInfo());
+        $this->assertIsArray($this->api->getLastInfo());
         $this->assertNotCount(0, $this->api->getLastInfo());
     }
 
@@ -106,7 +106,7 @@ class APITest extends BaseTest {
     public function testGetLastResponse() {
         $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('array', $this->api->getLastResponse());
+        $this->assertIsArray($this->api->getLastResponse());
         $this->assertNotCount(0, $this->api->getLastResponse());
     }
 
@@ -117,7 +117,7 @@ class APITest extends BaseTest {
         // This produces an empty array (see below):
         $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('array', $this->api->getLastRequestContent());
+        $this->assertIsArray($this->api->getLastRequestContent());
         $this->assertCount(0, $this->api->getLastRequestContent());
     }
 
@@ -127,7 +127,7 @@ class APITest extends BaseTest {
     public function testGetLastResponseHeaders() {
         $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('string', $this->api->getLastResponseHeaders());
+        $this->assertIsString($this->api->getLastResponseHeaders());
         $this->assertNotEmpty($this->api->getLastResponseHeaders());
     }
 
@@ -137,7 +137,7 @@ class APITest extends BaseTest {
     public function testGetLastRequestHeaders() {
         $this->api->request('get_all_hosts');
 
-        $this->assertInternalType('string', $this->api->getLastRequestHeaders());
+        $this->assertIsString($this->api->getLastRequestHeaders());
         $this->assertNotEmpty($this->api->getLastRequestHeaders());
     }
 

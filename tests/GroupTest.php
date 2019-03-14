@@ -52,7 +52,7 @@ abstract class GroupTest extends BaseTest {
             $name
         );
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertArrayHasKey('alias', $result);
         $this->assertSame($alias, $result['alias']);
     }
@@ -71,15 +71,15 @@ abstract class GroupTest extends BaseTest {
     public function testGetAll() {
         $result = $this->instance->getAll();
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
 
         foreach ($result as $name => $details) {
-            $this->assertInternalType('string', $name);
+            $this->assertIsString($name);
 
-            $this->assertInternalType('array', $details);
+            $this->assertIsArray($details);
             $this->assertCount(1, $details);
             $this->assertArrayHasKey('alias', $details);
-            $this->assertInternalType('string', $details['alias']);
+            $this->assertIsString($details['alias']);
         }
     }
 

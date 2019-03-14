@@ -91,7 +91,7 @@ class PythonTest extends BaseTest {
         foreach ($values as $value) {
             $result = Python::decode($value);
 
-            $this->assertInternalType('array', $result, $value);
+            $this->assertIsArray($result, $value);
         }
     }
 

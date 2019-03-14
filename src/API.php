@@ -39,7 +39,7 @@ class API {
     /**
      * cURL resource
      *
-     * @var resource|null
+     * @var resource
      */
     protected $resource;
 
@@ -97,15 +97,6 @@ class API {
 
         $this->config->validate();
 
-        $composerFile = __DIR__ . '/../composer.json';
-
-        if (is_readable($composerFile)) {
-            $composer = json_decode(file_get_contents($composerFile), true);
-            $userAgent = $composer['name'] . ' ' . $composer['version'];
-        } else {
-            $userAgent = 'bheisig/checkmkwebapi';
-        }
-
         $this->options = [
             CURLOPT_FAILONERROR => true,
             // Follow (only) 301s and 302s:
@@ -118,12 +109,34 @@ class API {
             CURLOPT_PORT => $this->config->getPort(),
             CURLOPT_REDIR_PROTOCOLS => (CURLPROTO_HTTP | CURLPROTO_HTTPS),
             CURLOPT_ENCODING => 'application/json',
-            CURLOPT_USERAGENT => $userAgent,
+            CURLOPT_USERAGENT => $this->getUserAgent(),
 // @todo "Content-Type: application/json" returns an HTTP 501 NOT IMPLEMENTED.
 //            CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
             // In seconds:
             CURLOPT_CONNECTTIMEOUT => 10
         ];
+    }
+
+    /**
+     * Get user agent string
+     *
+     * @return string
+     */
+    protected function getUserAgent() {
+        $userAgent = 'bheisig/checkmkwebapi';
+
+        $composerFile = __DIR__ . '/../composer.json';
+
+        if (is_readable($composerFile)) {
+            $composerFileContent = file_get_contents($composerFile);
+
+            if (is_string($composerFileContent)) {
+                $composer = json_decode($composerFileContent, true);
+                $userAgent = $composer['name'] . ' ' . $composer['version'];
+            }
+        }
+
+        return $userAgent;
     }
 
     /**
@@ -197,8 +210,6 @@ class API {
         }
 
         curl_close($this->resource);
-
-        $this->resource = null;
 
         return $this;
     }
@@ -315,6 +326,8 @@ class API {
                         $this->lastInfo['http_code']
                     ));
             }
+        } elseif (!is_string($responseString)) {
+            throw new \RuntimeException('No content from Web server');
         }
 
         $headerLength = curl_getinfo($this->resource, CURLINFO_HEADER_SIZE);

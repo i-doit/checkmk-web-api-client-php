@@ -52,7 +52,7 @@ class InventoryTest extends BaseTest {
 
         $result = $this->instance->getHost($hostname);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertCount(0, $result);
     }
 
@@ -64,7 +64,7 @@ class InventoryTest extends BaseTest {
 
         $result = $this->instance->getHost($hostname);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertCount(0, $result);
     }
 
@@ -81,11 +81,11 @@ class InventoryTest extends BaseTest {
 
         $result = $this->instance->getHosts($hostnames);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertCount($amount, $result);
 
         foreach ($result as $hostname => $inventory) {
-            $this->assertInternalType('array', $inventory);
+            $this->assertIsArray($inventory);
             $this->assertCount(0, $inventory);
         }
     }
@@ -103,13 +103,13 @@ class InventoryTest extends BaseTest {
 
         $result = $this->instance->getHosts($hostnames);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         // @todo With non-existing hosts result *sometimes* contains fewer entries:
 //        $this->assertCount($amount, $result);
         $this->assertNotCount(0, $result);
 
         foreach ($result as $hostname => $inventory) {
-            $this->assertInternalType('array', $inventory);
+            $this->assertIsArray($inventory);
             $this->assertCount(0, $inventory);
         }
     }
