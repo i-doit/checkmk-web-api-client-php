@@ -54,6 +54,10 @@ abstract class BaseTest extends TestCase {
             $config->setURL(getenv('URL'));
         }
 
+        if (is_string(getenv('PORT'))) {
+            $config->setPort((int) getenv('PORT'));
+        }
+
         if (is_string(getenv('USERNAME'))) {
             $config->setUsername(getenv('USERNAME'));
         }
