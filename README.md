@@ -19,7 +19,7 @@ This client communicates with Check_MK over its Web API. It provides a simple, b
 Meet these simple requirements before using the client:
 
 *   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
-*   PHP, version 5.6 or higher (7.2 is recommended)
+*   PHP, version 5.6 or higher (7.3 is recommended)
 *   PHP modules `curl`, `date`, `json`, `openssl` and `zlib`
 
 

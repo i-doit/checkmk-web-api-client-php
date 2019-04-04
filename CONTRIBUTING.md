@@ -51,7 +51,7 @@ Notice, that any of your contributions merged into this repository will be [lice
 This project has some dependencies for developers:
 
 *   See requirements mentioned in the [documentation](README.md)
-*   You need at least PHP 7.1 (7.2 is recommended), for example to run unit tests
+*   You need at least PHP 7.1 (7.3 is recommended), for example to run unit tests
 *   [Xdebug](https://xdebug.org/)
 *   [Composer](https://getcomposer.org/)
 *   [Git](https://git-scm.com/)
@@ -84,13 +84,14 @@ This project comes with some useful composer scripts:
 | `composer gource`             | Visualize Git history                                     |
 | `composer phpcpd`             | Detect copy/paste in source code                          |
 | `composer phpcs`              | Detect violations of defined coding standards             |
-| `composer phpdox`             | Create source code documentation                          |
 | `composer phploc`             | Print source code statistics                              |
 | `composer phpmd`              | Detect mess in source code                                |
+| `composer phpmnd`             | Detect magic numbers in source code                       |
 | `composer phpstan`            | Analyze source code                                       |
 | `composer phpunit`            | Perform unit tests                                        |
 | `composer security-checker`   | Look for dependencies with known security vulnerabilities |
 | `composer syntax-check`       | Check syntax of source code                               |
+| `composer system-check`       | Run some system checks                                    |
 
 For example, execute `composer phpstan`.
 
