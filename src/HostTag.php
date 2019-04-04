@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Host tags
  */
@@ -34,7 +36,7 @@ class HostTag extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -50,7 +52,7 @@ class HostTag extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function set(array $tags, $configurationHash = null) {
         $data = $tags;

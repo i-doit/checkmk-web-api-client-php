@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Hardware/software inventory
  */
@@ -36,7 +38,7 @@ class Inventory extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getHost($hostname) {
         $result = $this->getHosts([$hostname]);
@@ -51,7 +53,7 @@ class Inventory extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getHosts(array $hostnames) {
         $hosts = implode(', ', array_map(function ($hostname) {

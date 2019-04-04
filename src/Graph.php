@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Graph
  */
@@ -38,7 +40,7 @@ class Graph extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get(array $specification, $beginRange, $endRange) {
         return $this->api->request(

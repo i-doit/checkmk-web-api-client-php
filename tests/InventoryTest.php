@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Inventory;
 
 class InventoryTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Inventory
+     * @var Inventory
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -45,7 +46,7 @@ class InventoryTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetExistingHost() {
         $hostname = $this->addHost();
@@ -57,7 +58,7 @@ class InventoryTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetNonExistingHost() {
         $hostname = $this->generateRandomString();
@@ -69,7 +70,7 @@ class InventoryTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetExistingHosts() {
         $amount = 3;
@@ -91,7 +92,7 @@ class InventoryTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetNonExistingHosts() {
         $amount = 3;

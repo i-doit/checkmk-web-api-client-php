@@ -26,19 +26,20 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\API;
 
 class APITest extends BaseTest {
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testConnect() {
         $this->assertInstanceOf(API::class, $this->api->connect());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testDisconnect() {
         $this->api->connect();
@@ -47,7 +48,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testIsConnected() {
         $this->assertFalse($this->api->isConnected());
@@ -62,7 +63,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCountRequests() {
         $this->api->request('get_all_hosts');
@@ -81,7 +82,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testRequest() {
         $result = $this->api->request('get_all_hosts');
@@ -91,7 +92,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testGetLastInfo() {
         $this->api->request('get_all_hosts');
@@ -101,7 +102,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testGetLastResponse() {
         $this->api->request('get_all_hosts');
@@ -111,7 +112,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testGetLastRequestContent() {
         // This produces an empty array (see below):
@@ -122,7 +123,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testGetLastResponseHeaders() {
         $this->api->request('get_all_hosts');
@@ -132,7 +133,7 @@ class APITest extends BaseTest {
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testGetLastRequestHeaders() {
         $this->api->request('get_all_hosts');

@@ -24,6 +24,9 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+use \RuntimeException;
+
 /**
  * API client
  */
@@ -32,7 +35,7 @@ class API {
     /**
      * Configuration settings
      *
-     * @var \bheisig\checkmkwebapi\Config
+     * @var Config
      */
     protected $config;
 
@@ -88,9 +91,9 @@ class API {
     /**
      * Constructor
      *
-     * @param \bheisig\checkmkwebapi\Config $config Configuration settings
+     * @param Config $config Configuration settings
      *
-     * @throws \Exception on configuration errors
+     * @throws Exception on configuration errors
      */
     public function __construct(Config $config) {
         $this->config = $config;
@@ -155,7 +158,7 @@ class API {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function connect() {
         $this->resource = curl_init();
@@ -177,7 +180,7 @@ class API {
                     $this->options[CURLOPT_PROXYTYPE] = CURLPROXY_SOCKS5;
                     break;
                 default:
-                    throw new \Exception(sprintf('Unknown proxy type "%s"', $this->config->getProxyType()));
+                    throw new Exception(sprintf('Unknown proxy type "%s"', $this->config->getProxyType()));
             }
         }
 
@@ -201,12 +204,12 @@ class API {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function disconnect() {
         // Auto-connect:
         if ($this->isConnected() === false) {
-            throw new \Exception('There is no connection.');
+            throw new Exception('There is no connection.');
         }
 
         curl_close($this->resource);
@@ -233,7 +236,7 @@ class API {
      *
      * @return mixed Result of request
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function request($action, array $data = [], array $params = [], $entryPoint = 'webapi.py') {
         $params['action'] = $action;
@@ -282,7 +285,7 @@ class API {
      *
      * @return array Result of request
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function execute(array $data) {
         // Auto-connect:
@@ -319,15 +322,15 @@ class API {
                         $message = 'Connection to Web server failed';
                     }
 
-                    throw new \Exception($message);
+                    throw new Exception($message);
                 default:
-                    throw new \Exception(sprintf(
+                    throw new Exception(sprintf(
                         'Web server responded with HTTP status code "%s"',
                         $this->lastInfo['http_code']
                     ));
             }
         } elseif (!is_string($responseString)) {
-            throw new \RuntimeException('No content from Web server');
+            throw new RuntimeException('No content from Web server');
         }
 
         $headerLength = curl_getinfo($this->resource, CURLINFO_HEADER_SIZE);
@@ -342,7 +345,7 @@ class API {
             $lastResponse = Python::decode($body);
 
             if (!is_array($lastResponse) && strpos("'result_code': 0", $body) !== false) {
-                throw new \Exception(sprintf(
+                throw new Exception(sprintf(
                     'Unable to parse this response from Check_MK: %s',
                     $body
                 ));
@@ -351,12 +354,12 @@ class API {
 
         if (!is_array($lastResponse)) {
             if (is_string($body) && strlen($body) > 0) {
-                throw new \Exception(sprintf(
+                throw new Exception(sprintf(
                     'Check_MK responded with an error message: %s',
                     $body
                 ));
             } else {
-                throw new \Exception('Check_MK responded with an invalid JSON string.');
+                throw new Exception('Check_MK responded with an invalid JSON string.');
             }
         }
 
@@ -372,14 +375,14 @@ class API {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function evaluateResponse(array $response) {
         $requiredKeys = ['result', 'result_code'];
 
         foreach ($requiredKeys as $requiredKey) {
             if (!array_key_exists($requiredKey, $response)) {
-                throw new \Exception(sprintf(
+                throw new Exception(sprintf(
                     'Response has no %s',
                     $requiredKey
                 ));
@@ -387,7 +390,7 @@ class API {
         }
 
         if (!is_int($response['result_code'])) {
-            throw new \Exception('result_code is not an integer');
+            throw new Exception('result_code is not an integer');
         }
 
         switch ($response['result_code']) {
@@ -396,15 +399,15 @@ class API {
                 break;
             case 1:
                 if (is_string($response['result']) && strlen($response['result']) !== 0) {
-                    throw new \Exception(sprintf(
+                    throw new Exception(sprintf(
                         'Check_MK responded with an error message: %s',
                         $response['result']
                     ));
                 } else {
-                    throw new \Exception('Check_MK responded with an unspecific error');
+                    throw new Exception('Check_MK responded with an unspecific error');
                 }
             default:
-                throw new \Exception(sprintf(
+                throw new Exception(sprintf(
                     'Unknown result code: %s',
                     $response['result_code']
                 ));

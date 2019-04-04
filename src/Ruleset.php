@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Rulesets
  */
@@ -36,7 +38,7 @@ class Ruleset extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get($name) {
         return $this->api->request(
@@ -55,7 +57,7 @@ class Ruleset extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         return $this->api->request(

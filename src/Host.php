@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Hosts
  */
@@ -37,7 +39,7 @@ class Host extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get($hostname, $effectiveAttributes = true) {
         return $this->api->request(
@@ -57,7 +59,7 @@ class Host extends Request {
      * @return array
      * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc. Defaults to true.
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll($effectiveAttributes = true) {
         return $this->api->request(
@@ -79,7 +81,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function add($hostname, $folder = '', array $attributes = [], $createFolders = false) {
         $parameters = [
@@ -110,7 +112,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function edit($hostname, array $attributes = [], array $unsetAttributes = []) {
         $data = [
@@ -140,7 +142,7 @@ class Host extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function delete($hostname) {
         $this->api->request(
@@ -161,7 +163,7 @@ class Host extends Request {
      *
      * @return string Result message
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function discoverServices($hostname, $mode = 'new') {
         return $this->api->request(

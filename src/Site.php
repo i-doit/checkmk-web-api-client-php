@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Sites
  */
@@ -36,7 +38,7 @@ class Site extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get($id) {
         return $this->api->request(
@@ -71,7 +73,7 @@ class Site extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         // @todo There is no dedicated API call for this.

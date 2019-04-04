@@ -26,12 +26,13 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\HostGroup;
 
 class HostGroupTest extends GroupTest {
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();

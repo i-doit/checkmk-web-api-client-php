@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Host;
 
 class HostTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Host
+     * @var Host
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -45,7 +46,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetExistingHost() {
         $hostname = $this->addHost();
@@ -66,15 +67,15 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetNonExistingHost() {
+        $this->expectException(Exception::class);
         $this->instance->get('This is not the host you are looking for');
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetAll() {
         // At least we need one host:
@@ -102,7 +103,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAdd() {
         $hostname = $this->generateRandomString();
@@ -117,7 +118,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddWithAttributes() {
         $hostname = $this->generateRandomString();
@@ -149,23 +150,21 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddWithNonExistingFolder() {
-        $result = $this->instance->add(
+        $this->expectException(Exception::class);
+        $this->instance->add(
             $this->generateRandomString(),
             // This folder does not exist:
             $this->generateRandomString(),
             [],
             false
         );
-
-        $this->assertInstanceOf(Host::class, $result);
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddAutoCreateFolder() {
         $hostname = $this->generateRandomString();
@@ -187,7 +186,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditWithNewAttributes() {
         // Add "empty" host:
@@ -216,7 +215,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditExistingAttributes() {
         $hostname = $this->generateRandomString();
@@ -255,7 +254,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditResetAttributes() {
         $hostname = $this->generateRandomString();
@@ -294,22 +293,20 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditNonExistingHost() {
-        $result = $this->instance->edit(
+        $this->expectException(Exception::class);
+        $this->instance->edit(
             $this->generateRandomString(),
             [
                 'ipaddress' => $this->generateIPv4Address()
             ]
         );
-
-        $this->assertInstanceOf(Host::class, $result);
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDelete() {
         $hostname = $this->addHost();
@@ -320,8 +317,7 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDeleteWithRetry() {
         $hostname = $this->addHost();
@@ -330,17 +326,16 @@ class HostTest extends BaseTest {
 
         $this->assertInstanceOf(Host::class, $result);
 
+        $this->expectException(Exception::class);
         $this->instance->get($hostname);
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDeleteNonExistingHost() {
-        $result = $this->instance->delete($this->generateRandomString());
-
-        $this->assertInstanceOf(Host::class, $result);
+        $this->expectException(Exception::class);
+        $this->instance->delete($this->generateRandomString());
     }
 
     public function testDiscoverServices() {
@@ -370,13 +365,11 @@ class HostTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDiscoverServicesForNonExistingHost() {
-        $result = $this->instance->discoverServices($this->generateRandomString());
-
-        $this->assertIsString($result);
+        $this->expectException(Exception::class);
+        $this->instance->discoverServices($this->generateRandomString());
     }
 
 }

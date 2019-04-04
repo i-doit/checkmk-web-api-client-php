@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Users
  */
@@ -36,13 +38,13 @@ class User extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get($id) {
         $users = $this->getAll();
 
         if (!array_key_exists($id, $users)) {
-            throw new \Exception(sprintf(
+            throw new Exception(sprintf(
                 'User with ID "%s" does not exist',
                 $id
             ));
@@ -56,7 +58,7 @@ class User extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -72,7 +74,7 @@ class User extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function add($id, array $attributes = []) {
         return $this->batchAdd([
@@ -87,7 +89,7 @@ class User extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function batchAdd(array $users) {
         $this->api->request(
@@ -115,7 +117,7 @@ class User extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function delete($id) {
         return $this->batchDelete([$id]);
@@ -128,7 +130,7 @@ class User extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function batchDelete(array $ids) {
         $this->api->request(

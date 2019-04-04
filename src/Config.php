@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * API configuration
  */
@@ -108,7 +110,7 @@ class Config {
      * Set URL
      * @param string $url URL
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setURL($url) {
         $this->assertString('URL', $url);
@@ -128,7 +130,7 @@ class Config {
      * Set port number
      * @param int $port Port number
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setPort($port) {
         $this->assertPort('port', $port);
@@ -148,7 +150,7 @@ class Config {
      * Set username
      * @param string $username Username
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUsername($username) {
         $this->assertString('username', $username);
@@ -168,7 +170,7 @@ class Config {
      * Set secret
      * @param string $secret Secret
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setSecret($secret) {
         $this->assertString('secret', $secret);
@@ -240,7 +242,7 @@ class Config {
      * Set proxy host
      * @param string $host Hostname or IP address
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setProxyHost($host) {
         $this->assertString('proxy host', $host);
@@ -260,7 +262,7 @@ class Config {
      * Set proxy port number
      * @param int $port Port number
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setProxyPort($port) {
         $this->assertPort('proxy port', $port);
@@ -280,7 +282,7 @@ class Config {
      * Set proxy username
      * @param string $username Username
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setProxyUsername($username) {
         $this->assertString('proxy username', $username);
@@ -300,7 +302,7 @@ class Config {
      * Set proxy password
      * @param string $password Password
      * @return self Returns itself
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setProxyPassword($password) {
         $this->assertString('proxy password', $password);
@@ -336,7 +338,7 @@ class Config {
     /**
      * Run tests on configuration settings
      * @return self Returns itself
-     * @throws \Exception on any misconfigured setting
+     * @throws Exception on any misconfigured setting
      */
     public function validate() {
         /**
@@ -357,7 +359,7 @@ class Config {
 
         if (strpos($this->url, 'https://') === false &&
             strpos($this->url, 'http://') === false) {
-            throw new \Exception(sprintf(
+            throw new Exception(sprintf(
                 'Unsupported protocol in URL "%s"',
                 $this->url
             ));
@@ -417,12 +419,12 @@ class Config {
 
     /**
      * @param array $settings
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function assertIsMandatory(array $settings) {
         foreach ($settings as $key => $value) {
             if (!isset($value)) {
-                throw new \Exception(sprintf(
+                throw new Exception(sprintf(
                     'Configuration setting "%s" is mandatory.',
                     $key
                 ));
@@ -433,11 +435,11 @@ class Config {
     /**
      * @param string $key
      * @param string $value
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function assertString($key, $value) {
         if (!is_string($value) || empty($value)) {
-            throw new \Exception(sprintf(
+            throw new Exception(sprintf(
                 'Configuration setting "%s" is invalid.',
                 $key
             ));
@@ -447,11 +449,11 @@ class Config {
     /**
      * @param string $key
      * @param int $value
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function assertPort($key, $value) {
         if (!is_int($value) || $value < self::PORT_MIN || $value > self::PORT_MAX) {
-            throw new \Exception(sprintf(
+            throw new Exception(sprintf(
                 'Configuration setting "%s" is not a valid port number between %s and %s.',
                 $key,
                 self::PORT_MIN,

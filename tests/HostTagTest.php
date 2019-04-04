@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\HostTag;
 
 class HostTagTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\HostTag
+     * @var HostTag
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -45,7 +46,7 @@ class HostTagTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetAll() {
         $result = $this->instance->getAll();
@@ -55,7 +56,7 @@ class HostTagTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testSet() {
         $allTags = $this->instance->getAll();

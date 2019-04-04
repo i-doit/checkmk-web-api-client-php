@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Agent;
 
 class AgentTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Agent
+     * @var Agent
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -45,7 +46,7 @@ class AgentTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testBake() {
         $result = $this->instance->bake();

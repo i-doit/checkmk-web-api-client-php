@@ -24,6 +24,8 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+
 /**
  * Changes
  */
@@ -37,7 +39,7 @@ class Change extends Request {
      *
      * @return array Results for every site
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function activate(array $sites, $allowForeignChanges = false) {
         $result = $this->api->request(
@@ -51,7 +53,7 @@ class Change extends Request {
         if (!array_key_exists('sites', $result) ||
             !is_array($result['sites']) ||
             count($result['sites']) !== count($sites)) {
-            throw new \Exception('Invalid server response');
+            throw new Exception('Invalid server response');
         }
 
         return $result['sites'];
@@ -64,7 +66,7 @@ class Change extends Request {
      *
      * @return array Results for every site
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function activateEverywhere($allowForeignChanges = false) {
         $sites = (new Site($this->api))->getAll();
@@ -72,7 +74,7 @@ class Change extends Request {
 
         foreach ($sites as $site) {
             if (!array_key_exists('site_id', $site)) {
-                throw new \Exception('Site identifier missing');
+                throw new Exception('Site identifier missing');
             }
 
             $affectedSites[] = $site['site_id'];

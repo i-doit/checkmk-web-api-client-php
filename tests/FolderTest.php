@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Folder;
 
 class FolderTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Folder
+     * @var Folder
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -45,7 +46,7 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetExistingFolder() {
         $folderPath = $this->generateRandomString();
@@ -57,15 +58,15 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetNonExistingFolder() {
+        $this->expectException(Exception::class);
         $this->instance->get('This is not the folder you are looking for');
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetAll() {
         // At least we need one folder:
@@ -93,7 +94,7 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddWithoutAttributes() {
         $folderPath = $this->generateRandomString();
@@ -107,7 +108,7 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddWithAttributes() {
         $folderPath = $this->generateRandomString();
@@ -131,7 +132,7 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAddExistingFolder() {
         $folderPath = $this->generateRandomString();
@@ -156,28 +157,24 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditWithWrongConfigurationHash() {
         // @todo Implement me!
-        throw new \Exception('Implement me!');
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditWithoutRequiredConfigurationHash() {
         // @todo Implement me!
-        throw new \Exception('Implement me!');
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEditNonExistingFolder() {
+        $this->expectException(Exception::class);
         $this->instance->edit(
             $this->generateRandomString(),
             [
@@ -187,7 +184,7 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDeleteExistingFolder() {
         $folderPath = $this->generateRandomString();
@@ -199,16 +196,15 @@ class FolderTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDeleteNonExistingFolder() {
+        $this->expectException(Exception::class);
         $this->instance->delete($this->generateRandomString());
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDeleteWithRetry() {
         $folderPath = $this->generateRandomString();
@@ -218,7 +214,7 @@ class FolderTest extends BaseTest {
 
         $this->assertInstanceOf(Folder::class, $result);
 
-        // Must throw exception:
+        $this->expectException(Exception::class);
         $this->instance->get($folderPath);
     }
 

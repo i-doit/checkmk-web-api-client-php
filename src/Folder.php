@@ -24,6 +24,9 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+use \stdClass;
+
 /**
  * Folders
  */
@@ -36,7 +39,7 @@ class Folder extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function get($folder) {
         return $this->api->request(
@@ -56,7 +59,7 @@ class Folder extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -76,7 +79,7 @@ class Folder extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function add($folder, array $attributes = []) {
         $data = [
@@ -86,7 +89,7 @@ class Folder extends Request {
         if (count($attributes) > 0) {
             $data['attributes'] = $attributes;
         } else {
-            $data['attributes'] = new \stdClass();
+            $data['attributes'] = new stdClass();
         }
 
         $this->api->request(
@@ -106,7 +109,7 @@ class Folder extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function edit($folder, array $attributes, $configurationHash = null) {
         $data = [
@@ -136,7 +139,7 @@ class Folder extends Request {
      *
      * @return self Returns itself
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function delete($folder) {
         $this->api->request(

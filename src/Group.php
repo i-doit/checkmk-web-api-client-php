@@ -24,6 +24,10 @@
 
 namespace bheisig\checkmkwebapi;
 
+use \Exception;
+use \ReflectionClass;
+use \ReflectionException;
+
 /**
  * Groups
  */
@@ -34,14 +38,14 @@ abstract class Group extends Request {
     /**
      * Constructor
      *
-     * @param \bheisig\checkmkwebapi\API $api API client
+     * @param API $api API client
      *
-     * @throws \ReflectionException on error
+     * @throws ReflectionException on error
      */
     public function __construct(API $api) {
         parent::__construct($api);
 
-        $this->prefix = strtolower((new \ReflectionClass($this))->getShortName());
+        $this->prefix = strtolower((new ReflectionClass($this))->getShortName());
     }
 
     /**
@@ -51,13 +55,13 @@ abstract class Group extends Request {
      *
      * @return array
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function get($name) {
         $groups = $this->getAll();
 
         if (!array_key_exists($name, $groups)) {
-            throw new \Exception(sprintf(
+            throw new Exception(sprintf(
                 'Group "%s" does not exist',
                 $name
             ));
@@ -71,7 +75,7 @@ abstract class Group extends Request {
      *
      * @return array
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function getAll() {
         return $this->api->request(
@@ -87,7 +91,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function add($name, $alias) {
         $this->api->request(
@@ -109,7 +113,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function edit($name, $alias) {
         $this->api->request(
@@ -130,7 +134,7 @@ abstract class Group extends Request {
      *
      * @return self
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function delete($name) {
         $this->api->request(

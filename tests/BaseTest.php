@@ -26,6 +26,7 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use PHPUnit\Framework\TestCase;
 use bheisig\checkmkwebapi\API;
 use bheisig\checkmkwebapi\Config;
@@ -35,14 +36,14 @@ use Symfony\Component\Dotenv\Dotenv;
 abstract class BaseTest extends TestCase {
 
     /**
-     * @var \bheisig\checkmkwebapi\API
+     * @var API
      */
     protected $api;
 
     /**
      * Makes API available
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         $dotenv = new Dotenv();
@@ -74,7 +75,7 @@ abstract class BaseTest extends TestCase {
      *
      * @return string Hostname
      *
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     protected function addHost() {
         $hostname = $this->generateRandomString();

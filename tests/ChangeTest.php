@@ -26,20 +26,21 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Change;
 use bheisig\checkmkwebapi\Host;
 
 class ChangeTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Change
+     * @var Change
      */
     protected $instance;
 
     protected $sites = [];
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function setUp() {
         parent::setUp();
@@ -52,7 +53,7 @@ class ChangeTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testActivate() {
         // We need at least one change:

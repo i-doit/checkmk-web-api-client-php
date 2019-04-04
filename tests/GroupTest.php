@@ -26,17 +26,18 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi\tests;
 
+use \Exception;
 use bheisig\checkmkwebapi\Group;
 
 abstract class GroupTest extends BaseTest {
 
     /**
-     * @var \bheisig\checkmkwebapi\Group
+     * @var Group
      */
     protected $instance;
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGet() {
         $name = $this->generateRandomString();
@@ -58,15 +59,15 @@ abstract class GroupTest extends BaseTest {
     }
 
     /**
-     * @expectedException \Exception
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetNonExistingGroup() {
+        $this->expectException(Exception::class);
         $this->instance->get($this->generateRandomString());
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testGetAll() {
         $result = $this->instance->getAll();
@@ -84,7 +85,7 @@ abstract class GroupTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testAdd() {
         $name = $this->generateRandomString();
@@ -103,7 +104,7 @@ abstract class GroupTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testEdit() {
         $name = $this->generateRandomString();
@@ -130,7 +131,7 @@ abstract class GroupTest extends BaseTest {
     }
 
     /**
-     * @throws \Exception on error
+     * @throws Exception on error
      */
     public function testDelete() {
         $name = $this->generateRandomString();
