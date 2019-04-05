@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -   Configuration setting to disable security-related cURL options (boolean)
 
 
+### Fixed
+
+-   Encode parsed Phython output into Unicode (UTF-8)
+
+
 ##  [0.4] – 2018-12-17
 
 

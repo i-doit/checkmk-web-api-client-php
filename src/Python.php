@@ -92,13 +92,17 @@ class Python {
             }
         }
 
+        $value = utf8_encode($value);
+
         $decoded = json_decode(
             $value,
             true
         );
+
         if (!is_array($decoded)) {
             return null;
         }
+
         return $decoded;
     }
 
