@@ -28,10 +28,10 @@ Meet these simple requirements before using the client:
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
 ~~~ {.bash}
-composer require "bheisig/checkmkwebapi=>=0.4"
+composer require bheisig/checkmkwebapi
 ~~~
 
-This command installs version `0.4` or higher if available. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
+This command installs the latest stable version. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
 
 ~~~ {.bash}
 composer require "bheisig/checkmkwebapi=@DEV"

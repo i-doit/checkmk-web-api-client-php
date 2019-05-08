@@ -82,6 +82,7 @@ This project comes with some useful composer scripts:
 | `composer ci`                 | Perform continuous integration tasks                      |
 | `composer gitstats`           | Create Git statistics                                     |
 | `composer gource`             | Visualize Git history                                     |
+| `composer phpcompatibility`   | Run PHP compatibility checks                              |
 | `composer phpcpd`             | Detect copy/paste in source code                          |
 | `composer phpcs`              | Detect violations of defined coding standards             |
 | `composer phploc`             | Print source code statistics                              |
