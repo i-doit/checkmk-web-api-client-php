@@ -37,18 +37,24 @@ class Python {
      * @return array|null Result as array, otherwise null
      */
     public static function decode($value) {
-        // Remove line breaks:
-        $value = preg_replace('/\s+/', ' ', $value);
+        // Trim empty spaces at the beginning of each line and remove line breaks:
+        $lines = explode(PHP_EOL, $value);
+        $trimmedLines = '';
+        foreach ($lines as $line) {
+            $trimmedLines .= ltrim($line);
+        }
+        $value = $trimmedLines;
+
         if (!is_string($value)) {
             return null;
         }
-        $value = trim($value);
 
         $value = str_replace(
             ['\'', 'True', 'False', 'None', '": u"', ', u"'],
             ['"', 'true', 'false', 'null', '": "', ', "'],
             $value
         );
+
         if (!is_string($value)) {
             return null;
         }

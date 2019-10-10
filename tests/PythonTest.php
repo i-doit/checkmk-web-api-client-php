@@ -268,6 +268,24 @@ EOF
 EOF
                 )
             ],
+            'tupel of strings' => [
+                <<<EOF
+{
+    'key': ('foo', 'bar')
+}
+EOF
+                ,
+                $this->decodeJSON(
+                    <<<EOF
+{
+    "key": [
+        "foo",
+        "bar"
+    ]
+}
+EOF
+                )
+            ],
             'tupel of tupel plus object' => [
                 <<<EOF
 {
@@ -344,11 +362,11 @@ EOF
             ],
             'bigger example #1' => [
                 <<<EOF
-{'result': {'': {}, 'foo': {'network_scan_result': {'output': 'The network scan found 0 new hosts.',
-'state': True, 'end': 1523271725.991344, 'start': 1523271721.830718}, 'network_scan': {'time_allowed':
-((0, 0), (24, 0)), 'run_as': u'bar', 'tag_criticality': 'offline', 'ip_ranges': [('ip_range',
-('10.0.0.1', '10.0.0.254'))], 'scan_interval': 3600, 'set_ipaddress': True, 'exclude_ranges': [],
-'translate_names': {'case': 'lower', 'drop_domain': True}}, 'snmp_community': 'integrate'}},
+{'result': {'': {}, 'foo': {'network_scan_result': {'output': 'The network scan found 0 new hosts.', 
+'state': True, 'end': 1523271725.991344, 'start': 1523271721.830718}, 'network_scan': {'time_allowed': 
+((0, 0), (24, 0)), 'run_as': u'bar', 'tag_criticality': 'offline', 'ip_ranges': [('ip_range', 
+('10.0.0.1', '10.0.0.254'))], 'scan_interval': 3600, 'set_ipaddress': True, 'exclude_ranges': [], 
+'translate_names': {'case': 'lower', 'drop_domain': True}}, 'snmp_community': 'integrate'}}, 
 'result_code': 0}
 EOF
                 ,
