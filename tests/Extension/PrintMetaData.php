@@ -80,7 +80,7 @@ final class PrintMetaData implements BeforeFirstTestHook {
     protected function printMetaData(): self {
         $url = getenv('URL');
         $libName = $this->composer['name'];
-        $libVersion = $this->composer['version'];
+        $libVersion = $this->composer['extra']['version'];
         $phpVersion = PHP_VERSION;
         $date = date('c');
         $os = PHP_OS;

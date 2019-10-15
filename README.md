@@ -20,7 +20,7 @@ Meet these simple requirements before using the client:
 
 *   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
 *   PHP, version 7.1 or higher (7.0 still works but is deprecated; 7.3 is recommended)
-*   PHP modules `curl`, `date`, `json`, `openssl` and `zlib`
+*   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
 
 ##  Installation

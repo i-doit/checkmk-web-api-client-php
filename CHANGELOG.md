@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -   Mark PHP version 7.0 as deprecated
 -   Recommend PHP 7.3
 -   Declare strict types
+-   Require PHP extension `spl`
 
 ### Fixed
 

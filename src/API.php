@@ -137,7 +137,7 @@ class API {
 
             if (is_string($composerFileContent)) {
                 $composer = json_decode($composerFileContent, true);
-                $userAgent = $composer['name'] . ' ' . $composer['version'];
+                $userAgent = $composer['name'] . ' ' . $composer['extra']['version'];
             }
         }
 

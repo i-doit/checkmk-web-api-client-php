@@ -61,13 +61,13 @@ This project has some dependencies for developers:
 
 … and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi). You need commit rights for this repository.
 
-1.  Bump `version` in file [`composer.json`](composer.json)
+1.  Bump version: `composer config extra.version <VERSION>`
 2.  Update composer: `composer update`
 3.  Keep [`README.md`](README.md) and [`CHANGELOG.md`](CHANGELOG.md) up-to-date
-4.  Commit changes: `git commit -a -m "Bump version to $(composer config version)"`
+4.  Commit changes: `git commit -a -m "Bump version to $(composer config extra.version)"`
 5.  Perform some tests, for example `composer ci`
 6.  Run unit tests: `composer phpunit`
-7.  Create Git tag: `git tag -s -a -m "Release version $(composer config version)" $(composer config version)`
+7.  Create Git tag: `git tag -s -a -m "Release version $(composer config extra.version)" $(composer config extra.version)`
 8.  Push changes: `git push && git push --tags`
 
 There is already a webhook enabled to push the code from GitHub to Packagist.
@@ -82,6 +82,11 @@ This project comes with some useful composer scripts:
 | `composer ci`                 | Perform continuous integration tasks                      |
 | `composer gitstats`           | Create Git statistics                                     |
 | `composer gource`             | Visualize Git history                                     |
+| `composer lint`               | Perform all lint checks                                   |
+| `composer lint-php`           | Check syntax of PHP files                                 |
+| `composer lint-json`          | Check syntax of JSON files                                |
+| `composer lint-xml`           | Check syntax of XML files                                 |
+| `composer lint-yaml`          | Check syntax of YAML files                                |
 | `composer phpcompatibility`   | Run PHP compatibility checks                              |
 | `composer phpcpd`             | Detect copy/paste in source code                          |
 | `composer phpcs`              | Detect violations of defined coding standards             |
@@ -91,7 +96,6 @@ This project comes with some useful composer scripts:
 | `composer phpstan`            | Analyze source code                                       |
 | `composer phpunit`            | Perform unit tests                                        |
 | `composer security-checker`   | Look for dependencies with known security vulnerabilities |
-| `composer syntax-check`       | Check syntax of source code                               |
 | `composer system-check`       | Run some system checks                                    |
 
 For example, execute `composer phpstan`.
