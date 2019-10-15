@@ -1,4 +1,4 @@
-#   Check_MK Web API Client
+# Check_MK Web API Client
 
 Easy-to-use, but feature-rich client for Check_MK Web API
 
@@ -6,24 +6,21 @@ Easy-to-use, but feature-rich client for Check_MK Web API
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
-
-##  About
+## About
 
 [Check_MK](https://mathias-kettner.de/check_mk.html) is a software application for network monitoring. The community edition ("raw") is licensed under the GPLv2.
 
 This client communicates with Check_MK over its Web API. It provides a simple, but powerful abstraction layer for written in PHP. Feel free to use it as a library in your own projects.
 
-
-##  Requirements
+## Requirements
 
 Meet these simple requirements before using the client:
 
-*   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
-*   PHP, version 7.1 or higher (7.0 still works but is deprecated; 7.3 is recommended)
-*   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
+-   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
+-   PHP, version 7.1 or higher (7.0 still works but is deprecated; 7.3 is recommended)
+-   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
-
-##  Installation
+## Installation
 
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
@@ -37,8 +34,7 @@ This command installs the latest stable version. Instead of sticking to a specif
 composer require "bheisig/checkmkwebapi=@DEV"
 ~~~
 
-
-##  Updates
+## Updates
 
 Composer has the great advantage (besides many others) that you can simply update the client by running:
 
@@ -46,8 +42,7 @@ Composer has the great advantage (besides many others) that you can simply updat
 composer update
 ~~~
 
-
-##  Usage
+## Usage
 
 Composer comes with its own autoloader. Include this line into your PHP code:
 
@@ -57,8 +52,7 @@ require_once 'vendor/autoload.php';
 
 This is it. All other files will be auto-loaded on-the-fly if needed.
 
-
-##  First call
+## First call
 
 This is a simple "Hello, world!" example. It fetches all configured hosts from Check_MK:
 
@@ -81,8 +75,7 @@ $hosts = $request->getAll();
 var_dump($hosts);
 ~~~
 
-
-##  Configuration
+## Configuration
 
 The `API` class requires configuration settings passed to its constructor:
 
@@ -130,8 +123,7 @@ Optional proxy settings:
 | `setProxyUsername()`  | string    | no        | Authenticate against proxy                    |
 | `setProxyPassword()`  | string    | no        | Specified password for authentication         |
 
-
-##  Hosts
+## Hosts
 
 Class `Host` with public methods:
 
@@ -144,8 +136,7 @@ Class `Host` with public methods:
 | `delete_host`         | `delete()`            | Delete a host by its hostname                                             |
 | `discover_services`   | `discoverServices()`  | Discover services of a host                                               |
 
-
-##  Sites
+## Sites
 
 Class `Site` with public methods:
 
@@ -154,8 +145,7 @@ Class `Site` with public methods:
 | `get_site`            | `get()`               | Read information about a site by its identifier                   |
 | –                     | `getAll()`            | Read information about all sites                                  |
 
-
-##  Folders
+## Folders
 
 Class `Folder` with pulic methods:
 
@@ -167,8 +157,7 @@ Class `Folder` with pulic methods:
 | `edit_folder`         | `edit()`              | Edit a folder's attributes                                        |
 | `delete_folder`       | `delete()`            | Delete a folder by its path                                       |
 
-
-##  Groups
+## Groups
 
 Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 
@@ -180,8 +169,7 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 | `edit_*group`         | `edit()`              | Change the alias of a group                                       |
 | `delete_*group`       | `delete()`            | Delete contact group by its name                                  |
 
-
-##  Host Tags
+## Host Tags
 
 Class `HostTag` with pulic methods:
 
@@ -190,8 +178,7 @@ Class `HostTag` with pulic methods:
 | `get_hosttags`        | `getAll()`            | Read information about all host tag groups and auxiliary tags     |
 | `set_hosttags`        | `set()`               | Overwrite all host tag groups and auxiliary tags                  |
 
-
-##  Users
+## Users
 
 Class `Users` with pulic methods:
 
@@ -204,8 +191,7 @@ Class `Users` with pulic methods:
 | –                     | `delete()`            | Delete a user by its identifier                                   |
 | `delete_users`        | `batchDelete()`       | Delete users by their identifiers                                 |
 
-
-##  Rulesets
+## Rulesets
 
 Class `Ruleset` with public methods:
 
@@ -214,8 +200,7 @@ Class `Ruleset` with public methods:
 | `get_ruleset`         | `get()`               | Read information about a ruleset by its name                      |
 | `get_rulesets_info`   | `getAll()`            | Read information about all rulesets                               |
 
-
-##  Agents
+## Agents
 
 Class `Agent` with public methods:
 
@@ -223,8 +208,7 @@ Class `Agent` with public methods:
 | --------------------- | --------------------- | ------------------------------------------------------------------|
 | `bake_agents`         | `bake()`              | Bake agents but not sign them                                     |
 
-
-##  Activate Changes
+## Activate Changes
 
 Class `Change` with public methods:
 
@@ -233,8 +217,7 @@ Class `Change` with public methods:
 | `activate_changes`    | `activate()`          | Activate changes on specific sites                                |
 | –                     | `activateEverywhere`  | Activate changes on all sites                                     |
 
-
-##  Metrics
+## Metrics
 
 Class `Graph` with public method:
 
@@ -242,8 +225,7 @@ Class `Graph` with public method:
 | --------------------- | --------------------- | ------------------------------------------------------------------|
 | `get_graph`           | `get()`               | Get metrics as a graph                                            |
 
-
-##  Inventory
+## Inventory
 
 Check_MK can collect various information about your hardware/software inventory.
 
@@ -254,13 +236,11 @@ Class `Inventory` with public methods:
 | -                     | `getHost()`           | Read hardware/software inventory data for a specific host         |
 | -                     | `getHosts()`          | Read hardware/software inventory data for one or more hosts       |
 
-
-##  Contribute
+## Contribute
 
 Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
-
-##  Copyright & License
+## Copyright & License
 
 Copyright (C) 2018-19 [Benjamin Heisig](https://benjamin.heisig.name/)
 

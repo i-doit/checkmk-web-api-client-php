@@ -1,31 +1,26 @@
-#   Contribution
+# Contribution
 
 Thank you very much for your interest in this project! There are plenty of ways you can support us. :-)
 
-
-##  Code of Conduct
+## Code of Conduct
 
 We like you to read and follow our [code of conduct](CODE_OF_CONDUCT.md) before contributing. Thank you.
 
-
-##  Use it
+## Use it
 
 The best and (probably) easiest way is to use the API client library for your own projects. It would be very nice to share your thoughts with us. We love to hear from you.
 
 If you have questions how to use it properly read the [documentation](README.md) carefully.
 
-
-##  Report bugs
+## Report bugs
 
 If you find something strange please report it to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
 
-
-##  Make a wish
+## Make a wish
 
 Of course, there are some features in the pipeline. However, if you have good ideas how to improve this project please let us know! Write a feature request [in our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
 
-
-##  Setup a development environment
+## Setup a development environment
 
 If you like to contribute source code, documentation snippets, self-explaining examples or other useful bits, fork this repository, setup the environment and make a pull request.
 
@@ -45,19 +40,17 @@ Now it is the time to do _your_ stuff. Do not forget to commit your changes. Whe
 
 Notice, that any of your contributions merged into this repository will be [licensed under the AGPLv3](LICENSE).
 
-
-##  Requirements
+## Requirements
 
 This project has some dependencies for developers:
 
-*   See requirements mentioned in the [documentation](README.md)
-*   You need at least PHP 7.1 (7.3 is recommended), for example to run unit tests
-*   [Xdebug](https://xdebug.org/)
-*   [Composer](https://getcomposer.org/)
-*   [Git](https://git-scm.com/)
+-   See requirements mentioned in the [documentation](README.md)
+-   You need at least PHP 7.1 (7.3 is recommended), for example to run unit tests
+-   [Xdebug](https://xdebug.org/)
+-   [Composer](https://getcomposer.org/)
+-   [Git](https://git-scm.com/)
 
-
-##  Release new version
+## Release new version
 
 … and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi). You need commit rights for this repository.
 
@@ -72,8 +65,7 @@ This project has some dependencies for developers:
 
 There is already a webhook enabled to push the code from GitHub to Packagist.
 
-
-##  Composer scripts
+## Composer scripts
     
 This project comes with some useful composer scripts:
 
@@ -100,7 +92,6 @@ This project comes with some useful composer scripts:
 
 For example, execute `composer phpstan`.
 
-
-##  Donate
+## Donate
 
 Last but not least, if you think this script is useful for your daily work, consider a donation. What about a beer?
