@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -41,7 +43,7 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function get($hostname, $effectiveAttributes = true) {
+    public function get(string $hostname, bool $effectiveAttributes = true): array {
         return $this->api->request(
             'get_host',
             [
@@ -61,7 +63,7 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll($effectiveAttributes = true) {
+    public function getAll(bool $effectiveAttributes = true): array {
         return $this->api->request(
             'get_all_hosts',
             [],
@@ -83,7 +85,12 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function add($hostname, $folder = '', array $attributes = [], $createFolders = false) {
+    public function add(
+        string $hostname,
+        string $folder = '',
+        array $attributes = [],
+        bool $createFolders = false
+    ): self {
         $parameters = [
             'hostname' => $hostname,
             'folder' => $folder,
@@ -114,7 +121,7 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function edit($hostname, array $attributes = [], array $unsetAttributes = []) {
+    public function edit(string $hostname, array $attributes = [], array $unsetAttributes = []): self {
         $data = [
             'hostname' => $hostname
         ];
@@ -144,7 +151,7 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function delete($hostname) {
+    public function delete(string $hostname): self {
         $this->api->request(
             'delete_host',
             [
@@ -165,7 +172,7 @@ class Host extends Request {
      *
      * @throws Exception on error
      */
-    public function discoverServices($hostname, $mode = 'new') {
+    public function discoverServices(string $hostname, string $mode = 'new'): string {
         return $this->api->request(
             'discover_services',
             [

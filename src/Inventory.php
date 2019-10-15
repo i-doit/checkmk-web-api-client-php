@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -40,7 +42,7 @@ class Inventory extends Request {
      *
      * @throws Exception on error
      */
-    public function getHost($hostname) {
+    public function getHost(string $hostname): array {
         $result = $this->getHosts([$hostname]);
 
         return $result[$hostname];
@@ -55,7 +57,7 @@ class Inventory extends Request {
      *
      * @throws Exception on error
      */
-    public function getHosts(array $hostnames) {
+    public function getHosts(array $hostnames): array {
         $hosts = implode(', ', array_map(function ($hostname) {
             return '"' . $hostname . '"';
         }, $hostnames));

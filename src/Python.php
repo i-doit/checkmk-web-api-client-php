@@ -22,10 +22,13 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 /**
  * Handle Python dictionaries
+ * @todo Move to separate library!
  */
 class Python {
 
@@ -35,8 +38,9 @@ class Python {
      * @param string $value Python foo
      *
      * @return array|null Result as array, otherwise null
+     * @todo Return strict type!
      */
-    public static function decode($value) {
+    public static function decode(string $value) {
         // Trim empty spaces at the beginning of each line and remove line breaks:
         $lines = explode(PHP_EOL, $value);
         $trimmedLines = '';

@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -57,7 +59,7 @@ abstract class Group extends Request {
      *
      * @throws Exception
      */
-    public function get($name) {
+    public function get(string $name): array {
         $groups = $this->getAll();
 
         if (!array_key_exists($name, $groups)) {
@@ -77,7 +79,7 @@ abstract class Group extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         return $this->api->request(
             sprintf('get_all_%ss', $this->prefix)
         );
@@ -89,11 +91,11 @@ abstract class Group extends Request {
      * @param string $name Name
      * @param string $alias Alias
      *
-     * @return self
+     * @return self Returns itself
      *
      * @throws Exception on error
      */
-    public function add($name, $alias) {
+    public function add(string $name, string $alias): self {
         $this->api->request(
             sprintf('add_%s', $this->prefix),
             [
@@ -111,11 +113,11 @@ abstract class Group extends Request {
      * @param string $name Name
      * @param string $alias Alias
      *
-     * @return self
+     * @return self Returns itself
      *
      * @throws Exception on error
      */
-    public function edit($name, $alias) {
+    public function edit(string $name, string $alias): self {
         $this->api->request(
             sprintf('edit_%s', $this->prefix),
             [
@@ -132,11 +134,11 @@ abstract class Group extends Request {
      *
      * @param string $name Name
      *
-     * @return self
+     * @return self Returns itself
      *
      * @throws Exception on error
      */
-    public function delete($name) {
+    public function delete(string $name): self {
         $this->api->request(
             sprintf('delete_%s', $this->prefix),
             [

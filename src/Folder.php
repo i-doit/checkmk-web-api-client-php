@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -41,7 +43,7 @@ class Folder extends Request {
      *
      * @throws Exception on error
      */
-    public function get($folder) {
+    public function get(string $folder): array {
         return $this->api->request(
             'get_folder',
             [
@@ -61,7 +63,7 @@ class Folder extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         return $this->api->request(
             'get_all_folders',
             [],
@@ -81,7 +83,7 @@ class Folder extends Request {
      *
      * @throws Exception on error
      */
-    public function add($folder, array $attributes = []) {
+    public function add(string $folder, array $attributes = []): self {
         $data = [
             'folder' => $folder
         ];
@@ -111,7 +113,7 @@ class Folder extends Request {
      *
      * @throws Exception on error
      */
-    public function edit($folder, array $attributes, $configurationHash = null) {
+    public function edit(string $folder, array $attributes, string $configurationHash = null): self {
         $data = [
             'folder' => $folder,
             'attributes' => $attributes
@@ -141,7 +143,7 @@ class Folder extends Request {
      *
      * @throws Exception on error
      */
-    public function delete($folder) {
+    public function delete(string $folder): self {
         $this->api->request(
             'delete_folder',
             [

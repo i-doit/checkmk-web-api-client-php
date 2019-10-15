@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -38,7 +40,7 @@ class HostTag extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         return $this->api->request(
             'get_hosttags'
         );
@@ -54,7 +56,7 @@ class HostTag extends Request {
      *
      * @throws Exception on error
      */
-    public function set(array $tags, $configurationHash = null) {
+    public function set(array $tags, string $configurationHash = null): self {
         $data = $tags;
 
         if (isset($configurationHash)) {

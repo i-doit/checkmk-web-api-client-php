@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -40,7 +42,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function get($id) {
+    public function get(string $id): array {
         $users = $this->getAll();
 
         if (!array_key_exists($id, $users)) {
@@ -60,7 +62,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         return $this->api->request(
             'get_all_users'
         );
@@ -76,7 +78,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function add($id, array $attributes = []) {
+    public function add(string $id, array $attributes = []): self {
         return $this->batchAdd([
             $id => $attributes
         ]);
@@ -91,7 +93,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function batchAdd(array $users) {
+    public function batchAdd(array $users): self {
         $this->api->request(
             'add_users',
             [
@@ -119,7 +121,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function delete($id) {
+    public function delete(string $id): self {
         return $this->batchDelete([$id]);
     }
 
@@ -132,7 +134,7 @@ class User extends Request {
      *
      * @throws Exception on error
      */
-    public function batchDelete(array $ids) {
+    public function batchDelete(array $ids): self {
         $this->api->request(
             'delete_users',
             [

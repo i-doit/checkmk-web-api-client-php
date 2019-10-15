@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Changed
+
+-   Drop support for PHP version 5.6
+-   Mark PHP version 7.0 as deprecated
+-   Recommend PHP 7.3
+-   Declare strict types
+
 ### Fixed
 
 -   Trim empty spaces at the beginning of each line in Python output

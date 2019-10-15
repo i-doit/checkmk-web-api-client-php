@@ -3,7 +3,7 @@
 Easy-to-use, but feature-rich client for Check_MK Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
 
@@ -19,7 +19,7 @@ This client communicates with Check_MK over its Web API. It provides a simple, b
 Meet these simple requirements before using the client:
 
 *   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
-*   PHP, version 5.6 or higher (7.3 is recommended)
+*   PHP, version 7.1 or higher (7.0 still works but is deprecated; 7.3 is recommended)
 *   PHP modules `curl`, `date`, `json`, `openssl` and `zlib`
 
 

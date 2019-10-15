@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -112,7 +114,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setURL($url) {
+    public function setURL(string $url): self {
         $this->assertString('URL', $url);
         $this->url = $url;
         return $this;
@@ -122,7 +124,7 @@ class Config {
      * Get URL
      * @return string
      */
-    public function getURL() {
+    public function getURL(): string {
         return $this->url;
     }
 
@@ -132,7 +134,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setPort($port) {
+    public function setPort(int $port): self {
         $this->assertPort('port', $port);
         $this->port = $port;
         return $this;
@@ -142,7 +144,7 @@ class Config {
      * Get port number
      * @return int
      */
-    public function getPort() {
+    public function getPort(): int {
         return $this->port;
     }
 
@@ -152,7 +154,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setUsername($username) {
+    public function setUsername(string $username): self {
         $this->assertString('username', $username);
         $this->username = $username;
         return $this;
@@ -162,7 +164,7 @@ class Config {
      * Get username
      * @return string
      */
-    public function getUsername() {
+    public function getUsername(): string {
         return $this->username;
     }
 
@@ -172,7 +174,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setSecret($secret) {
+    public function setSecret(string $secret): self {
         $this->assertString('secret', $secret);
         $this->secret = $secret;
         return $this;
@@ -182,24 +184,24 @@ class Config {
      * Get secret
      * @return string
      */
-    public function getSecret() {
+    public function getSecret(): string {
         return $this->secret;
     }
 
     /**
      * Enable proxy settings
-     * @return self
+     * @return self Returns itself
      */
-    public function enableProxy() {
+    public function enableProxy(): self {
         $this->proxyEnabled = true;
         return $this;
     }
 
     /**
      * Disable proxy settings
-     * @return self
+     * @return self Returns itself
      */
-    public function disableProxy() {
+    public function disableProxy(): self {
         $this->proxyEnabled = false;
         return $this;
     }
@@ -208,7 +210,7 @@ class Config {
      * Are proxy settings enabled?
      * @return bool Defaults to false
      */
-    public function isProxyEnabled() {
+    public function isProxyEnabled(): bool {
         return $this->proxyEnabled;
     }
 
@@ -216,7 +218,7 @@ class Config {
      * Set proxy type to "HTTP"
      * @return self Returns itself
      */
-    public function useHTTPProxy() {
+    public function useHTTPProxy(): self {
         $this->proxyType = 'HTTP';
         return $this;
     }
@@ -225,7 +227,7 @@ class Config {
      * Set to proxy type to "SOCKS5"
      * @return self Returns itself
      */
-    public function useSOCKS5Proxy() {
+    public function useSOCKS5Proxy(): self {
         $this->proxyType = 'SOCKS5';
         return $this;
     }
@@ -234,7 +236,7 @@ class Config {
      * Get proxy type
      * @return string
      */
-    public function getProxyType() {
+    public function getProxyType(): string {
         return $this->proxyType;
     }
 
@@ -244,7 +246,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setProxyHost($host) {
+    public function setProxyHost(string $host): self {
         $this->assertString('proxy host', $host);
         $this->proxyHost = $host;
         return $this;
@@ -254,7 +256,7 @@ class Config {
      * Get proxy host
      * @return string
      */
-    public function getProxyHost() {
+    public function getProxyHost(): string {
         return $this->proxyHost;
     }
 
@@ -264,7 +266,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setProxyPort($port) {
+    public function setProxyPort(int $port): self {
         $this->assertPort('proxy port', $port);
         $this->proxyPort = $port;
         return $this;
@@ -274,7 +276,7 @@ class Config {
      * Get proxy port number
      * @return int
      */
-    public function getProxyPort() {
+    public function getProxyPort(): int {
         return $this->proxyPort;
     }
 
@@ -284,7 +286,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setProxyUsername($username) {
+    public function setProxyUsername(string $username): self {
         $this->assertString('proxy username', $username);
         $this->proxyUsername = $username;
         return $this;
@@ -294,7 +296,7 @@ class Config {
      * Get proxy username
      * @return string
      */
-    public function getProxyUsername() {
+    public function getProxyUsername(): string {
         return $this->proxyUsername;
     }
 
@@ -304,7 +306,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function setProxyPassword($password) {
+    public function setProxyPassword(string $password): self {
         $this->assertString('proxy password', $password);
         $this->proxyPassword = $password;
         return $this;
@@ -314,7 +316,7 @@ class Config {
      * Get proxy password
      * @return string
      */
-    public function getProxyPassword() {
+    public function getProxyPassword(): string {
         return $this->proxyPassword;
     }
 
@@ -322,7 +324,7 @@ class Config {
      * Bypass secure connection
      * @return self Returns itself
      */
-    public function bypassSecureConnection() {
+    public function bypassSecureConnection(): self {
         $this->bypassSecureConnection = true;
         return $this;
     }
@@ -331,7 +333,7 @@ class Config {
      * Is secure connection bypassed?
      * @return bool Defaults to false
      */
-    public function isSecureConnectionBypassed() {
+    public function isSecureConnectionBypassed(): bool {
         return $this->bypassSecureConnection;
     }
 
@@ -340,7 +342,7 @@ class Config {
      * @return self Returns itself
      * @throws Exception on any misconfigured setting
      */
-    public function validate() {
+    public function validate(): self {
         /**
          * Mandatory settings
          */
@@ -437,7 +439,7 @@ class Config {
      * @param string $value
      * @throws Exception on error
      */
-    protected function assertString($key, $value) {
+    protected function assertString(string $key, string $value) {
         if (!is_string($value) || empty($value)) {
             throw new Exception(sprintf(
                 'Configuration setting "%s" is invalid.',
@@ -451,7 +453,7 @@ class Config {
      * @param int $value
      * @throws Exception on error
      */
-    protected function assertPort($key, $value) {
+    protected function assertPort(string $key, int $value) {
         if (!is_int($value) || $value < self::PORT_MIN || $value > self::PORT_MAX) {
             throw new Exception(sprintf(
                 'Configuration setting "%s" is not a valid port number between %s and %s.',

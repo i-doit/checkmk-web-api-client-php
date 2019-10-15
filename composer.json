@@ -19,7 +19,7 @@
         "source": "https://github.com/bheisig/checkmkwebapi"
     },
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.0.8",
         "ext-curl": "*",
         "ext-date": "*",
         "ext-json": "*",
@@ -72,7 +72,7 @@
         "gitstats": "gitstats -c project_name=`composer config name` . gitstats",
         "gource": "gource -1280x720 --seconds-per-day 3 --auto-skip-seconds 1 --title `composer config name`",
         "phpcompatibility": [
-            "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 5.6 src/",
+            "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.0 src/",
             "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.1 tests/"
         ],
         "phpcpd": "./vendor/bin/phpcpd src/",

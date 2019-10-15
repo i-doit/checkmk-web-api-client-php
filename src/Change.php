@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -41,7 +43,7 @@ class Change extends Request {
      *
      * @throws Exception on error
      */
-    public function activate(array $sites, $allowForeignChanges = false) {
+    public function activate(array $sites, bool $allowForeignChanges = false): array {
         $result = $this->api->request(
             'activate_changes',
             [
@@ -68,7 +70,7 @@ class Change extends Request {
      *
      * @throws Exception on error
      */
-    public function activateEverywhere($allowForeignChanges = false) {
+    public function activateEverywhere(bool $allowForeignChanges = false): array {
         $sites = (new Site($this->api))->getAll();
         $affectedSites = [];
 

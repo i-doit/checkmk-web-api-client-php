@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -40,7 +42,7 @@ class Ruleset extends Request {
      *
      * @throws Exception on error
      */
-    public function get($name) {
+    public function get(string $name): array {
         return $this->api->request(
             'get_ruleset',
             [
@@ -59,7 +61,7 @@ class Ruleset extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         return $this->api->request(
             'get_rulesets_info',
             [],

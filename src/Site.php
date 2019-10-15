@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -40,7 +42,7 @@ class Site extends Request {
      *
      * @throws Exception on error
      */
-    public function get($id) {
+    public function get(string $id): array {
         return $this->api->request(
             'get_site',
             [
@@ -75,7 +77,7 @@ class Site extends Request {
      *
      * @throws Exception on error
      */
-    public function getAll() {
+    public function getAll(): array {
         // @todo There is no dedicated API call for this.
 
         $siteIDs = [];

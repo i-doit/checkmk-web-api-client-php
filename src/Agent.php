@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -38,7 +40,7 @@ class Agent extends Request {
      *
      * @throws Exception on error
      */
-    public function bake() {
+    public function bake(): self {
         $this->api->request(
             'bake_agents'
         );

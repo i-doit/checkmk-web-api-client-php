@@ -22,6 +22,8 @@
  * @link https://github.com/bheisig/checkmkwebapi
  */
 
+declare(strict_types=1);
+
 namespace bheisig\checkmkwebapi;
 
 use \Exception;
@@ -125,7 +127,7 @@ class API {
      *
      * @return string
      */
-    protected function getUserAgent() {
+    protected function getUserAgent(): string {
         $userAgent = 'bheisig/checkmkwebapi';
 
         $composerFile = __DIR__ . '/../composer.json';
@@ -147,7 +149,7 @@ class API {
      *
      * @return bool
      */
-    public function isConnected() {
+    public function isConnected(): bool {
         return is_resource($this->resource);
     }
 
@@ -160,7 +162,7 @@ class API {
      *
      * @throws Exception on error
      */
-    public function connect() {
+    public function connect(): self {
         $this->resource = curl_init();
 
         if ($this->config->isProxyEnabled()) {
@@ -206,7 +208,7 @@ class API {
      *
      * @throws Exception on error
      */
-    public function disconnect() {
+    public function disconnect(): self {
         // Auto-connect:
         if ($this->isConnected() === false) {
             throw new Exception('There is no connection.');
@@ -222,7 +224,7 @@ class API {
      *
      * @return int Positive integer
      */
-    public function countRequests() {
+    public function countRequests(): int {
         return $this->counter;
     }
 
@@ -238,7 +240,7 @@ class API {
      *
      * @throws Exception on error
      */
-    public function request($action, array $data = [], array $params = [], $entryPoint = 'webapi.py') {
+    public function request(string $action, array $data = [], array $params = [], string $entryPoint = 'webapi.py') {
         $params['action'] = $action;
         $params['_username'] = $this->config->getUsername();
         $params['_secret'] = $this->config->getSecret();
@@ -287,7 +289,7 @@ class API {
      *
      * @throws Exception on error
      */
-    protected function execute(array $data) {
+    protected function execute(array $data): array {
         // Auto-connect:
         if ($this->isConnected() === false) {
             $this->connect();
@@ -377,7 +379,7 @@ class API {
      *
      * @throws Exception on error
      */
-    protected function evaluateResponse(array $response) {
+    protected function evaluateResponse(array $response): self {
         $requiredKeys = ['result', 'result_code'];
 
         foreach ($requiredKeys as $requiredKey) {
@@ -423,7 +425,7 @@ class API {
      *
      * @return array Associative array
      */
-    public function getLastInfo() {
+    public function getLastInfo(): array {
         return $this->lastInfo;
     }
 
@@ -434,7 +436,7 @@ class API {
      *
      * @return string Multi-line string
      */
-    public function getLastRequestHeaders() {
+    public function getLastRequestHeaders(): string {
         if (array_key_exists('request_header', $this->lastInfo)) {
             return $this->lastInfo['request_header'];
         }
@@ -449,7 +451,7 @@ class API {
      *
      * @return string Multi-line string
      */
-    public function getLastResponseHeaders() {
+    public function getLastResponseHeaders(): string {
         return $this->lastResponseHeaders;
     }
 
@@ -458,7 +460,7 @@ class API {
      *
      * @return array Associative array
      */
-    public function getLastResponse() {
+    public function getLastResponse(): array {
         return $this->lastResponse;
     }
 
@@ -469,7 +471,7 @@ class API {
      *
      * @return array Multi-dimensional associative array
      */
-    public function getLastRequestContent() {
+    public function getLastRequestContent(): array {
         return $this->lastRequestContent;
     }
 
