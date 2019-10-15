@@ -1,6 +1,6 @@
-# Check_MK Web API Client
+# Checkmk Web API Client
 
-Easy-to-use, but feature-rich client for Check_MK Web API
+Easy-to-use, but feature-rich client for Checkmk Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)
@@ -8,15 +8,15 @@ Easy-to-use, but feature-rich client for Check_MK Web API
 
 ## About
 
-[Check_MK](https://mathias-kettner.de/check_mk.html) is a software application for network monitoring. The community edition ("raw") is licensed under the GPLv2.
+[Checkmk](https://checkmk.com/) is a software application for network monitoring. The community edition ("raw") is licensed under the GPLv2.
 
-This client communicates with Check_MK over its Web API. It provides a simple, but powerful abstraction layer for written in PHP. Feel free to use it as a library in your own projects.
+This client communicates with Checkmk over its Web API. It provides a simple, but powerful abstraction layer for written in PHP. Feel free to use it as a library in your own projects.
 
 ## Requirements
 
 Meet these simple requirements before using the client:
 
--   One or more Check_MK sites, version 1.4 or higher (most calls work since 1.5)
+-   One or more Checkmk sites, version 1.4 or higher (most calls work since 1.5)
 -   PHP, version 7.1 or higher (7.0 still works but is deprecated; 7.3 is recommended)
 -   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
@@ -54,7 +54,7 @@ This is it. All other files will be auto-loaded on-the-fly if needed.
 
 ## First call
 
-This is a simple "Hello, world!" example. It fetches all configured hosts from Check_MK:
+This is a simple "Hello, world!" example. It fetches all configured hosts from Checkmk:
 
 ~~~ {.php}
 use bheisig\checkmkwebapi\API;
@@ -105,7 +105,7 @@ The `Config` class has public methods which must be called to configure the API:
 
 | Setting               | Parameter | Required  | Description                                                                                           |
 | --------------------- | --------- | --------- | ----------------------------------------------------------------------------------------------------- |
-| `setURL()`            | string    | yes       | URL to Check_MK *without* entry point, for example `https://monitoring.example.com/mysite/check_mk/`  |
+| `setURL()`            | string    | yes       | URL to Checkmk *without* entry point, for example `https://monitoring.example.com/mysite/check_mk/`   |
 | `setPort()`           | integer   | no        | Port on which the Web server listens; if not set port `80` will be used for HTTP and `443` for HTTPS  |
 | `setUsername()`       | string    | yes       | User for authentication, probably `automation`                                                        |
 | `setSecret()`         | string    | yes       | Secret specified for user                                                                             |
@@ -227,7 +227,7 @@ Class `Graph` with public method:
 
 ## Inventory
 
-Check_MK can collect various information about your hardware/software inventory.
+Checkmk can collect various information about your hardware/software inventory.
 
 Class `Inventory` with public methods:
 

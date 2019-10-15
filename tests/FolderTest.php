@@ -138,7 +138,7 @@ class FolderTest extends BaseTest {
         $folderPath = $this->generateRandomString();
         $this->instance->add($folderPath);
 
-        // Check_MK only says "Edited properties of folder XY":
+        // Checkmk only says "Edited properties of folder XY":
         $result = $this->instance->add($folderPath);
 
         $this->assertInstanceOf(Folder::class, $result);

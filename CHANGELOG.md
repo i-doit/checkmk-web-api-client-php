@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -   Recommend PHP 7.3
 -   Declare strict types
 -   Require PHP extension `spl`
+-   Re-name "Check_MK" to "Checkmk"
 
 ### Fixed
 

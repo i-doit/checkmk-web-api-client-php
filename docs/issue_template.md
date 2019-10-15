@@ -9,16 +9,13 @@ Please note:
 
 <!-- Insert text -->
 
-
 ### Actual behavior
 
 <!-- Insert text -->
 
-
 ### Steps to reproduce the behavior
 
 <!-- Insert text -->
-
 
 ### Details
 
@@ -26,4 +23,4 @@ Please note:
 | ----------------------------- | ----------------- |
 | bheisig/checkmkwebapi version | x.y.z             |
 | PHP version                   | x.y.z             |
-| Check_MK version              | x.y.z             |
+| Checkmk version               | x.y.z             |

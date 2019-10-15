@@ -348,7 +348,7 @@ class API {
 
             if (!is_array($lastResponse) && strpos("'result_code': 0", $body) !== false) {
                 throw new Exception(sprintf(
-                    'Unable to parse this response from Check_MK: %s',
+                    'Unable to parse this response from Checkmk: %s',
                     $body
                 ));
             }
@@ -357,11 +357,11 @@ class API {
         if (!is_array($lastResponse)) {
             if (is_string($body) && strlen($body) > 0) {
                 throw new Exception(sprintf(
-                    'Check_MK responded with an error message: %s',
+                    'Checkmk responded with an error message: %s',
                     $body
                 ));
             } else {
-                throw new Exception('Check_MK responded with an invalid JSON string.');
+                throw new Exception('Checkmk responded with an invalid JSON string.');
             }
         }
 
@@ -402,11 +402,11 @@ class API {
             case 1:
                 if (is_string($response['result']) && strlen($response['result']) !== 0) {
                     throw new Exception(sprintf(
-                        'Check_MK responded with an error message: %s',
+                        'Checkmk responded with an error message: %s',
                         $response['result']
                     ));
                 } else {
-                    throw new Exception('Check_MK responded with an unspecific error');
+                    throw new Exception('Checkmk responded with an unspecific error');
                 }
             default:
                 throw new Exception(sprintf(
