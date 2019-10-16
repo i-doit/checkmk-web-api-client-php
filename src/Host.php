@@ -33,6 +33,11 @@ use \Exception;
  */
 class Host extends Request {
 
+    const MODE_NEW = 'new';
+    const MODE_REMOVE = 'remove';
+    const MODE_FIXALL = 'fixall';
+    const MODE_REFRESH = 'refresh';
+
     /**
      * Read information about a host by its hostname
      * @param string $hostname Hostname
@@ -151,11 +156,11 @@ class Host extends Request {
     /**
      * Discover services of a host
      * @param string $hostname Hostname
-     * @param string $mode Modes: "new", "remove", "fixall", "refresh"; defaults to "new"
+     * @param string $mode Modes: "new", "remove", "fixall", "refresh"; defaults to "new"; use class constants
      * @return string Result message
      * @throws Exception on error
      */
-    public function discoverServices(string $hostname, string $mode = 'new'): string {
+    public function discoverServices(string $hostname, string $mode = self::MODE_NEW): string {
         return $this->api->request(
             'discover_services',
             [
