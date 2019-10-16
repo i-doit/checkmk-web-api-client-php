@@ -39,9 +39,7 @@ abstract class Group extends Request {
 
     /**
      * Constructor
-     *
      * @param API $api API client
-     *
      * @throws ReflectionException on error
      */
     public function __construct(API $api) {
@@ -52,11 +50,8 @@ abstract class Group extends Request {
 
     /**
      * Read information about a group by its name
-     *
      * @param string $name Name
-     *
      * @return array
-     *
      * @throws Exception
      */
     public function get(string $name): array {
@@ -74,9 +69,7 @@ abstract class Group extends Request {
 
     /**
      * Read information about all groups
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
@@ -87,12 +80,9 @@ abstract class Group extends Request {
 
     /**
      * Create new group with name and alias
-     *
      * @param string $name Name
      * @param string $alias Alias
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function add(string $name, string $alias): self {
@@ -109,12 +99,9 @@ abstract class Group extends Request {
 
     /**
      * Change the alias of a group
-     *
      * @param string $name Name
      * @param string $alias Alias
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function edit(string $name, string $alias): self {
@@ -131,11 +118,8 @@ abstract class Group extends Request {
 
     /**
      * Delete contact group by its name
-     *
      * @param string $name Name
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function delete(string $name): self {

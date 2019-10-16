@@ -35,11 +35,8 @@ class User extends Request {
 
     /**
      * Read information about an user by its identifier
-     *
      * @param string $id Identifier
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(string $id): array {
@@ -57,9 +54,7 @@ class User extends Request {
 
     /**
      * Read information about all users
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
@@ -70,12 +65,9 @@ class User extends Request {
 
     /**
      * Create new user with some attributes
-     *
      * @param string $id Identifier
      * @param array $attributes Associative array of attributes like "alias", "password", "pager" and so on
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function add(string $id, array $attributes = []): self {
@@ -86,11 +78,8 @@ class User extends Request {
 
     /**
      * Create new users with some attributes
-     *
-     * @param array $users id => attributes
-     *
+     * @param array $users Associative array; id (key) with attributes (value)
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function batchAdd(array $users): self {
@@ -114,11 +103,8 @@ class User extends Request {
 
     /**
      * Delete a user by its identifier
-     *
      * @param string $id Identifier
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function delete(string $id): self {
@@ -127,11 +113,8 @@ class User extends Request {
 
     /**
      * Delete users by their identifiers
-     *
      * @param array $ids Identifiers
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function batchDelete(array $ids): self {

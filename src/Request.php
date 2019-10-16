@@ -32,15 +32,12 @@ namespace bheisig\checkmkwebapi;
 abstract class Request implements Calls {
 
     /**
-     * API client
-     *
-     * @var API
+     * @var API API client
      */
     protected $api;
 
     /**
      * Constructor
-     *
      * @param API $api API client
      */
     public function __construct(API $api) {

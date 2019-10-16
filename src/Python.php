@@ -34,9 +34,7 @@ class Python {
 
     /**
      * Convert Python dictionary to PHP array
-     *
      * @param string $value Python foo
-     *
      * @return array|null Result as array, otherwise null
      * @todo Return strict type!
      */

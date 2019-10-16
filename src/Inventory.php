@@ -35,11 +35,8 @@ class Inventory extends Request {
 
     /**
      * Read hardware/software inventory data for a specific host
-     *
      * @param string $hostname Hostname
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getHost(string $hostname): array {
@@ -50,11 +47,8 @@ class Inventory extends Request {
 
     /**
      * Read hardware/software inventory data for one or more hosts
-     *
      * @param string[] $hostnames List of hostnames
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getHosts(array $hostnames): array {

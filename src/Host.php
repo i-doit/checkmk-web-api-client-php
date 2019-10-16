@@ -35,12 +35,9 @@ class Host extends Request {
 
     /**
      * Read information about a host by its hostname
-     *
      * @param string $hostname Hostname
-     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc. Defaults to true.
-     *
+     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc.; defaults to true
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(string $hostname, bool $effectiveAttributes = true): array {
@@ -57,10 +54,8 @@ class Host extends Request {
 
     /**
      * Read information about all hosts
-     *
+     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc.; defaults to true
      * @return array
-     * @param bool $effectiveAttributes Fetch inherited settings from rulesets, folders, etc. Defaults to true.
-     *
      * @throws Exception on error
      */
     public function getAll(bool $effectiveAttributes = true): array {
@@ -75,14 +70,11 @@ class Host extends Request {
 
     /**
      * Create new host with some attributes and tags
-     *
      * @param string $hostname Hostname
      * @param string $folder Optional folder; leave empty for root folder
      * @param array $attributes Associative array of attributes like "ipaddress", "site", "tag_agents" and so on
      * @param bool $createFolders Create folder structure if needed; defaults to false
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function add(
@@ -111,14 +103,11 @@ class Host extends Request {
 
     /**
      * Edit host, adds new attributes, changes attributes, or unsets attributes
-     *
      * @param string $hostname Hostname
      * @param array $attributes Optional attributes to create/update
      * @param array $unsetAttributes Optional attributes to unset (reset to default); works only with other attributes
      * to create/update
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function edit(string $hostname, array $attributes = [], array $unsetAttributes = []): self {
@@ -144,11 +133,8 @@ class Host extends Request {
 
     /**
      * Delete a host by its hostname
-     *
      * @param string $hostname Hostname
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function delete(string $hostname): self {
@@ -164,12 +150,9 @@ class Host extends Request {
 
     /**
      * Discover services of a host
-     *
      * @param string $hostname Hostname
      * @param string $mode Modes: "new", "remove", "fixall", "refresh"; defaults to "new"
-     *
      * @return string Result message
-     *
      * @throws Exception on error
      */
     public function discoverServices(string $hostname, string $mode = 'new'): string {

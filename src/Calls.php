@@ -33,7 +33,6 @@ interface Calls {
 
     /**
      * Constructor
-     *
      * @param API $api API client
      */
     public function __construct(API $api);

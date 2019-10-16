@@ -42,7 +42,6 @@ abstract class BaseTest extends TestCase {
 
     /**
      * Makes API available
-     *
      * @throws Exception on error
      */
     public function setUp() {
@@ -72,9 +71,7 @@ abstract class BaseTest extends TestCase {
 
     /**
      * Creates a new host with random hostname
-     *
      * @return string Hostname
-     *
      * @throws Exception on error
      */
     protected function addHost() {
@@ -86,7 +83,6 @@ abstract class BaseTest extends TestCase {
 
     /**
      * Generates random string
-     *
      * @return string
      */
     protected function generateRandomString() {
@@ -95,7 +91,6 @@ abstract class BaseTest extends TestCase {
 
     /**
      * Generates random IPv4 address
-     *
      * @return string
      */
     protected function generateIPv4Address() {

@@ -35,11 +35,8 @@ class Ruleset extends Request {
 
     /**
      * Read information about a ruleset by its name
-     *
      * @param string $name Name
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(string $name): array {
@@ -56,9 +53,7 @@ class Ruleset extends Request {
 
     /**
      * Read information about all rulesets
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
@@ -71,7 +66,7 @@ class Ruleset extends Request {
         );
     }
 
-    public function set($name, array $rules) {
+    public function set(string $name, array $rules) {
         // @todo Implement me!
     }
 

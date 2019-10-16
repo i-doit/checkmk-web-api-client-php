@@ -35,12 +35,9 @@ class Change extends Request {
 
     /**
      * Activate changes on specific sites
-     *
      * @param string[] $sites List of sites
      * @param bool $allowForeignChanges Optional activate changes made by other users; defaults to false ("no")
-     *
      * @return array Results for every site
-     *
      * @throws Exception on error
      */
     public function activate(array $sites, bool $allowForeignChanges = false): array {
@@ -63,11 +60,8 @@ class Change extends Request {
 
     /**
      * Activate changes on all sites
-     *
      * @param bool $allowForeignChanges Optional activate changes made by other users; defaults to false ("no")
-     *
      * @return array Results for every site
-     *
      * @throws Exception on error
      */
     public function activateEverywhere(bool $allowForeignChanges = false): array {

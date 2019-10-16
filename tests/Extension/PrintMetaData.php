@@ -58,7 +58,6 @@ final class PrintMetaData implements BeforeFirstTestHook {
 
     /**
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     protected function loadComposer(): self {

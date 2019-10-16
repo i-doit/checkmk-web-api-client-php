@@ -35,9 +35,7 @@ class Agent extends Request {
 
     /**
      * Bake agents but not sign them
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function bake(): self {

@@ -35,9 +35,7 @@ class HostTag extends Request {
 
     /**
      * Read information about all host tag groups and auxiliary tags
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
@@ -48,12 +46,9 @@ class HostTag extends Request {
 
     /**
      * Overwrite all host tag groups and auxiliary tags
-     *
      * @param array $tags Tags
      * @param string $configurationHash (Optional) Configuration hash
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function set(array $tags, string $configurationHash = null): self {

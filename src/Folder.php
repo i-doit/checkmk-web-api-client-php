@@ -36,11 +36,8 @@ class Folder extends Request {
 
     /**
      * Read information about a folder by its path
-     *
      * @param string $folder Folder path
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(string $folder): array {
@@ -58,9 +55,7 @@ class Folder extends Request {
 
     /**
      * Read information about all folders
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
@@ -75,12 +70,9 @@ class Folder extends Request {
 
     /**
      * Create new folder with some attributes
-     *
      * @param string $folder Folder path
      * @param array $attributes Associative array of attributes like "parents", "site", "tag_agent" and so on
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function add(string $folder, array $attributes = []): self {
@@ -104,13 +96,10 @@ class Folder extends Request {
 
     /**
      * Edit a folder's attributes
-     *
      * @param string $folder Folder path
      * @param array $attributes Attributes to create/update
      * @param string $configurationHash Configuration hash
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function edit(string $folder, array $attributes, string $configurationHash = null): self {
@@ -136,11 +125,8 @@ class Folder extends Request {
 
     /**
      * Delete a folder by its path
-     *
      * @param string $folder Folder path
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function delete(string $folder): self {

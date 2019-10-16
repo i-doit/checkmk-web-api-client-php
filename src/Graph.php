@@ -35,13 +35,10 @@ class Graph extends Request {
 
     /**
      * Get metrics as a graph
-     *
      * @param array $specification Specification
      * @param int $beginRange UNIX time in seconds
      * @param int $endRange UNIX time in seconds
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(array $specification, int $beginRange, int $endRange): array {

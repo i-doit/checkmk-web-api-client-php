@@ -35,66 +35,48 @@ use \RuntimeException;
 class API {
 
     /**
-     * Configuration settings
-     *
-     * @var Config
+     * @var Config Configuration settings
      */
     protected $config;
 
     /**
-     * cURL resource
-     *
-     * @var resource
+     * @var resource cURL resource
      */
     protected $resource;
 
     /**
-     * Information about last client request
-     *
-     * @var array Associative array
+     * @var array Information about last client request (associative array)
      */
     protected $lastInfo = [];
 
     /**
-     * HTTP headers of last server response
-     *
-     * @var string Multi-line string
+     * @var string HTTP headers of last server response (multi-line string)
      */
     protected $lastResponseHeaders;
 
     /**
-     * Response for last request
-     *
-     * @var array Associative array
+     * @var array Response for last request (associative array)
      */
     protected $lastResponse;
 
     /**
-     * Last request content
-     *
-     * @var array Multi-dimensional associative array
+     * @var array Last request content (multi-dimensional associative array)
      */
     protected $lastRequestContent;
 
     /**
-     * cURL options
-     *
-     * @var array Associative array
+     * @var array cURL options (associative array)
      */
     protected $options = [];
 
     /**
-     * Counter for requests
-     *
-     * @var int
+     * @var int Counter for requests
      */
     protected $counter = 0;
 
     /**
      * Constructor
-     *
      * @param Config $config Configuration settings
-     *
      * @throws Exception on configuration errors
      */
     public function __construct(Config $config) {
@@ -124,7 +106,6 @@ class API {
 
     /**
      * Get user agent string
-     *
      * @return string
      */
     protected function getUserAgent(): string {
@@ -146,7 +127,6 @@ class API {
 
     /**
      * Is client connected to API?
-     *
      * @return bool
      */
     public function isConnected(): bool {
@@ -157,9 +137,7 @@ class API {
      * Connect to API
      *
      * This method is optional and may be used for re-connects.
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function connect(): self {
@@ -203,13 +181,10 @@ class API {
      * Disconnect from API
      *
      * This method is optional and may be used for reconnects.
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     public function disconnect(): self {
-        // Auto-connect:
         if ($this->isConnected() === false) {
             throw new Exception('There is no connection.');
         }
@@ -221,7 +196,6 @@ class API {
 
     /**
      * How many requests were already send?
-     *
      * @return int Positive integer
      */
     public function countRequests(): int {
@@ -230,14 +204,11 @@ class API {
 
     /**
      * Send request to API
-     *
      * @param string $action Action
      * @param array $data Optional POST payload
      * @param array $params Optional additional GET parameters
      * @param string $entryPoint Entry point; defaults to "webapi.py"
-     *
      * @return mixed Result of request
-     *
      * @throws Exception on error
      */
     public function request(string $action, array $data = [], array $params = [], string $entryPoint = 'webapi.py') {
@@ -282,11 +253,8 @@ class API {
 
     /**
      * Send request to API with headers and receives response
-     *
      * @param array $data Payload
-     *
      * @return array Result of request
-     *
      * @throws Exception on error
      */
     protected function execute(array $data): array {
@@ -372,11 +340,8 @@ class API {
 
     /**
      * Evaluate server response
-     *
      * @param array $response Server response
-     *
      * @return self Returns itself
-     *
      * @throws Exception on error
      */
     protected function evaluateResponse(array $response): self {
@@ -422,7 +387,6 @@ class API {
      * Get information about last client request
      *
      * These information may be very useful for debugging.
-     *
      * @return array Associative array
      */
     public function getLastInfo(): array {
@@ -433,7 +397,6 @@ class API {
      * Get HTTP headers of last client request
      *
      * These headers may be very useful for debugging.
-     *
      * @return string Multi-line string
      */
     public function getLastRequestHeaders(): string {
@@ -448,7 +411,6 @@ class API {
      * Get HTTP headers of last server response
      *
      * These headers may be very useful for debugging.
-     *
      * @return string Multi-line string
      */
     public function getLastResponseHeaders(): string {
@@ -457,7 +419,6 @@ class API {
 
     /**
      * Get last server response
-     *
      * @return array Associative array
      */
     public function getLastResponse(): array {
@@ -468,7 +429,6 @@ class API {
      * Get last request content
      *
      * This is the last content which was sent as a request. This may be very useful for debugging.
-     *
      * @return array Multi-dimensional associative array
      */
     public function getLastRequestContent(): array {

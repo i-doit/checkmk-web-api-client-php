@@ -35,11 +35,8 @@ class Site extends Request {
 
     /**
      * Read information about a site by its identifier
-     *
      * @param string $id Identifier
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function get(string $id): array {
@@ -72,9 +69,7 @@ class Site extends Request {
 
     /**
      * Read information about all sites
-     *
      * @return array
-     *
      * @throws Exception on error
      */
     public function getAll(): array {
