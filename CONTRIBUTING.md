@@ -16,6 +16,10 @@ If you have questions how to use it properly read the [documentation](README.md)
 
 If you find something strange please report it to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
 
+## Report security issues
+
+[Found a security-related issue?](SECURITY.md)
+
 ## Make a wish
 
 Of course, there are some features in the pipeline. However, if you have good ideas how to improve this project please let us know! Write a feature request [in our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
