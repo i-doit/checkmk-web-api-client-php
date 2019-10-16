@@ -70,7 +70,7 @@ This project has some dependencies for developers:
 There is already a webhook enabled to push the code from GitHub to Packagist.
 
 ## Composer scripts
-    
+
 This project comes with some useful composer scripts:
 
 | Command                       | Description                                               |
@@ -98,4 +98,8 @@ For example, execute `composer phpstan`.
 
 ## Donate
 
-Last but not least, if you think this script is useful for your daily work, consider a donation. What about a beer?
+If you think this script is useful for your daily work, consider a donation. What about a beer?
+
+## Further reading
+
+-   [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
