@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
--   Encode parsed Phython output into Unicode (UTF-8)
+-   Encode parsed Python output into Unicode (UTF-8)
 
 ## [0.4][] – 2018-12-17
 

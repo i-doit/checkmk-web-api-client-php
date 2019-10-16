@@ -147,7 +147,7 @@ Class `Site` with public methods:
 
 ## Folders
 
-Class `Folder` with pulic methods:
+Class `Folder` with public methods:
 
 | API Call              | Class Method          | Description                                                       |
 | --------------------- | --------------------- | ------------------------------------------------------------------|
@@ -171,7 +171,7 @@ Classes `HostGroup`, `ServiceGroup` and `ContactGroup` with public methods:
 
 ## Host Tags
 
-Class `HostTag` with pulic methods:
+Class `HostTag` with public methods:
 
 | API Call              | Class Method          | Description                                                       |
 | --------------------- | --------------------- | ------------------------------------------------------------------|
@@ -180,7 +180,7 @@ Class `HostTag` with pulic methods:
 
 ## Users
 
-Class `Users` with pulic methods:
+Class `Users` with public methods:
 
 | API Call              | Class Method          | Description                                                       |
 | --------------------- | --------------------- | ------------------------------------------------------------------|
