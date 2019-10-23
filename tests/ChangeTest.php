@@ -42,7 +42,7 @@ class ChangeTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function setUp() {
+    public function setUp(): void {
         parent::setUp();
 
         $this->instance = new Change($this->api);

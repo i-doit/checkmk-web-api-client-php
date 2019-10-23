@@ -44,7 +44,7 @@ abstract class BaseTest extends TestCase {
      * Makes API available
      * @throws Exception on error
      */
-    public function setUp() {
+    public function setUp(): void {
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../.env');
 
