@@ -222,18 +222,24 @@ class API {
             $params['output_format'] = 'json';
         }
 
+        $url = $this->config->getURL();
+
+        if (!is_string($url)) {
+            throw new Exception('Base URL to Checkmk not set');
+        }
+
         // Combine base URL with entry point:
-        if (substr($this->config->getURL(), -1) !== '/' &&
+        if (substr($url, -1) !== '/' &&
             substr($entryPoint, 0, 1) !== '/') {
-            $url = $this->config->getURL() . '/' . $entryPoint;
-        } elseif (substr($this->config->getURL(), -1) !== '/' &&
+            $url .= '/' . $entryPoint;
+        } elseif (substr($url, -1) !== '/' &&
             substr($entryPoint, 0, 1) === '/') {
-            $url = $this->config->getURL() . $entryPoint;
-        } elseif (substr($this->config->getURL(), -1) === '/' &&
+            $url .= $entryPoint;
+        } elseif (substr($url, -1) === '/' &&
             substr($entryPoint, 0, 1) !== '/') {
-            $url = $this->config->getURL() . $entryPoint;
+            $url .= $entryPoint;
         } else {
-            $url = $url = $this->config->getURL() . substr($entryPoint, 0, -1);
+            $url .= substr($entryPoint, 0, -1);
         }
 
         $this->options[CURLOPT_URL] = sprintf(

@@ -122,9 +122,9 @@ class Config {
 
     /**
      * Get URL
-     * @return string
+     * @return string|null
      */
-    public function getURL(): string {
+    public function getURL() {
         return $this->url;
     }
 
@@ -142,9 +142,9 @@ class Config {
 
     /**
      * Get port number
-     * @return int
+     * @return int|null
      */
-    public function getPort(): int {
+    public function getPort() {
         return $this->port;
     }
 
@@ -162,9 +162,9 @@ class Config {
 
     /**
      * Get username
-     * @return string
+     * @return string|null
      */
-    public function getUsername(): string {
+    public function getUsername() {
         return $this->username;
     }
 
@@ -182,9 +182,9 @@ class Config {
 
     /**
      * Get secret
-     * @return string
+     * @return string|null
      */
-    public function getSecret(): string {
+    public function getSecret() {
         return $this->secret;
     }
 
@@ -234,9 +234,9 @@ class Config {
 
     /**
      * Get proxy type
-     * @return string
+     * @return string|null
      */
-    public function getProxyType(): string {
+    public function getProxyType() {
         return $this->proxyType;
     }
 
@@ -254,9 +254,9 @@ class Config {
 
     /**
      * Get proxy host
-     * @return string
+     * @return string|null
      */
-    public function getProxyHost(): string {
+    public function getProxyHost() {
         return $this->proxyHost;
     }
 
@@ -274,9 +274,9 @@ class Config {
 
     /**
      * Get proxy port number
-     * @return int
+     * @return int|null
      */
-    public function getProxyPort(): int {
+    public function getProxyPort() {
         return $this->proxyPort;
     }
 
@@ -294,9 +294,9 @@ class Config {
 
     /**
      * Get proxy username
-     * @return string
+     * @return string|null
      */
-    public function getProxyUsername(): string {
+    public function getProxyUsername() {
         return $this->proxyUsername;
     }
 
@@ -314,9 +314,9 @@ class Config {
 
     /**
      * Get proxy password
-     * @return string
+     * @return string|null
      */
-    public function getProxyPassword(): string {
+    public function getProxyPassword() {
         return $this->proxyPassword;
     }
 
