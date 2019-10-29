@@ -8,13 +8,13 @@ We like you to read and follow our [code of conduct](CODE_OF_CONDUCT.md) before 
 
 ## Use it
 
-The best and (probably) easiest way is to use the API client library for your own projects. It would be very nice to share your thoughts with us. We love to hear from you.
+The best and (probably) easiest way to help is to use this library in your own projects. It would be very nice to share your thoughts with us. We love to hear from you.
 
 If you have questions how to use it properly read the [documentation](README.md) carefully.
 
 ## Report bugs
 
-If you find something strange please report it to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
+If you find something strange please report it to [our issue tracker][].
 
 ## Report security issues
 
@@ -22,7 +22,7 @@ If you find something strange please report it to [our issue tracker](https://gi
 
 ## Make a wish
 
-Of course, there are some features in the pipeline. However, if you have good ideas how to improve this project please let us know! Write a feature request [in our issue tracker](https://github.com/bheisig/checkmkwebapi/issues).
+Of course, there are some features in the pipeline. However, if you have good ideas how to improve this library please let us know! Write a feature request [in our issue tracker][issues].
 
 ## Setup a development environment
 
@@ -46,17 +46,17 @@ Notice, that any of your contributions merged into this repository will be [lice
 
 ## Requirements
 
-This project has some dependencies for developers:
+Developers must meet these requirements:
 
 -   See requirements mentioned in the [documentation](README.md)
--   You need at least PHP 7.1 (7.3 is recommended), for example to run unit tests
--   [Xdebug](https://xdebug.org/)
+-   You need at least PHP 7.2 (7.1 still works, but is depcrecated, 7.3 is recommended, 7.4 should work)
+-   [Xdebug](https://xdebug.org/), needed for code coverage with phpunit
 -   [Composer](https://getcomposer.org/)
 -   [Git](https://git-scm.com/)
 
 ## Release new version
 
-… and publish it to [packagist.org](https://packagist.org/packages/bheisig/checkmkwebapi). You need commit rights for this repository.
+…and publish it to [packagist.org][packagist]. You need commit rights for this repository.
 
 1.  Bump version: `composer config extra.version <VERSION>`
 2.  Update composer: `composer update`
@@ -65,7 +65,7 @@ This project has some dependencies for developers:
 5.  Perform some tests, for example `composer ci`
 6.  Run unit tests: `composer phpunit`
 7.  Create Git tag: `git tag -s -a -m "Release version $(composer config extra.version)" $(composer config extra.version)`
-8.  Push changes: `git push && git push --tags`
+8.  Push changes: `git push --follow-tags`
 
 There is already a webhook enabled to push the code from GitHub to Packagist.
 
@@ -94,12 +94,15 @@ This project comes with some useful composer scripts:
 | `composer security-checker`   | Look for dependencies with known security vulnerabilities |
 | `composer system-check`       | Run some system checks                                    |
 
-For example, execute `composer phpstan`.
+For example, execute `composer ci`.
 
 ## Donate
 
-If you think this script is useful for your daily work, consider a donation. What about a beer?
+If you think this project is useful for your daily work, consider a donation. What about a beer?
 
 ## Further reading
 
 -   [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
+
+[issues]: https://github.com/bheisig/checkmkwebapi/issues
+[packagist]: https://packagist.org/packages/bheisig/checkmkwebapi

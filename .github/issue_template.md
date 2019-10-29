@@ -2,7 +2,7 @@
 Please note:
 
 1.  Fill in this template according to your issue.
-2.  Post code as text (using proper markup). Do not post screenshots of code.
+2.  Post code/logs as text (using proper markup). Do not post screenshots of code/logs.
 -->
 
 ### Expected behavior
@@ -17,10 +17,23 @@ Please note:
 
 <!-- Insert text -->
 
-### Details
+### Environment
 
 | Question                      | Answer            |
 | ----------------------------- | ----------------- |
 | bheisig/checkmkwebapi version | x.y.z             |
-| PHP version                   | x.y.z             |
 | Checkmk version               | x.y.z             |
+
+### Logs and other useful output
+
+<!--
+Please note:
+
+1.  Server logs may help to understand what exactly went wrong.
+2.  Problems are often caused not on client but on server-side.
+3.  Anonymize your logs properly. Do not post any passwords/secrets/private data.
+4.  Make sure Checkmk's own logging and Web server's error logging are enabled.
+5.  Increase PHP's log level if necessary.
+6.  Paste only excerpts from the logs which seem to be useful for further investigation.
+7.  Paste your logs to a private gist and provide a link to it.
+-->
