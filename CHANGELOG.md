@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 -   Trim empty spaces at the beginning of each line in Python output
+-   Do not send POST data from a previous API request
 
 ## [0.5][] – 2019-05-08
 

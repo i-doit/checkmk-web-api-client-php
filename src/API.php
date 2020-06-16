@@ -273,14 +273,14 @@ class API {
 
         $this->lastRequestContent = $data;
 
+        $options[CURLOPT_POSTFIELDS] = null;
+        $options[CURLOPT_CUSTOMREQUEST] = 'GET';
+
         if (count($data) > 0) {
             $dataAsString = 'request=' . json_encode($data);
 
             $options[CURLOPT_POSTFIELDS] = $dataAsString;
-
             $options[CURLOPT_CUSTOMREQUEST] = 'POST';
-        } else {
-            $options[CURLOPT_CUSTOMREQUEST] = 'GET';
         }
 
         curl_setopt_array($this->resource, $options);
