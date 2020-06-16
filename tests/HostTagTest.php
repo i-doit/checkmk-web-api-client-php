@@ -48,7 +48,7 @@ class HostTagTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetAll() {
+    public function testGetAll(): void {
         $result = $this->instance->getAll();
 
         $this->assertIsArray($result);
@@ -58,7 +58,7 @@ class HostTagTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testSet() {
+    public function testSet(): void {
         $allTags = $this->instance->getAll();
         $tags = [
             'aux_tags' => $allTags['aux_tags'],

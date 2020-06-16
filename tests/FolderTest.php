@@ -48,7 +48,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetExistingFolder() {
+    public function testGetExistingFolder() : void{
         $folderPath = $this->generateRandomString();
         $this->instance->add($folderPath);
 
@@ -60,7 +60,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetNonExistingFolder() {
+    public function testGetNonExistingFolder(): void {
         $this->expectException(Exception::class);
         $this->instance->get('This is not the folder you are looking for');
     }
@@ -68,7 +68,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetAll() {
+    public function testGetAll(): void {
         // At least we need one folder:
         $this->instance->add($this->generateRandomString());
 
@@ -96,7 +96,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAddWithoutAttributes() {
+    public function testAddWithoutAttributes(): void {
         $folderPath = $this->generateRandomString();
 
         $result = $this->instance->add($folderPath);
@@ -110,7 +110,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAddWithAttributes() {
+    public function testAddWithAttributes(): void {
         $folderPath = $this->generateRandomString();
         $alias = $this->generateRandomString();
         $attributes = [
@@ -134,7 +134,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAddExistingFolder() {
+    public function testAddExistingFolder(): void {
         $folderPath = $this->generateRandomString();
         $this->instance->add($folderPath);
 
@@ -144,36 +144,36 @@ class FolderTest extends BaseTest {
         $this->assertInstanceOf(Folder::class, $result);
     }
 
-    public function testEditWithNewAttributes() {
+    public function testEditWithNewAttributes(): void {
         // @todo Implement me!
     }
 
-    public function testEditWithChangedAttributes() {
+    public function testEditWithChangedAttributes(): void {
         // @todo Implement me!
     }
 
-    public function testEditWithConfigurationHash() {
-        // @todo Implement me!
-    }
-
-    /**
-     * @throws Exception on error
-     */
-    public function testEditWithWrongConfigurationHash() {
+    public function testEditWithConfigurationHash(): void {
         // @todo Implement me!
     }
 
     /**
      * @throws Exception on error
      */
-    public function testEditWithoutRequiredConfigurationHash() {
+    public function testEditWithWrongConfigurationHash(): void {
         // @todo Implement me!
     }
 
     /**
      * @throws Exception on error
      */
-    public function testEditNonExistingFolder() {
+    public function testEditWithoutRequiredConfigurationHash(): void {
+        // @todo Implement me!
+    }
+
+    /**
+     * @throws Exception on error
+     */
+    public function testEditNonExistingFolder(): void {
         $this->expectException(Exception::class);
         $this->instance->edit(
             $this->generateRandomString(),
@@ -186,7 +186,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDeleteExistingFolder() {
+    public function testDeleteExistingFolder(): void {
         $folderPath = $this->generateRandomString();
         $this->instance->add($folderPath);
 
@@ -198,7 +198,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDeleteNonExistingFolder() {
+    public function testDeleteNonExistingFolder(): void {
         $this->expectException(Exception::class);
         $this->instance->delete($this->generateRandomString());
     }
@@ -206,7 +206,7 @@ class FolderTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDeleteWithRetry() {
+    public function testDeleteWithRetry(): void {
         $folderPath = $this->generateRandomString();
         $this->instance->add($folderPath);
 
@@ -218,7 +218,7 @@ class FolderTest extends BaseTest {
         $this->instance->get($folderPath);
     }
 
-    protected function checkFolder($folder) {
+    protected function checkFolder($folder): void {
         $this->assertIsArray($folder);
         $this->assertCount(2, $folder);
 

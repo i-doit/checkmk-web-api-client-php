@@ -55,7 +55,7 @@ class ChangeTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testActivate() {
+    public function testActivate(): void {
         // We need at least one change:
         (new Host($this->api))->add(
             $this->generateRandomString(),
@@ -118,11 +118,11 @@ class ChangeTest extends BaseTest {
         }
     }
 
-    public function testActivateForeignChanges() {
+    public function testActivateForeignChanges(): void {
         // @todo Simulate foreign changes!
     }
 
-    public function testActivateEverywhere() {
+    public function testActivateEverywhere(): void {
         // @todo Implement me!
     }
 

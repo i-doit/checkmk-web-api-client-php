@@ -48,7 +48,7 @@ class AgentTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testBake() {
+    public function testBake(): void {
         $result = $this->instance->bake();
 
         $this->assertInstanceOf(Agent::class, $result);

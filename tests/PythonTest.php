@@ -682,7 +682,7 @@ EOF
      * @param string $value Value
      * @param array $expected Expected result
      */
-    public function testDecode(string $value, array $expected) {
+    public function testDecode(string $value, array $expected): void {
         $result = Python::decode($value);
         $this->assertIsArray($result, $value);
         $this->assertSame($expected, $result);

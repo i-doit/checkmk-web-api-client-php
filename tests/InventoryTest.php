@@ -48,7 +48,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetExistingHost() {
+    public function testGetExistingHost(): void {
         $hostname = $this->addHost();
 
         $result = $this->instance->getHost($hostname);
@@ -60,7 +60,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetNonExistingHost() {
+    public function testGetNonExistingHost(): void {
         $hostname = $this->generateRandomString();
 
         $result = $this->instance->getHost($hostname);
@@ -72,7 +72,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetExistingHosts() {
+    public function testGetExistingHosts(): void {
         $amount = 3;
         $hostnames = [];
 
@@ -94,7 +94,7 @@ class InventoryTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetNonExistingHosts() {
+    public function testGetNonExistingHosts(): void {
         $amount = 3;
         $hostnames = [];
 
@@ -115,7 +115,7 @@ class InventoryTest extends BaseTest {
         }
     }
 
-    public function testGetHostWithInventoryData() {
+    public function testGetHostWithInventoryData(): void {
         // @todo Implement me! This is hard to test because we need hw/sw inventory data.
     }
 

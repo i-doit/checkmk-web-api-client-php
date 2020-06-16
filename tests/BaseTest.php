@@ -74,7 +74,7 @@ abstract class BaseTest extends TestCase {
      * @return string Hostname
      * @throws Exception on error
      */
-    protected function addHost() {
+    protected function addHost(): string {
         $hostname = $this->generateRandomString();
         $host = new Host($this->api);
         $host->add($hostname);
@@ -85,7 +85,7 @@ abstract class BaseTest extends TestCase {
      * Generates random string
      * @return string
      */
-    protected function generateRandomString() {
+    protected function generateRandomString(): string {
         return hash('sha256', (string) microtime(true));
     }
 
@@ -93,7 +93,7 @@ abstract class BaseTest extends TestCase {
      * Generates random IPv4 address
      * @return string
      */
-    protected function generateIPv4Address() {
+    protected function generateIPv4Address(): string {
         return sprintf(
             '10.%s.%s.%s',
             mt_rand(2, 254),

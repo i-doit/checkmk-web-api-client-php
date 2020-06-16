@@ -48,7 +48,7 @@ class SiteTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGet() {
+    public function testGet(): void {
         /**
          * Pre-condition:
          */
@@ -80,7 +80,7 @@ class SiteTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetNonExistingSite() {
+    public function testGetNonExistingSite(): void {
         $this->expectException(Exception::class);
         $this->instance->get($this->generateRandomString());
     }
@@ -88,7 +88,7 @@ class SiteTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetAll() {
+    public function testGetAll(): void {
         $sites = $this->instance->getAll();
 
         $expectedSites = [];
@@ -113,7 +113,7 @@ class SiteTest extends BaseTest {
         }
     }
 
-    protected function evaluateSite($site) {
+    protected function evaluateSite($site): void {
         $this->assertArrayHasKey('site_config', $site);
         $this->assertIsArray($site['site_config']);
         $this->assertNotCount(0, $site['site_config']);

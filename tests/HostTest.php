@@ -48,7 +48,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetExistingHost() {
+    public function testGetExistingHost(): void {
         $hostname = $this->addHost();
 
         $result = $this->instance->get($hostname);
@@ -69,7 +69,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetNonExistingHost() {
+    public function testGetNonExistingHost(): void {
         $this->expectException(Exception::class);
         $this->instance->get('This is not the host you are looking for');
     }
@@ -77,7 +77,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testGetAll() {
+    public function testGetAll(): void {
         // At least we need one host:
         $this->addHost();
 
@@ -105,7 +105,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAdd() {
+    public function testAdd(): void {
         $hostname = $this->generateRandomString();
 
         $result = $this->instance->add($hostname);
@@ -120,7 +120,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAddWithAttributes() {
+    public function testAddWithAttributes(): void {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
         $alias = $this->generateRandomString();
@@ -145,14 +145,14 @@ class HostTest extends BaseTest {
         $this->assertSame($ip, $host['attributes']['ipaddress']);
     }
 
-    public function testAddWithExistingFolder() {
+    public function testAddWithExistingFolder(): void {
         // @todo Implement me! Create new folder!
     }
 
     /**
      * @throws Exception on error
      */
-    public function testAddWithNonExistingFolder() {
+    public function testAddWithNonExistingFolder(): void {
         $this->expectException(Exception::class);
         $this->instance->add(
             $this->generateRandomString(),
@@ -166,7 +166,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testAddAutoCreateFolder() {
+    public function testAddAutoCreateFolder(): void {
         $hostname = $this->generateRandomString();
         $folder = $this->generateRandomString();
 
@@ -188,7 +188,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testEditWithNewAttributes() {
+    public function testEditWithNewAttributes(): void {
         // Add "empty" host:
         $hostname = $this->addHost();
 
@@ -217,7 +217,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testEditExistingAttributes() {
+    public function testEditExistingAttributes(): void {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
         $alias = $this->generateRandomString();
@@ -256,7 +256,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testEditResetAttributes() {
+    public function testEditResetAttributes(): void {
         $hostname = $this->generateRandomString();
         $ip = $this->generateIPv4Address();
         $alias = $this->generateRandomString();
@@ -295,7 +295,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testEditNonExistingHost() {
+    public function testEditNonExistingHost(): void {
         $this->expectException(Exception::class);
         $this->instance->edit(
             $this->generateRandomString(),
@@ -308,7 +308,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDelete() {
+    public function testDelete(): void {
         $hostname = $this->addHost();
 
         $result = $this->instance->delete($hostname);
@@ -319,7 +319,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDeleteWithRetry() {
+    public function testDeleteWithRetry(): void {
         $hostname = $this->addHost();
 
         $result = $this->instance->delete($hostname);
@@ -333,12 +333,12 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDeleteNonExistingHost() {
+    public function testDeleteNonExistingHost(): void {
         $this->expectException(Exception::class);
         $this->instance->delete($this->generateRandomString());
     }
 
-    public function testDiscoverServices() {
+    public function testDiscoverServices(): void {
         // @todo This is hardly to test, because host must exist
 //        $hostname = $this->addHost();
 //
@@ -348,7 +348,7 @@ class HostTest extends BaseTest {
 //        $this->assertNotEmpty($result);
     }
 
-    public function testDiscoverServicesWithModes() {
+    public function testDiscoverServicesWithModes(): void {
         // @todo This is hardly to test, because hosts must exist
 //        $modes = [
 //            'new', 'remove', 'fixall', 'refresh'
@@ -367,7 +367,7 @@ class HostTest extends BaseTest {
     /**
      * @throws Exception on error
      */
-    public function testDiscoverServicesForNonExistingHost() {
+    public function testDiscoverServicesForNonExistingHost(): void {
         $this->expectException(Exception::class);
         $this->instance->discoverServices($this->generateRandomString());
     }

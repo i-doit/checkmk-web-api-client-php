@@ -34,14 +34,14 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testConnect() {
+    public function testConnect(): void {
         $this->assertInstanceOf(API::class, $this->api->connect());
     }
 
     /**
      * @throws Exception
      */
-    public function testDisconnect() {
+    public function testDisconnect(): void {
         $this->api->connect();
 
         $this->assertInstanceOf(API::class, $this->api->disconnect());
@@ -50,7 +50,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testIsConnected() {
+    public function testIsConnected(): void {
         $this->assertFalse($this->api->isConnected());
 
         $this->api->connect();
@@ -65,7 +65,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testCountRequests() {
+    public function testCountRequests(): void {
         $this->api->request('get_all_hosts');
 
         $count = $this->api->countRequests();
@@ -84,7 +84,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testRequest() {
+    public function testRequest(): void {
         $result = $this->api->request('get_all_hosts');
 
         $this->assertIsArray($result);
@@ -94,7 +94,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testGetLastInfo() {
+    public function testGetLastInfo(): void {
         $this->api->request('get_all_hosts');
 
         $this->assertIsArray($this->api->getLastInfo());
@@ -104,7 +104,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testGetLastResponse() {
+    public function testGetLastResponse(): void {
         $this->api->request('get_all_hosts');
 
         $this->assertIsArray($this->api->getLastResponse());
@@ -114,7 +114,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testGetLastRequestContent() {
+    public function testGetLastRequestContent(): void {
         // This produces an empty array (see below):
         $this->api->request('get_all_hosts');
 
@@ -125,7 +125,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testGetLastResponseHeaders() {
+    public function testGetLastResponseHeaders(): void {
         $this->api->request('get_all_hosts');
 
         $this->assertIsString($this->api->getLastResponseHeaders());
@@ -135,7 +135,7 @@ class APITest extends BaseTest {
     /**
      * @throws Exception
      */
-    public function testGetLastRequestHeaders() {
+    public function testGetLastRequestHeaders(): void {
         $this->api->request('get_all_hosts');
 
         $this->assertIsString($this->api->getLastRequestHeaders());
