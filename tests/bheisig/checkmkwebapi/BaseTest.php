@@ -24,13 +24,10 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
 use PHPUnit\Framework\TestCase;
-use bheisig\checkmkwebapi\API;
-use bheisig\checkmkwebapi\Config;
-use bheisig\checkmkwebapi\Host;
 use Symfony\Component\Dotenv\Dotenv;
 
 abstract class BaseTest extends TestCase {
@@ -46,7 +43,7 @@ abstract class BaseTest extends TestCase {
      */
     public function setUp(): void {
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../.env');
+        $dotenv->load(__DIR__ . '/../../../.env');
 
         $config = new Config();
 

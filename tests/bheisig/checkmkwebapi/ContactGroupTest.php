@@ -24,12 +24,11 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
-use bheisig\checkmkwebapi\ServiceGroup;
 
-class ServiceGroupTest extends GroupTest {
+class ContactGroupTest extends GroupTest {
 
     /**
      * @throws Exception on error
@@ -37,7 +36,7 @@ class ServiceGroupTest extends GroupTest {
     public function setUp(): void {
         parent::setUp();
 
-        $this->instance = new ServiceGroup($this->api);
+        $this->instance = new ContactGroup($this->api);
     }
 
 }

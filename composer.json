@@ -32,7 +32,7 @@
         "php-parallel-lint/php-parallel-lint": "^1.0",
         "phpcompatibility/php-compatibility": "*",
         "phploc/phploc": "^5.0",
-        "phpmd/phpmd" : "@stable",
+        "phpmd/phpmd" : "^2.8.2",
         "phpstan/phpstan": "^0.12.29",
         "phpunit/phpunit": "^8",
         "povils/phpmnd": "^2",
@@ -48,7 +48,6 @@
     "suggest": {
         "ext-xdebug": "Needed for code coverage with phpunit"
     },
-    "prefer-stable" : true,
     "autoload": {
         "psr-4": {
             "bheisig\\checkmkwebapi\\": "src/"
@@ -56,7 +55,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\tests\\": "tests/"
+            "bheisig\\checkmkwebapi\\": "tests/bheisig/checkmkwebapi/"
         }
     },
     "config": {

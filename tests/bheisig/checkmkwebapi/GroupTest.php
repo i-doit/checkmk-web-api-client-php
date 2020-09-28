@@ -24,10 +24,9 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
-use bheisig\checkmkwebapi\Group;
 
 abstract class GroupTest extends BaseTest {
 

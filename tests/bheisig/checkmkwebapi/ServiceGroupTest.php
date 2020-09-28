@@ -24,12 +24,11 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
-use bheisig\checkmkwebapi\HostGroup;
 
-class HostGroupTest extends GroupTest {
+class ServiceGroupTest extends GroupTest {
 
     /**
      * @throws Exception on error
@@ -37,7 +36,7 @@ class HostGroupTest extends GroupTest {
     public function setUp(): void {
         parent::setUp();
 
-        $this->instance = new HostGroup($this->api);
+        $this->instance = new ServiceGroup($this->api);
     }
 
 }

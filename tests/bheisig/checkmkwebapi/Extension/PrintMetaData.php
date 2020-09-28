@@ -24,7 +24,7 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests\Extension;
+namespace bheisig\checkmkwebapi\Extension;
 
 use \Exception;
 use PHPUnit\Runner\BeforeFirstTestHook;
@@ -52,7 +52,7 @@ final class PrintMetaData implements BeforeFirstTestHook {
      */
     protected function loadEnvironment(): self {
         $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../../.env');
+        $dotenv->load(__DIR__ . '/../../../../.env');
         return $this;
     }
 
@@ -61,7 +61,7 @@ final class PrintMetaData implements BeforeFirstTestHook {
      * @throws Exception on error
      */
     protected function loadComposer(): self {
-        $composerFile = __DIR__ . '/../../composer.json';
+        $composerFile = __DIR__ . '/../../../../composer.json';
         $composerFileContent = file_get_contents($composerFile);
         if (!is_string($composerFileContent)) {
             throw new Exception(sprintf(
