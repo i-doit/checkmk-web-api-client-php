@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
--   Drop support for PHP version 5.6
--   Mark PHP versions 7.0 and 7.1 as deprecated
+-   Drop support for PHP version 5.6, 7.0 and 7.1
+-   Mark PHP versions 7.2 as deprecated
 -   Recommend PHP 7.4
 -   Declare strict types
 -   Require PHP extension `spl`
