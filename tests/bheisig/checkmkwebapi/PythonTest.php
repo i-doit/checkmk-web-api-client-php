@@ -310,12 +310,12 @@ EOF
             ],
             'unicode' => [
                 <<<EOF
-{'result': {'site_id': u'sued', 'site_config': {'url_prefix': 
-'https://172.22.22.252/sued/', 'status_host': None, 'user_sync': None, 'socket': ('proxy', 
-{'params': None, 'socket': ('10.10.10.10', 6557)}), 'replication': 'slave', 'user_login': True, 
-'insecure': True, 'disable_wato': True, 'disabled': False, 'alias': u'S\xfcd', 
-'secret': 'abcdef0123456789', 'replicate_mkps': True, 'timeout': 10, 'persist': False, 
-'replicate_ec': True, 'multisiteurl': 'https://10.10.10.10/sued/check_mk/', 
+{'result': {'site_id': u'sued', 'site_config': {'url_prefix':
+'https://172.22.22.252/sued/', 'status_host': None, 'user_sync': None, 'socket': ('proxy',
+{'params': None, 'socket': ('10.10.10.10', 6557)}), 'replication': 'slave', 'user_login': True,
+'insecure': True, 'disable_wato': True, 'disabled': False, 'alias': u'S\xfcd',
+'secret': 'abcdef0123456789', 'replicate_mkps': True, 'timeout': 10, 'persist': False,
+'replicate_ec': True, 'multisiteurl': 'https://10.10.10.10/sued/check_mk/',
 'customer': 'sued'}, 'configuration_hash': 'ba9fabee9f9b81c4135985291c0bd8fa'}, 'result_code': 0}
 EOF
                 ,
@@ -361,11 +361,11 @@ EOF
             ],
             'bigger example #1' => [
                 <<<EOF
-{'result': {'': {}, 'foo': {'network_scan_result': {'output': 'The network scan found 0 new hosts.', 
-'state': True, 'end': 1523271725.991344, 'start': 1523271721.830718}, 'network_scan': {'time_allowed': 
-((0, 0), (24, 0)), 'run_as': u'bar', 'tag_criticality': 'offline', 'ip_ranges': [('ip_range', 
-('10.0.0.1', '10.0.0.254'))], 'scan_interval': 3600, 'set_ipaddress': True, 'exclude_ranges': [], 
-'translate_names': {'case': 'lower', 'drop_domain': True}}, 'snmp_community': 'integrate'}}, 
+{'result': {'': {}, 'foo': {'network_scan_result': {'output': 'The network scan found 0 new hosts.',
+'state': True, 'end': 1523271725.991344, 'start': 1523271721.830718}, 'network_scan': {'time_allowed':
+((0, 0), (24, 0)), 'run_as': u'bar', 'tag_criticality': 'offline', 'ip_ranges': [('ip_range',
+('10.0.0.1', '10.0.0.254'))], 'scan_interval': 3600, 'set_ipaddress': True, 'exclude_ranges': [],
+'translate_names': {'case': 'lower', 'drop_domain': True}}, 'snmp_community': 'integrate'}},
 'result_code': 0}
 EOF
                 ,
@@ -612,7 +612,7 @@ EOF
                 <<<EOF
 {'result': {'site_id': 'mysite', 'site_config': {'status_host': None,
 'url_prefix': 'http://monitoring.example.com/mysite/', 'user_sync': None,
-'socket': ('proxy', {'socket': ('monitoring.example.com', 6559), 'query_timeout': 120.0, 'cache': True, 
+'socket': ('proxy', {'socket': ('monitoring.example.com', 6559), 'query_timeout': 120.0, 'cache': True,
 'channels': 5, 'channel_timeout': 3.0, 'heartbeat': (5, 2.0), 'connect_retry': 4.0}),
 'replication': 'slave', 'user_login': True, 'insecure': True, 'disable_wato': False, 'disabled': False,
 'alias': u'My site', 'secret': 'abcdef0123456789',
@@ -674,10 +674,10 @@ EOF
                 )
             ],
             'Empty objects' => [
-<<<EOF
+                <<<EOF
 {'firstLevel': {}, 'someKey': {'secondLevel': {}}}
-EOF,
-
+EOF
+                ,
                 $this->decodeJSON(
                     <<<EOF
 {
@@ -687,7 +687,6 @@ EOF,
     }
 }
 EOF
-
                 )
             ]
         ];
