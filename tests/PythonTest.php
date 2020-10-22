@@ -673,6 +673,23 @@ EOF
 }
 EOF
                 )
+            ],
+            'Empty objects' => [
+<<<EOF
+{'firstLevel': {}, 'someKey': {'secondLevel': {}}}
+EOF,
+
+                $this->decodeJSON(
+                    <<<EOF
+{
+    "firstLevel": {},
+    "someKey": {
+        "secondLevel": {}
+    }
+}
+EOF
+
+                )
             ]
         ];
     }
