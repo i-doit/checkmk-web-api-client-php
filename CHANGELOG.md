@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+_tbd_
+
+## [0.6][] – 2020-10-22
+
 ### Changed
 
--   Drop support for PHP version 5.6, 7.0 and 7.1
 -   Mark PHP versions 7.2 as deprecated
 -   Recommend PHP 7.4
 -   Declare strict types
@@ -18,8 +21,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+-   Allow empty objects in Python output (thanks to @skekec1)
 -   Trim empty spaces at the beginning of each line in Python output
 -   Do not send POST data from a previous API request
+
+## Removed
+
+-   Drop support for PHP version 5.6, 7.0 and 7.1
 
 ## [0.5][] – 2019-05-08
 
@@ -87,7 +95,8 @@ Initial release
 -   Activate changes
 -   Get metrics
 
-[Unreleased]: https://github.com/bheisig/checkmkwebapi/compare/0.5...HEAD
+[Unreleased]: https://github.com/bheisig/checkmkwebapi/compare/0.6...HEAD
+[0.6]: https://github.com/bheisig/checkmkwebapi/compare/0.5...0.6
 [0.5]: https://github.com/bheisig/checkmkwebapi/compare/0.4...0.5
 [0.4]: https://github.com/bheisig/checkmkwebapi/compare/0.3...0.4
 [0.3]: https://github.com/bheisig/checkmkwebapi/compare/0.2...0.3
