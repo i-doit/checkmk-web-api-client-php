@@ -24,11 +24,9 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
-use bheisig\checkmkwebapi\Change;
-use bheisig\checkmkwebapi\Host;
 
 class ChangeTest extends BaseTest {
 

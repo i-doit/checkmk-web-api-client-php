@@ -18,7 +18,7 @@
         "source": "https://github.com/bheisig/checkmkwebapi"
     },
     "require": {
-        "php": ">=7.0.8",
+        "php": ">=7.2.0",
         "ext-curl": "*",
         "ext-date": "*",
         "ext-json": "*",
@@ -27,29 +27,27 @@
         "ext-zlib": "*"
     },
     "require-dev": {
-        "php": ">=7.2.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "j13k/yaml-lint": "^1.1",
         "php-parallel-lint/php-parallel-lint": "^1.0",
         "phpcompatibility/php-compatibility": "*",
         "phploc/phploc": "^5.0",
-        "phpmd/phpmd" : "@stable",
+        "phpmd/phpmd" : "^2.8.2",
         "phpstan/phpstan": "^0.12.29",
         "phpunit/phpunit": "^8",
         "povils/phpmnd": "^2",
         "roave/security-advisories": "dev-master",
-        "sclable/xml-lint": "^0.2.4",
+        "sclable/xml-lint": "^0.3.0",
         "sebastian/phpcpd": "^4.1.0",
         "seld/jsonlint": "^1.7",
         "sensiolabs/security-checker": "^6",
         "sllh/composer-lint": "^1.0",
         "squizlabs/php_codesniffer": "*",
-        "symfony/dotenv": "^4.1"
+        "symfony/dotenv": "^5.1"
     },
     "suggest": {
         "ext-xdebug": "Needed for code coverage with phpunit"
     },
-    "prefer-stable" : true,
     "autoload": {
         "psr-4": {
             "bheisig\\checkmkwebapi\\": "src/"
@@ -57,7 +55,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\tests\\": "tests/"
+            "bheisig\\checkmkwebapi\\": "tests/bheisig/checkmkwebapi/"
         }
     },
     "config": {
@@ -93,10 +91,7 @@
         "lint-php": "./vendor/bin/parallel-lint --exclude vendor --blame .",
         "lint-xml": "./vendor/bin/xmllint --recursive --exclude=vendor --skip-xsd --verbose .",
         "lint-yaml": "./vendor/bin/yaml-lint .travis.yml",
-        "phpcompatibility": [
-            "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.0 src/",
-            "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.2 tests/"
-        ],
+        "phpcompatibility": "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.2 src/ tests/",
         "phpcpd": "./vendor/bin/phpcpd src/",
         "phpcs": "./vendor/bin/phpcs --extensions=php --standard=PSR1,PSR2 --exclude=PSR2.Classes.ClassDeclaration,Squiz.Functions.MultiLineFunctionDeclaration src/ tests/",
         "phploc": "./vendor/bin/phploc --exclude=vendor --exclude=docs --exclude=build .",
@@ -113,6 +108,7 @@
             "@composer validate",
             "@composer diagnose || echo \"Ignore warnings\"",
             "@composer check-platform-reqs",
+            "@composer outdated --direct",
             "@composer config extra.version"
         ]
     },

@@ -17,7 +17,7 @@ This client communicates with Checkmk over its Web API. It provides a simple, bu
 Meet these simple requirements before using the client:
 
 -   One or more Checkmk sites, version 1.4 or higher (most calls work since 1.5)
--   PHP, version 7.2 or higher (7.0 and 7.1 still work but are deprecated; 7.4 is recommended)
+-   PHP, version 7.3 or higher (7.2 still works but is deprecated; 7.4 is recommended)
 -   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
 ## Installation

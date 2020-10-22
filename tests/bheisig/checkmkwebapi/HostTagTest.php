@@ -24,12 +24,16 @@
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi\tests;
+namespace bheisig\checkmkwebapi;
 
 use \Exception;
-use bheisig\checkmkwebapi\ContactGroup;
 
-class ContactGroupTest extends GroupTest {
+class HostTagTest extends BaseTest {
+
+    /**
+     * @var HostTag
+     */
+    protected $instance;
 
     /**
      * @throws Exception on error
@@ -37,7 +41,32 @@ class ContactGroupTest extends GroupTest {
     public function setUp(): void {
         parent::setUp();
 
-        $this->instance = new ContactGroup($this->api);
+        $this->instance = new HostTag($this->api);
+    }
+
+    /**
+     * @throws Exception on error
+     */
+    public function testGetAll(): void {
+        $result = $this->instance->getAll();
+
+        $this->assertIsArray($result);
+        $this->assertNotCount(0, $result);
+    }
+
+    /**
+     * @throws Exception on error
+     */
+    public function testSet(): void {
+        $allTags = $this->instance->getAll();
+        $tags = [
+            'aux_tags' => $allTags['aux_tags'],
+            'tag_groups' => $allTags['tag_groups']
+        ];
+
+        $result = $this->instance->set($tags, $allTags['configuration_hash']);
+
+        $this->assertInstanceOf(HostTag::class, $result);
     }
 
 }
