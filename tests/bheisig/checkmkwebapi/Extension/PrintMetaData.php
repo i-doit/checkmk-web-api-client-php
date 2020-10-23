@@ -51,8 +51,9 @@ final class PrintMetaData implements BeforeFirstTestHook {
      * @return self Returns itself
      */
     protected function loadEnvironment(): self {
-        $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../../../../.env');
+        (new Dotenv())
+            ->usePutenv(true)
+            ->load(__DIR__ . '/../../../../.env');
         return $this;
     }
 
@@ -77,7 +78,7 @@ final class PrintMetaData implements BeforeFirstTestHook {
      * @return self Returns itself
      */
     protected function printMetaData(): self {
-        $url = getenv('URL');
+        $url = getenv('URL') ?? 'n/a';
         $libName = $this->composer['name'];
         $libVersion = $this->composer['extra']['version'];
         $phpVersion = PHP_VERSION;

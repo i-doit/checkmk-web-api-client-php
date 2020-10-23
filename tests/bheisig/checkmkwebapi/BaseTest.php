@@ -42,8 +42,9 @@ abstract class BaseTest extends TestCase {
      * @throws Exception on error
      */
     public function setUp(): void {
-        $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../../../.env');
+        (new Dotenv())
+            ->usePutenv(true)
+            ->load(__DIR__ . '/../../../.env');
 
         $config = new Config();
 
