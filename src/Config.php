@@ -349,7 +349,6 @@ class Config {
 
         $mandatorySettings = [
             'URL' => $this->url,
-            'username' => $this->username,
             'secret' => $this->secret
         ];
 
@@ -378,12 +377,6 @@ class Config {
         } elseif (strpos($this->url, 'http://') === 0) {
             $this->port = self::HTTP_PORT;
         }
-
-        /**
-         * Username
-         */
-
-        $this->assertString('username', $this->username);
 
         /**
          * Secret
