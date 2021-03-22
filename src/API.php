@@ -215,6 +215,12 @@ class API {
         $params['action'] = $action;
         $params['_username'] = $this->config->getUsername();
         $params['_secret'] = $this->config->getSecret();
+
+        // Go sure to not send an empty username.
+        if (trim($params['_username']) === '') {
+            unset($params['_username']);
+        }
+
 // @todo GET parameter "request_format=json" resulted in an error:
 //        $params['request_format'] = 'json';
 
