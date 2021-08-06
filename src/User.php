@@ -93,12 +93,32 @@ class User extends Request {
         return $this;
     }
 
-    public function edit() {
-        // @todo Implement me!
+    /**
+     * @param string $id Identifier
+     * @param array $attributes Associative array of attributes like "alias", "password", "pager" and so on
+     * @return self Returns itself
+     * @throws \Exception on error
+     */
+    public function edit(string $id, array $attributes): self {
+        return $this->batchEdit([
+            $id => $attributes
+        ]);
     }
 
-    public function batchEdit() {
-        // @todo Implement me!
+    /**
+     * Edit a batch of users
+     * @param array $users Associative array; id (key) with attributes (value)
+     * @return self Returns itself
+     * @throws \Exception on error
+     */
+    public function batchEdit(array $users): self {
+        $this->api->request(
+            'edit_users',
+            [
+            'users' => $users
+            ]
+        );
+        return $this;
     }
 
     /**
