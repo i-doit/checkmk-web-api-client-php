@@ -72,7 +72,7 @@ class User extends Request {
      */
     public function add(string $id, array $attributes = []): self {
         return $this->batchAdd([
-            $id => $attributes,
+            $id => $attributes
         ]);
     }
 
