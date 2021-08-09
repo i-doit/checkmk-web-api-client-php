@@ -26,12 +26,13 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi;
 
-use \Exception;
+use Exception;
 
 /**
  * Users
  */
-class User extends Request {
+class User extends Request
+{
 
     /**
      * Read information about an user by its identifier
@@ -39,7 +40,8 @@ class User extends Request {
      * @return array
      * @throws Exception on error
      */
-    public function get(string $id): array {
+    public function get(string $id): array
+    {
         $users = $this->getAll();
 
         if (!array_key_exists($id, $users)) {
@@ -57,7 +59,8 @@ class User extends Request {
      * @return array
      * @throws Exception on error
      */
-    public function getAll(): array {
+    public function getAll(): array
+    {
         return $this->api->request(
             'get_all_users'
         );
@@ -70,9 +73,10 @@ class User extends Request {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function add(string $id, array $attributes = []): self {
+    public function add(string $id, array $attributes = []): self
+    {
         return $this->batchAdd([
-            $id => $attributes
+            $id => $attributes,
         ]);
     }
 
@@ -82,11 +86,12 @@ class User extends Request {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function batchAdd(array $users): self {
+    public function batchAdd(array $users): self
+    {
         $this->api->request(
             'add_users',
             [
-                'users' => $users
+                'users' => $users,
             ]
         );
 
@@ -99,9 +104,10 @@ class User extends Request {
      * @return self Returns itself
      * @throws \Exception on error
      */
-    public function edit(string $id, array $attributes): self {
+    public function edit(string $id, array $attributes): self
+    {
         return $this->batchEdit([
-            $id => $attributes
+            $id => $attributes,
         ]);
     }
 
@@ -111,11 +117,56 @@ class User extends Request {
      * @return self Returns itself
      * @throws \Exception on error
      */
-    public function batchEdit(array $users): self {
+    public function batchEdit(array $users): self
+    {
+        // We first need to detect the edited and/or removed attributes
+        // because the CheckMK webapi expects a `set_attributes` and `unset_attributes`
+        // So, we need to extract the attributes that have a value of `null`. Those will unset,
+        // and will be set to the default value.
+
+        $edit = [];
+        $_users = $this->getAll();
+        // Then loop over each user
+        foreach ($users as $user => $attributes) {
+            $set = [];
+            $unset = [];
+            // First check if the user exists
+            if (!array_key_exists($user, $_users)) {
+                throw new Exception(sprintf(
+                    'User with ID "%s" does not exist',
+                    $user
+                ));
+            }
+            // and each attribute of that user
+            foreach ($attributes as $attribute => $value) {
+                if (is_null($value)) {
+                    $unset[] = $attribute;
+                } else {
+                    $set[$attribute] = $value;
+                }
+            }
+            // so we can set the `set` and `unset` based on the `null` value of attributes.
+            if (count($set) > 0) {
+                $edit[$user] = [
+                    'set_attributes'   => $set,
+                ];
+            }
+            if (count($unset) > 0) {
+
+                $edit[$user] = [
+                    'unset_attributes' => $unset,
+                ];
+            }
+
+
+
+        }
+
+        var_dump($edit);
         $this->api->request(
             'edit_users',
             [
-            'users' => $users
+                'users' => $edit,
             ]
         );
         return $this;
@@ -127,7 +178,8 @@ class User extends Request {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function delete(string $id): self {
+    public function delete(string $id): self
+    {
         return $this->batchDelete([$id]);
     }
 
@@ -137,11 +189,12 @@ class User extends Request {
      * @return self Returns itself
      * @throws Exception on error
      */
-    public function batchDelete(array $ids): self {
+    public function batchDelete(array $ids): self
+    {
         $this->api->request(
             'delete_users',
             [
-                'users' => $ids
+                'users' => $ids,
             ]
         );
 
