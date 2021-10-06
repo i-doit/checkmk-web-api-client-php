@@ -80,12 +80,34 @@ abstract class BaseTest extends TestCase {
     }
 
     /**
+     * Creates a new user with a random username
+     * @return string Username
+     * @throws Exception on error
+     */
+    protected function addUser(): string {
+        $username = $this->generateRandomString();
+        $user = new User($this->api);
+        $user->add($username, [
+            'alias' => 'Alias '.$username
+        ]);
+        return $username;
+    }
+
+    /**
      * Generates random string
      * @return string
      */
     protected function generateRandomString(): string {
         return hash('sha256', (string) microtime(true));
     }
+
+    /**
+     * Generates random email address
+     * @return string
+     */
+    protected function generateRandomEmail(): string {
+    return $this->generateRandomString() . "@" . $this->generateRandomString() . ".com";
+}
 
     /**
      * Generates random IPv4 address

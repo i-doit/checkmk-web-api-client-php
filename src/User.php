@@ -93,12 +93,72 @@ class User extends Request {
         return $this;
     }
 
-    public function edit() {
-        // @todo Implement me!
+    /**
+     * @param string $id Identifier
+     * @param array $attributes Associative array of attributes like "alias", "password", "pager" and so on
+     * @return self Returns itself
+     * @throws \Exception on error
+     */
+    public function edit(string $id, array $attributes): self {
+        return $this->batchEdit([
+            $id => $attributes
+        ]);
     }
 
-    public function batchEdit() {
-        // @todo Implement me!
+    /**
+     * Edit a batch of users
+     * @param array $users Associative array; id (key) with attributes (value)
+     * @return self Returns itself
+     * @throws \Exception on error
+     */
+    public function batchEdit(array $users): self {
+        // We first need to detect the edited and/or removed attributes
+        // because the CheckMK webapi expects a `set_attributes` and `unset_attributes`
+        // So, we need to extract the attributes that have a value of `null`. Those will unset,
+        // and will be set to the default value.
+
+        $edit = [];
+        $_users = $this->getAll();
+        // Then loop over each user
+        foreach ($users as $user => $attributes) {
+            $set = [];
+            $unset = [];
+            // First check if the user exists
+            if (!array_key_exists($user, $_users)) {
+                throw new Exception(sprintf(
+                    'User with ID "%s" does not exist',
+                    $user
+                ));
+            }
+            // and each attribute of that user
+            foreach ($attributes as $attribute => $value) {
+                if (is_null($value)) {
+                    $unset[] = $attribute;
+                } else {
+                    $set[$attribute] = $value;
+                }
+            }
+            // so we can set the `set` and `unset` based on the `null` value of attributes.
+            if (count($set) > 0) {
+                $edit[$user] = [
+                    'set_attributes'   => $set,
+                ];
+            }
+            if (count($unset) > 0) {
+
+                $edit[$user] = [
+                    'unset_attributes' => $unset,
+                ];
+            }
+
+        }
+        $this->api->request(
+            'edit_users',
+            [
+                'users' => $edit
+            ]
+        );
+        return $this;
     }
 
     /**
