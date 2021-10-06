@@ -151,11 +151,7 @@ class User extends Request {
                 ];
             }
 
-
-
         }
-
-        var_dump($edit);
         $this->api->request(
             'edit_users',
             [
