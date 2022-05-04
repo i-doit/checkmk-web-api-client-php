@@ -3,7 +3,7 @@
 Easy-to-use, but feature-rich client for Checkmk Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
 ## About
