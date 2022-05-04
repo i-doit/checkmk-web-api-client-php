@@ -26,6 +26,7 @@ declare(strict_types=1);
 
 namespace bheisig\checkmkwebapi;
 
+use CurlHandle;
 use \Exception;
 use \RuntimeException;
 
@@ -40,7 +41,7 @@ class API {
     protected $config;
 
     /**
-     * @var resource cURL resource
+     * @var resource|CurlHandle
      */
     protected $resource;
 
@@ -130,7 +131,7 @@ class API {
      * @return bool
      */
     public function isConnected(): bool {
-        return is_resource($this->resource);
+        return is_resource($this->resource) || $this->resource instanceof CurlHandle;
     }
 
     /**
