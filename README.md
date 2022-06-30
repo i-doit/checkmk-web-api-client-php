@@ -3,7 +3,7 @@
 Easy-to-use, but feature-rich client for Checkmk Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
 ## About
@@ -17,7 +17,7 @@ This client communicates with Checkmk over its Web API. It provides a simple, bu
 Meet these simple requirements before using the client:
 
 -   One or more Checkmk sites, version 1.4 or higher (most calls work since 1.5)
--   PHP, version 7.3 or higher (7.2 still works but is deprecated; 7.4 is recommended)
+-   PHP, version 7.4 or 8.0
 -   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
 ## Installation
