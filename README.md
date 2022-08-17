@@ -6,6 +6,8 @@ Easy-to-use, but feature-rich client for Checkmk Web API
 [![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
+**Please note: This project is not an official product by synetics GmbH. synetics GmbH doesn't provide any commercial support.**
+
 ## About
 
 [Checkmk](https://checkmk.com/) is a software application for network monitoring. The community edition ("raw") is licensed under the GPLv2.
