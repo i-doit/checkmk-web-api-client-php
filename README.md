@@ -4,7 +4,7 @@ Easy-to-use, but feature-rich client for Checkmk Web API
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/idoit/checkmkwebapiclient.svg)](https://packagist.org/packages/idoit/checkmkwebapiclient)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
-[![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
+[![Build status](https://github.com/i-doit/checkmk-web-api-client-php/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/i-doit/checkmk-web-api-client-php/actions)
 
 **Please note: This project is not an official product by synetics GmbH. synetics GmbH doesn't provide any commercial support.**
 
