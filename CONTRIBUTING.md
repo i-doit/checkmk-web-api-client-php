@@ -29,7 +29,7 @@ Of course, there are some features in the pipeline. However, if you have good id
 If you like to contribute source code, documentation snippets, self-explaining examples or other useful bits, fork this repository, setup the environment and make a pull request.
 
 ~~~ {.bash}
-git clone https://github.com/bheisig/checkmkwebapi.git
+git clone https://github.com/i-doit/checkmk-web-api-client-php.git
 ~~~
 
 If you have a GitHub account create a fork and then clone your own repository.
@@ -103,5 +103,5 @@ If you think this project is useful for your daily work, consider a donation. Wh
 
 -   [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 
-[issues]: https://github.com/bheisig/checkmkwebapi/issues
-[packagist]: https://packagist.org/packages/bheisig/checkmkwebapi
+[issues]: https://github.com/i-doit/checkmk-web-api-client-php/issues
+[packagist]: https://packagist.org/packages/idoit/checkmkwebapiclient

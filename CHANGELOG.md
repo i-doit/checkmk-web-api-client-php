@@ -95,9 +95,9 @@ Initial release
 -   Activate changes
 -   Get metrics
 
-[Unreleased]: https://github.com/bheisig/checkmkwebapi/compare/0.6...HEAD
-[0.6]: https://github.com/bheisig/checkmkwebapi/compare/0.5...0.6
-[0.5]: https://github.com/bheisig/checkmkwebapi/compare/0.4...0.5
-[0.4]: https://github.com/bheisig/checkmkwebapi/compare/0.3...0.4
-[0.3]: https://github.com/bheisig/checkmkwebapi/compare/0.2...0.3
-[0.2]: https://github.com/bheisig/checkmkwebapi/compare/0.1...0.2
+[Unreleased]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.6...HEAD
+[0.6]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.5...0.6
+[0.5]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.4...0.5
+[0.4]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.3...0.4
+[0.3]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.2...0.3
+[0.2]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.1...0.2

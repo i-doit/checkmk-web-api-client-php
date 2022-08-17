@@ -21,12 +21,12 @@
  * @copyright Copyright (C) 2022 synetics GmbH
  * @copyright Copyright (C) 2018-2022 Benjamin Heisig
  * @license http://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License (AGPL)
- * @link https://github.com/bheisig/checkmkwebapi
+ * @link https://github.com/i-doit/checkmk-web-api-client-php
  */
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi;
+namespace Idoit\CheckmkWebAPIClient;
 
 use \Exception;
 use \ReflectionClass;

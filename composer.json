@@ -1,9 +1,9 @@
 {
-    "name": "bheisig/checkmkwebapi",
+    "name": "idoit/checkmkwebapiclient",
     "description": "Easy-to-use, but feature-rich client library for Checkmk's Web API",
     "type": "library",
     "keywords": ["check_mk", "checkmk", "wato", "monitoring", "monitoring love", "api"],
-    "homepage": "https://github.com/bheisig/checkmkwebapi",
+    "homepage": "https://github.com/i-doit/checkmk-web-api-client-php",
     "license": "AGPL-3.0+",
     "authors": [
         {
@@ -14,8 +14,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/bheisig/checkmkwebapi/issues",
-        "source": "https://github.com/bheisig/checkmkwebapi"
+        "issues": "https://github.com/i-doit/checkmk-web-api-client-php/issues",
+        "source": "https://github.com/i-doit/checkmk-web-api-client-php"
     },
     "require": {
         "php": "^7.4|^8.0",
@@ -50,12 +50,12 @@
     },
     "autoload": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\": "src/"
+            "Idoit\\CheckmkWebAPIClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\": "tests/bheisig/checkmkwebapi/"
+            "Idoit\\CheckmkWebAPIClient\\": "tests/idoit/checkmkwebapiclient/"
         }
     },
     "config": {

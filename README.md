@@ -2,7 +2,7 @@
 
 Easy-to-use, but feature-rich client for Checkmk Web API
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
+[![Latest Stable Version](https://img.shields.io/packagist/v/idoit/checkmkwebapiclient.svg)](https://packagist.org/packages/idoit/checkmkwebapiclient)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
 
@@ -25,13 +25,13 @@ Meet these simple requirements before using the client:
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
 ~~~ {.bash}
-composer require bheisig/checkmkwebapi
+composer require idoit/checkmkwebapiclient
 ~~~
 
 This command installs the latest stable version. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
 
 ~~~ {.bash}
-composer require "bheisig/checkmkwebapi=@DEV"
+composer require "idoit/checkmkwebapiclient=@DEV"
 ~~~
 
 ## Updates
@@ -57,9 +57,9 @@ This is it. All other files will be auto-loaded on-the-fly if needed.
 This is a simple "Hello, world!" example. It fetches all configured hosts from Checkmk:
 
 ~~~ {.php}
-use bheisig\checkmkwebapi\API;
-use bheisig\checkmkwebapi\Config;
-use bheisig\checkmkwebapi\Host;
+use Idoit\CheckmkWebAPIClient\API;
+use Idoit\CheckmkWebAPIClient\Config;
+use Idoit\CheckmkWebAPIClient\Host;
 
 $config = new Config();
 $config
@@ -80,8 +80,8 @@ var_dump($hosts);
 The `API` class requires configuration settings passed to its constructor:
 
 ~~~ {.php}
-use bheisig\checkmkwebapi\API;
-use bheisig\checkmkwebapi\Config;
+use Idoit\CheckmkWebAPIClient\API;
+use Idoit\CheckmkWebAPIClient\Config;
 
 $config = new Config();
 $config
@@ -238,7 +238,7 @@ Class `Inventory` with public methods:
 
 ## Contribute
 
-Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
+Please, report any issues to [our issue tracker](https://github.com/i-doit/checkmk-web-api-client-php/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 ## Copyright & License
 
