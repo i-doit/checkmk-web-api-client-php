@@ -147,12 +147,10 @@ class User extends Request {
                 ];
             }
             if (count($unset) > 0) {
-
                 $edit[$user] = [
                     'unset_attributes' => $unset,
                 ];
             }
-
         }
         $this->api->request(
             'edit_users',

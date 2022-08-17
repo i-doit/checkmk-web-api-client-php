@@ -108,8 +108,8 @@ abstract class BaseTest extends TestCase {
      * @return string
      */
     protected function generateRandomEmail(): string {
-    return $this->generateRandomString() . "@" . $this->generateRandomString() . ".com";
-}
+        return $this->generateRandomString() . "@" . $this->generateRandomString() . ".com";
+    }
 
     /**
      * Generates random IPv4 address

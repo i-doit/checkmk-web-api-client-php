@@ -43,7 +43,7 @@ class API {
     protected $config;
 
     /**
-     * @var resource|CurlHandle
+     * @var CurlHandle|resource|false|null
      */
     protected $resource;
 

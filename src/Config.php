@@ -61,7 +61,7 @@ class Config {
     protected $url;
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $port;
 
@@ -96,12 +96,12 @@ class Config {
     protected $proxyPort;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $proxyUsername;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $proxyPassword;
 

@@ -61,7 +61,6 @@ class UserTest extends BaseTest
 
         $this->assertArrayHasKey('alias', $result);
         $this->assertSame('Alias ' . $username, $result['alias']);
-
     }
 
     /**
