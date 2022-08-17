@@ -1,5 +1,5 @@
 {
-    "name": "checkmkwebapi",
+    "name": "checkmkwebapiclient",
     "description": "Easy-to-use, but feature-rich client library for Checkmk's Web API",
     "keywords": [
         "check_mk",

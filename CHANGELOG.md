@@ -7,7 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased][]
 
-_tbd_
+### Added
+
+-   Add support of PHP `8.0` and `8.1`
+
+### Changed
+
+-   **Breaking:** Change Composer package to `idoit/checkmkwebapiclient`
+-   **Breaking:** Change PHP namespace to `Idoit\CheckmkWebAPIClient`
+-   **Breaking:** Move repository to `github.com/i-doit/checkmk-web-api-client-php`
+-   Recommend PHP `8.1`
+
+### Deprecated
+
+-   Deprecate support of PHP version `7.4`
+
+### Removed
+
+-   **Breaking:** Drop support of PHP `7.2` and `7.3`
 
 ## [0.6][] – 2020-10-22
 

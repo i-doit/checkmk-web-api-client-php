@@ -23,6 +23,7 @@ Please note:
 | ----------------------------- | ----------------- |
 | `idoit/checkmkwebapiclient`   | `x.y.z`           |
 | Checkmk                       | `x.y.z`           |
+| PHP                           | `x.y.z`           |
 
 ### Logs and other useful output
 
