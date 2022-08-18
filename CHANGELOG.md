@@ -2,12 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][]
 
-_tbd_
+### Added
+
+-   Add support of PHP `8.0` and `8.1`
+
+### Changed
+
+-   **Breaking:** Change Composer package to `idoit/checkmkwebapiclient`
+-   **Breaking:** Change PHP namespace to `Idoit\CheckmkWebAPIClient`
+-   **Breaking:** Move repository to `github.com/i-doit/checkmk-web-api-client-php`
+-   Recommend PHP `8.1`
+
+### Deprecated
+
+-   Deprecate support of PHP version `7.4`
+
+### Removed
+
+-   **Breaking:** Drop support of PHP `7.2` and `7.3`
 
 ## [0.6][] – 2020-10-22
 
@@ -95,9 +112,9 @@ Initial release
 -   Activate changes
 -   Get metrics
 
-[Unreleased]: https://github.com/bheisig/checkmkwebapi/compare/0.6...HEAD
-[0.6]: https://github.com/bheisig/checkmkwebapi/compare/0.5...0.6
-[0.5]: https://github.com/bheisig/checkmkwebapi/compare/0.4...0.5
-[0.4]: https://github.com/bheisig/checkmkwebapi/compare/0.3...0.4
-[0.3]: https://github.com/bheisig/checkmkwebapi/compare/0.2...0.3
-[0.2]: https://github.com/bheisig/checkmkwebapi/compare/0.1...0.2
+[Unreleased]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.6...HEAD
+[0.6]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.5...0.6
+[0.5]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.4...0.5
+[0.4]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.3...0.4
+[0.3]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.2...0.3
+[0.2]: https://github.com/i-doit/checkmk-web-api-client-php/compare/0.1...0.2

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Copyright (C) 2018-20 Benjamin Heisig
+ * Copyright (C) 2022 synetics GmbH
+ * Copyright (C) 2018-2022 Benjamin Heisig
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -17,18 +18,19 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @author Benjamin Heisig <https://benjamin.heisig.name/>
- * @copyright Copyright (C) 2018-20 Benjamin Heisig
+ * @copyright Copyright (C) 2022 synetics GmbH
+ * @copyright Copyright (C) 2018-2022 Benjamin Heisig
  * @license http://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License (AGPL)
- * @link https://github.com/bheisig/checkmkwebapi
+ * @link https://github.com/i-doit/checkmk-web-api-client-php
  */
 
 declare(strict_types=1);
 
-namespace bheisig\checkmkwebapi;
+namespace Idoit\CheckmkWebAPIClient;
 
 use \Exception;
 
-class ServiceGroupTest extends GroupTest {
+class ContactGroupTest extends GroupTest {
 
     /**
      * @throws Exception on error
@@ -36,7 +38,7 @@ class ServiceGroupTest extends GroupTest {
     public function setUp(): void {
         parent::setUp();
 
-        $this->instance = new ServiceGroup($this->api);
+        $this->instance = new ContactGroup($this->api);
     }
 
 }

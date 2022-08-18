@@ -2,9 +2,11 @@
 
 Easy-to-use, but feature-rich client for Checkmk Web API
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/bheisig/checkmkwebapi.svg)](https://packagist.org/packages/bheisig/checkmkwebapi)
+[![Latest Stable Version](https://img.shields.io/packagist/v/idoit/checkmkwebapiclient.svg)](https://packagist.org/packages/idoit/checkmkwebapiclient)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%5E7.4%7C%5E8.0-8892BF.svg)](https://php.net/)
-[![Build Status](https://travis-ci.org/bheisig/checkmkwebapi.svg?branch=master)](https://travis-ci.org/bheisig/checkmkwebapi)
+[![Build status](https://github.com/i-doit/checkmk-web-api-client-php/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/i-doit/checkmk-web-api-client-php/actions)
+
+**Please note: This project is not an official product by synetics GmbH. synetics GmbH doesn't provide any commercial support.**
 
 ## About
 
@@ -16,8 +18,8 @@ This client communicates with Checkmk over its Web API. It provides a simple, bu
 
 Meet these simple requirements before using the client:
 
--   One or more Checkmk sites, version 1.4 or higher (most calls work since 1.5)
--   PHP, version 7.4 or 8.0
+-   One or more Checkmk sites, version `1.4` or higher (most calls work since `1.5`)
+-   PHP, version `8.0` or higher (`8.1` is recommended, `7.4` should work but is deprecated)
 -   PHP modules `curl`, `date`, `json`, `openssl`, `spl` and `zlib`
 
 ## Installation
@@ -25,13 +27,13 @@ Meet these simple requirements before using the client:
 It is recommended to install this client via [Composer](https://getcomposer.org/). Change to your project's root directory and fetch the latest stable version:
 
 ~~~ {.bash}
-composer require bheisig/checkmkwebapi
+composer require idoit/checkmkwebapiclient
 ~~~
 
 This command installs the latest stable version. Instead of sticking to a specific/minimum version you may switch to the current development branch by using `@DEV`:
 
 ~~~ {.bash}
-composer require "bheisig/checkmkwebapi=@DEV"
+composer require "idoit/checkmkwebapiclient=@DEV"
 ~~~
 
 ## Updates
@@ -57,9 +59,9 @@ This is it. All other files will be auto-loaded on-the-fly if needed.
 This is a simple "Hello, world!" example. It fetches all configured hosts from Checkmk:
 
 ~~~ {.php}
-use bheisig\checkmkwebapi\API;
-use bheisig\checkmkwebapi\Config;
-use bheisig\checkmkwebapi\Host;
+use Idoit\CheckmkWebAPIClient\API;
+use Idoit\CheckmkWebAPIClient\Config;
+use Idoit\CheckmkWebAPIClient\Host;
 
 $config = new Config();
 $config
@@ -80,8 +82,8 @@ var_dump($hosts);
 The `API` class requires configuration settings passed to its constructor:
 
 ~~~ {.php}
-use bheisig\checkmkwebapi\API;
-use bheisig\checkmkwebapi\Config;
+use Idoit\CheckmkWebAPIClient\API;
+use Idoit\CheckmkWebAPIClient\Config;
 
 $config = new Config();
 $config
@@ -238,10 +240,12 @@ Class `Inventory` with public methods:
 
 ## Contribute
 
-Please, report any issues to [our issue tracker](https://github.com/bheisig/checkmkwebapi/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
+Please, report any issues to [our issue tracker](https://github.com/i-doit/checkmk-web-api-client-php/issues). Pull requests are very welcomed. If you like to get involved see file [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 ## Copyright & License
 
-Copyright (C) 2018-20 [Benjamin Heisig](https://benjamin.heisig.name/)
+Copyright (C) 2022 [synetics GmbH](https://i-doit.com/)
+
+Copyright (C) 2018-22 [Benjamin Heisig](https://benjamin.heisig.name/)
 
 Licensed under the [GNU Affero GPL version 3 or later (AGPLv3+)](https://gnu.org/licenses/agpl.html). This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.

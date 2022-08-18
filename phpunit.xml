@@ -11,7 +11,7 @@
     beStrictAboutCoversAnnotation="true">
     <testsuites>
         <testsuite name="Unit Tests">
-            <directory>./tests/bheisig/checkmkwebapi/</directory>
+            <directory>./tests/idoit/checkmkwebapiclient/</directory>
         </testsuite>
     </testsuites>
     <logging>
@@ -23,6 +23,6 @@
         </whitelist>
     </filter>
     <extensions>
-        <extension class="bheisig\checkmkwebapi\Extension\PrintMetaData"/>
+        <extension class="Idoit\CheckmkWebAPIClient\Extension\PrintMetaData"/>
     </extensions>
 </phpunit>

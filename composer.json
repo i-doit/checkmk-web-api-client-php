@@ -1,9 +1,9 @@
 {
-    "name": "bheisig/checkmkwebapi",
+    "name": "idoit/checkmkwebapiclient",
     "description": "Easy-to-use, but feature-rich client library for Checkmk's Web API",
     "type": "library",
     "keywords": ["check_mk", "checkmk", "wato", "monitoring", "monitoring love", "api"],
-    "homepage": "https://github.com/bheisig/checkmkwebapi",
+    "homepage": "https://github.com/i-doit/checkmk-web-api-client-php",
     "license": "AGPL-3.0+",
     "authors": [
         {
@@ -14,11 +14,11 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/bheisig/checkmkwebapi/issues",
-        "source": "https://github.com/bheisig/checkmkwebapi"
+        "issues": "https://github.com/i-doit/checkmk-web-api-client-php/issues",
+        "source": "https://github.com/i-doit/checkmk-web-api-client-php"
     },
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4|^8.0|^8.1|^8.2",
         "ext-curl": "*",
         "ext-date": "*",
         "ext-json": "*",
@@ -27,52 +27,47 @@
         "ext-zlib": "*"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
         "j13k/yaml-lint": "^1.1",
-        "php-parallel-lint/php-parallel-lint": "^1.0",
-        "phpcompatibility/php-compatibility": "*",
-        "phploc/phploc": "^5.0",
-        "phpmd/phpmd" : "^2.8.2",
-        "phpstan/phpstan": "^0.12.29",
-        "phpunit/phpunit": "^8",
-        "povils/phpmnd": "^2",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phploc/phploc": "^7.0",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.8",
+        "phpunit/phpunit": "^9.5",
+        "povils/phpmnd": "^3.0",
         "roave/security-advisories": "dev-master",
-        "sclable/xml-lint": "^0.3.0",
-        "sebastian/phpcpd": "^4.1.0",
-        "seld/jsonlint": "^1.7",
-        "sensiolabs/security-checker": "^6",
-        "sllh/composer-lint": "^1.0",
-        "squizlabs/php_codesniffer": "*",
-        "symfony/dotenv": "^5.1"
+        "sclable/xml-lint": "^0.5.0",
+        "sebastian/phpcpd": "^6.0",
+        "seld/jsonlint": "^1.9",
+        "squizlabs/php_codesniffer": "^3.7",
+        "symfony/dotenv": "^5.4"
     },
     "suggest": {
         "ext-xdebug": "Needed for code coverage with phpunit"
     },
     "autoload": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\": "src/"
+            "Idoit\\CheckmkWebAPIClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "bheisig\\checkmkwebapi\\": "tests/bheisig/checkmkwebapi/"
+            "Idoit\\CheckmkWebAPIClient\\": "tests/idoit/checkmkwebapiclient/"
         }
     },
     "config": {
         "process-timeout": 86400,
-        "sllh-composer-lint": {
-            "php": false,
-            "type": true,
-            "minimum-stability": true,
-            "version-constraints": true
-        },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "sllh/composer-lint": false,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "scripts": {
         "ci": [
             "@composer system-check",
             "@composer lint",
-            "@composer security-checker",
             "@composer phpcompatibility",
             "@composer phpcpd",
             "@composer phpcs",
@@ -90,16 +85,15 @@
         "lint-json": "./vendor/bin/jsonlint *.json",
         "lint-php": "./vendor/bin/parallel-lint --exclude vendor --blame .",
         "lint-xml": "./vendor/bin/xmllint --recursive --exclude=vendor --skip-xsd --verbose .",
-        "lint-yaml": "./vendor/bin/yaml-lint .travis.yml",
-        "phpcompatibility": "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.2 src/ tests/",
+        "lint-yaml": "git ls-files | grep -E '\\.(yml|yaml|.yml.dist)$' | xargs ./vendor/bin/yaml-lint",
+        "phpcompatibility": "./vendor/bin/phpcs -p --colors --extensions=php --standard=PHPCompatibility --runtime-set testVersion 7.4- src/ tests/",
         "phpcpd": "./vendor/bin/phpcpd src/",
         "phpcs": "./vendor/bin/phpcs --extensions=php --standard=PSR1,PSR2 --exclude=PSR2.Classes.ClassDeclaration,Squiz.Functions.MultiLineFunctionDeclaration src/ tests/",
         "phploc": "./vendor/bin/phploc --exclude=vendor --exclude=docs --exclude=build .",
         "phpmd": "./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
-        "phpmnd": "./vendor/bin/phpmnd src/ --non-zero-exit-on-violation",
+        "phpmnd": "./vendor/bin/phpmnd src/",
         "phpstan": "./vendor/bin/phpstan analyze -c phpstan.neon",
         "phpunit": "./vendor/bin/phpunit --configuration phpunit.xml --testdox",
-        "security-checker": "./vendor/bin/security-checker security:check ./composer.lock",
         "system-check": [
             "php --version",
             "php -m",
@@ -129,7 +123,6 @@
         "phpmnd": "Detect magic numbers in source code",
         "phpstan": "Analyze source code",
         "phpunit": "Perform unit tests",
-        "security-checker": "Look for dependencies with known security vulnerabilities",
         "system-check": "Run some system checks"
     },
     "extra": {

@@ -1,5 +1,5 @@
 {
-    "name": "checkmkwebapi",
+    "name": "checkmkwebapiclient",
     "description": "Easy-to-use, but feature-rich client library for Checkmk's Web API",
     "keywords": [
         "check_mk",
@@ -10,13 +10,13 @@
         "api"
     ],
     "version": "0.0.0-dev",
-    "homepage": "https://github.com/bheisig/checkmkwebapi",
+    "homepage": "https://github.com/i-doit/checkmk-web-api-client-php",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bheisig/checkmkwebapi"
+        "url": "https://github.com/i-doit/checkmk-web-api-client-php"
     },
     "bugs": {
-        "url": "https://github.com/bheisig/checkmkwebapi/issues"
+        "url": "https://github.com/i-doit/checkmk-web-api-client-php/issues"
     },
     "license": "AGPL-3.0-or-later",
     "author": "Benjamin Heisig <benjamin@heisig.name> (https://benjamin.heisig.name/)",

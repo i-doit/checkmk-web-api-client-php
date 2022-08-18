@@ -19,10 +19,11 @@ Please note:
 
 ### Environment
 
-| Question                      | Answer            |
+| Version                       | Answer            |
 | ----------------------------- | ----------------- |
-| bheisig/checkmkwebapi version | x.y.z             |
-| Checkmk version               | x.y.z             |
+| `idoit/checkmkwebapiclient`   | `x.y.z`           |
+| Checkmk                       | `x.y.z`           |
+| PHP                           | `x.y.z`           |
 
 ### Logs and other useful output
 
