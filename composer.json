@@ -91,7 +91,7 @@
         "phpcs": "./vendor/bin/phpcs --extensions=php --standard=PSR1,PSR2 --exclude=PSR2.Classes.ClassDeclaration,Squiz.Functions.MultiLineFunctionDeclaration src/ tests/",
         "phploc": "./vendor/bin/phploc --exclude=vendor --exclude=docs --exclude=build .",
         "phpmd": "./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
-        "phpmnd": "./vendor/bin/phpmnd src/ --non-zero-exit-on-violation",
+        "phpmnd": "./vendor/bin/phpmnd src/",
         "phpstan": "./vendor/bin/phpstan analyze -c phpstan.neon",
         "phpunit": "./vendor/bin/phpunit --configuration phpunit.xml --testdox",
         "system-check": [
